@@ -3,11 +3,11 @@
 
 # Integrantes
 
-Gustavo Berne
-Daniel Morales
-Thibisay Palma
-Jesús Portillo
-Samantha Ramirez
+1) Gustavo Berne
+2) Daniel Morales
+3) Thibisay Palma
+4) Jesús Portillo
+5) Samantha Ramirez
 
 # Modelo del Dominio
 Imagenes del diagrama de clases y de estado
