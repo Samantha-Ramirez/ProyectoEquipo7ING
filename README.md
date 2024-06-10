@@ -1,13 +1,13 @@
-# NOMBRE DEL PROYECTO
+# COURSE MANAGER
+***
 
+## Integrantes
 
-# Integrantes
+1. Gustavo Berne
+2. Daniel Morales
+3. Thibisay Palma
+4. Jesús Portillo
+5. Samantha Ramirez
 
-1) Gustavo Berne
-2) Daniel Morales
-3) Thibisay Palma
-4) Jesús Portillo
-5) Samantha Ramirez
-
-# Modelo del Dominio
+## Modelo del Dominio
 Imagenes del diagrama de clases y de estado
