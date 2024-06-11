@@ -1,0 +1,39 @@
+@startuml DiagramaDeClase
+class DireccionDeExtensionUniversitaria {
+  - Nombre
+  - Mision
+  - Vision
+  - Estructura
+}
+
+class AvalTecnico {
+  - EsAprobado
+  - Fines de lucro
+  - Area de conocimiento
+}
+
+class CursoDeExtension {
+  - Denominacion
+  - Perfil del docente
+  - Estrategias de evaluacion
+  - Exigencias en materiales y servicios
+  - Duracion
+  - Estructura de costos
+  - Cronograma de ejecucion
+  - Tipo de curso
+}
+
+class Proponente {
+  - Nombre
+  - Tipo de persona
+  - Cedula de identidad
+  - RIF
+  - Resumen curricular
+  - Experiencia
+  - EsAliado
+}
+
+DireccionDeExtensionUniversitaria --> CursoDeExtension : aprueba
+Proponente --> CursoDeExtension : formula
+CursoDeExtension "1" -- "*" AvalTecnico : obtiene
+@enduml

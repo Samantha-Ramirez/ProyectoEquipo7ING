@@ -1,0 +1,69 @@
+@startuml DiagramaDeEstado
+[*] --> RegistroProponente : Iniciar Proceso
+
+state RegistroProponente {
+    [*] --> RegistroDatosPersonales
+    RegistroDatosPersonales --> RegistroRecaudos : Datos Completos
+
+    state RegistroRecaudos {
+        [*] --> RecaudosPersonaNatural : Persona Natural
+        [*] --> RecaudosPersonaJuridica : Persona Jurídica
+
+        RecaudosPersonaNatural : \n- Cédula de Identidad\n- Registro de información fiscal (RIF)\n- Certificados de Declaración ISLR\n- Resumen curricular del facilitador o facilitadores\n- Copia de título universitario\n- Otros Recaudos específicos según el curso
+
+        RecaudosPersonaJuridica : \n- Registro Mercantil actualizado\n- Cédula de Identidad del representante legal\n- Registro de información fiscal (RIF)\n- Certificados de Declaración ISLR\n- Resumen curricular del facilitador o facilitadores\n- Copia de título universitario\n- Otros Recaudos específicos según el curso
+
+        RecaudosPersonaNatural --> [*] : Recaudos Completos
+        RecaudosPersonaJuridica --> [*] : Recaudos Completos
+    }
+
+    RegistroRecaudos --> [*] : Registro Completo
+}
+
+RegistroProponente --> CargaFormulaciónCurso : Registro Completo
+
+state CargaFormulaciónCurso {
+    [*] --> IngresoDetallesCurso
+    IngresoDetallesCurso : \n- Denominación\n- Objetivos\n- Fundamentación\n- Perfiles de ingreso y egreso\n- Perfil del docente\n- Estructura curricular\n- Estrategias de evaluación\n- Exigencias en materiales y servicios\n- Duración\n- Estructura de costos\n- Cronograma de ejecución
+    IngresoDetallesCurso --> [*] : Detalles Completos
+}
+
+CargaFormulaciónCurso --> EvaluacionPropuesta : Propuesta Cargada
+
+state EvaluacionPropuesta {
+    [*] --> EvaluacionDEU
+    EvaluacionDEU --> EvaluacionCoordinacionExtension : Verificación Completa
+
+    state EvaluacionCoordinacionExtension {
+        [*] --> EvaluacionComisionExtension : Curso, Taller, Programa
+        [*] --> EvaluacionConsejoFacultad : Diplomado
+
+        EvaluacionComisionExtension --> [*] : Evaluación Completa
+        EvaluacionConsejoFacultad --> [*] : Evaluación Completa
+    }
+
+    EvaluacionCoordinacionExtension --> ResultadoEvaluacion : Evaluación Completa
+}
+
+ResultadoEvaluacion : \n- Aval Técnico Aprobado\n- Aval Técnico Rechazado
+
+ResultadoEvaluacion --> AvalAprobado : Aval Aprobado
+ResultadoEvaluacion --> AvalRechazado : Aval Rechazado
+
+state AvalAprobado {
+    [*] --> GeneracionCartaIntencion
+    GeneracionCartaIntencion --> FirmaCartaIntencion : Carta de Intención Generada
+    FirmaCartaIntencion --> PresentacionCronogramaCostos : Carta Firmada
+
+    state PresentacionCronogramaCostos {
+        [*] --> EvaluacionCronograma
+        EvaluacionCronograma --> EvaluacionEstructuraCostos : Cronograma Aprobado
+        EvaluacionEstructuraCostos --> [*] : Estructura Aprobada
+    }
+
+    PresentacionCronogramaCostos --> FirmaCartaCompromiso : Cronograma y Costos Aprobados
+    FirmaCartaCompromiso --> [*] : Carta de Compromiso Firmada
+}
+
+AvalRechazado --> [*] : Fin del Proceso
+@enduml

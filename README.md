@@ -1,4 +1,4 @@
-# COURSE MANAGER
+# PROFESSIONAL COURSE MANAGEMENT UCV
 ***
 
 ## Integrantes
@@ -10,4 +10,5 @@
 5. Samantha Ramirez
 
 ## Modelo del Dominio
-Imagenes del diagrama de clases y de estado
+![DiagramaDeClase](docs/scenariosView/DiagramaDeClase.png)
+![DiagramaDeEstado](docs/scenariosView/DiagramaDeEstado.png)
