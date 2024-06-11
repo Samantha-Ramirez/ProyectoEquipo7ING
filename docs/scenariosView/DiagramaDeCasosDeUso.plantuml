@@ -1,0 +1,53 @@
+@startuml DiagramaDeCasosDeUso
+'INICIO DE CASO DE USO
+
+'PRIMER ACTOR
+actor :Usuario: as Men1
+actor :Proponente: as Men2
+actor :Usuario Administrativo: as Men3
+actor :Aliado: as Men4
+
+Men1 <|-- Men2
+Men1 <|-- Men3
+Men2 <|-- Men4
+left to right direction
+'INICIO DEL LIMITE
+rectangle Title{
+(Registrar usuario) as (UC1)
+
+
+(Registra recaudos) as (UC3)
+
+'CASO INCLUDE
+(Carga de la formulación del\n curso de extención) as (UC5)
+
+(Gestión de sesión de usuario) as (UC2)
+
+'CASO EXTEND
+(Volver a cargar formulación) as (UCE1)
+
+(Evaluar información consignada) as (UC6)
+(Responder evaluación de Aval) as (UC7)
+(Generación de Carta de Intención) as (UC8)
+
+(Presenta cronograma de ejecuación) as (UC9)
+(Presenta Estructura de costos e\n ingreso por concepto de lucro) as (UC10)
+}
+
+Men1 -- UC1
+
+Men2 -- UC2
+Men2 -- UC3
+UC3 ..> UC5  : <<include>>
+
+Men3 -- UC2
+Men3 -- UC7
+UC7 ..> UC6  : <<include>>
+Men3 -- UC8
+
+Men4 -- UC9
+Men4 -- UC10
+
+UC3 <.. UCE1 : <<extend>>
+
+@enduml
