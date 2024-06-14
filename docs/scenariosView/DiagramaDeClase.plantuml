@@ -1,39 +1,93 @@
 @startuml DiagramaDeClase
-class DireccionDeExtensionUniversitaria {
-  - Nombre
+class DireccionExtensionUniversitaria {
+  - RIF
   - Mision
   - Vision
-  - Estructura
+}
+
+class CoordinacionExensionFacultad {
+  - RIF
+  - Mision
+  - Vision
 }
 
 class AvalTecnico {
-  - EsAprobado
-  - Fines de lucro
-  - Area de conocimiento
+  - Aprobado
 }
 
 class CursoDeExtension {
+  - AreaConocimiento 
+  - Modalidad
+  - TipoCurso
+}
+
+class EstructuraCostos {
+  - PorcentajeDeLucro
+}
+
+class CronogramaEjecucion {
+  - Actividades
+}
+
+class Propuesta {
+  - Estado
+  - UnidadResponsableDeTramite
   - Denominacion
-  - Perfil del docente
-  - Estrategias de evaluacion
-  - Exigencias en materiales y servicios
+  - Objetivos
+  - Fundamentacion 
+  - PerfilParticipantes
+  - PerfilDocente
+  - CurriculoPorCompetencias
+  - EstrategiasDeEvaluacion
+  - ExigenciasMaterialesYServicios
   - Duracion
-  - Estructura de costos
-  - Cronograma de ejecucion
-  - Tipo de curso
+}
+
+class Aliado {
+  - Tipo
 }
 
 class Proponente {
   - Nombre
-  - Tipo de persona
-  - Cedula de identidad
+  - TipoPersona
+  - CI
   - RIF
-  - Resumen curricular
-  - Experiencia
-  - EsAliado
+  - CertificadosDeclaracionISLR
+  - ResumenCurricular
+  - TituloUniversitario
+  - RegistroMercantil
+  - EsComunidadUniversitaria
 }
 
-DireccionDeExtensionUniversitaria --> CursoDeExtension : aprueba
-Proponente --> CursoDeExtension : formula
-CursoDeExtension "1" -- "*" AvalTecnico : obtiene
+class CartaDeIntencion {
+  - NaturalezaDeLucro
+  - FechaVencimiento
+}
+
+class CartaDeCompromiso {
+  - PorcentajeDeRetribucion
+}
+
+class ExpedienteDelAliado {
+}
+
+AvalTecnico <-- DireccionExtensionUniversitaria : otorga
+AvalTecnico <-- CoordinacionExensionFacultad : otorga
+
+CursoDeExtension *-- "1" CronogramaEjecucion
+CursoDeExtension *-- "1" EstructuraCostos 
+
+Proponente <|-- Aliado 
+
+CursoDeExtension "1..*" - "1" Proponente : tiene
+(CursoDeExtension , Proponente) .. Propuesta
+Propuesta "1" -- "1" AvalTecnico : obtiene
+
+ExpedienteDelAliado o-- "*" CartaDeIntencion 
+ExpedienteDelAliado o-- "*" CartaDeCompromiso 
+Aliado "1" -- "1" ExpedienteDelAliado : posee
+
+
+Propuesta "1" -- "1" CartaDeIntencion : genera
+Propuesta "1" -- "1" CartaDeCompromiso : genera
 @enduml

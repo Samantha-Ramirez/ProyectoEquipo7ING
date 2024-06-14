@@ -1,20 +1,21 @@
 @startuml DiagramaDeEstado
-[*] --> RegistroProponente : Iniciar Proceso
+[*] --> RegistroProponente : iniciar proceso
 
 state RegistroProponente {
-    [*] --> RegistroDatosPersonales
-    RegistroDatosPersonales --> RegistroRecaudos : Datos Completos
+    [*] --> DatosRegistrados : registrar datos
+    DatosRegistrados --> RegistroRecaudos
 
     state RegistroRecaudos {
-        [*] --> RecaudosPersonaNatural : Persona Natural
-        [*] --> RecaudosPersonaJuridica : Persona Jurídica
-
+        state EsPersonaNatural <<choice>>
+        [*] --> EsPersonaNatural
+        EsPersonaNatural --> RecaudosPersonaNatural : Persona Natural
+        EsPersonaNatural --> RecaudosPersonaJuridica : Persona Jurídica
         RecaudosPersonaNatural : \n- Cédula de Identidad\n- Registro de información fiscal (RIF)\n- Certificados de Declaración ISLR\n- Resumen curricular del facilitador o facilitadores\n- Copia de título universitario\n- Otros Recaudos específicos según el curso
-
         RecaudosPersonaJuridica : \n- Registro Mercantil actualizado\n- Cédula de Identidad del representante legal\n- Registro de información fiscal (RIF)\n- Certificados de Declaración ISLR\n- Resumen curricular del facilitador o facilitadores\n- Copia de título universitario\n- Otros Recaudos específicos según el curso
 
-        RecaudosPersonaNatural --> [*] : Recaudos Completos
-        RecaudosPersonaJuridica --> [*] : Recaudos Completos
+        RecaudosPersonaNatural --> RecaudosRegistrados
+        RecaudosPersonaJuridica --> RecaudosRegistrados
+        RecaudosRegistrados --> [*]
     }
 
     RegistroRecaudos --> [*] : Registro Completo
