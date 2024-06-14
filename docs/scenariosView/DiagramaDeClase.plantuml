@@ -1,71 +1,73 @@
 @startuml DiagramaDeClase
 class DireccionExtensionUniversitaria {
-  - RIF
-  - Mision
-  - Vision
+  RIF
+  Mision
+  Vision
 }
 
 class CoordinacionExensionFacultad {
-  - RIF
-  - Mision
-  - Vision
+  RIF
+  Mision
+  Vision
 }
 
 class AvalTecnico {
-  - Aprobado
+  Aprobado
 }
 
 class CursoDeExtension {
-  - AreaConocimiento 
-  - Modalidad
-  - TipoCurso
+  AreaConocimiento 
+  Modalidad
+  TipoCurso
+  IngresosNetos
 }
 
 class EstructuraCostos {
-  - PorcentajeDeLucro
+  PorcentajeDeLucro
 }
 
 class CronogramaEjecucion {
-  - Actividades
+  Actividades
 }
 
 class Propuesta {
-  - Estado
-  - UnidadResponsableDeTramite
-  - Denominacion
-  - Objetivos
-  - Fundamentacion 
-  - PerfilParticipantes
-  - PerfilDocente
-  - CurriculoPorCompetencias
-  - EstrategiasDeEvaluacion
-  - ExigenciasMaterialesYServicios
-  - Duracion
+  Estado
+  UnidadResponsableDeTramite
+  Denominacion
+  Objetivos
+  Fundamentacion 
+  PerfilParticipantes
+  PerfilDocente
+  CurriculoPorCompetencias
+  EstrategiasDeEvaluacion
+  ExigenciasMaterialesYServicios
+  Duracion
 }
 
 class Aliado {
-  - Tipo
+  Tipo
 }
 
 class Proponente {
-  - Nombre
-  - TipoPersona
-  - CI
-  - RIF
-  - CertificadosDeclaracionISLR
-  - ResumenCurricular
-  - TituloUniversitario
-  - RegistroMercantil
-  - EsComunidadUniversitaria
+  Nombre
+  TipoPersona
+  CI
+  RIF
+  CertificadosDeclaracionISLR
+  ResumenCurricular
+  TituloUniversitario
+  RegistroMercantil
+  EsComunidadUniversitaria
 }
 
 class CartaDeIntencion {
-  - NaturalezaDeLucro
-  - FechaVencimiento
+  NaturalezaDeLucro
+  FechaVencimiento
 }
 
 class CartaDeCompromiso {
-  - PorcentajeDeRetribucion
+  PorcentajeDeRetribucion
+  MetodologiaAcordada
 }
 
 class ExpedienteDelAliado {
