@@ -15,6 +15,10 @@ class AvalTecnico {
   Aprobado
 }
 
+note right of AvalTecnico
+  Aprobado true o false
+end note
+
 class CursoDeExtension {
   AreaConocimiento 
   Modalidad
@@ -89,7 +93,9 @@ ExpedienteDelAliado o-- "*" CartaDeIntencion
 ExpedienteDelAliado o-- "*" CartaDeCompromiso 
 Aliado "1" -- "1" ExpedienteDelAliado : posee
 
-
 Propuesta "1" -- "1" CartaDeIntencion : genera
 Propuesta "1" -- "1" CartaDeCompromiso : genera
+
+CoordinacionExensionFacultad <--  ComisionDeExtension : auxilia
+CoordinacionExensionFacultad <--  ConsejoDeFacultad : auxilia
 @enduml

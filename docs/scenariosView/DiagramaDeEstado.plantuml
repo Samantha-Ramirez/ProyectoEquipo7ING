@@ -1,70 +1,72 @@
 @startuml DiagramaDeEstado
-[*] --> RegistroProponente : iniciar proceso
+[*] --> ProponenteEnRegistro
 
-state RegistroProponente {
+state ProponenteEnRegistro {
     [*] --> DatosRegistrados : registrar datos
-    DatosRegistrados --> RegistroRecaudos
 
-    state RegistroRecaudos {
-        state EsPersonaNatural <<choice>>
-        [*] --> EsPersonaNatural
-        EsPersonaNatural --> RecaudosPersonaNatural : Persona Natural
-        EsPersonaNatural --> RecaudosPersonaJuridica : Persona Jurídica
-        RecaudosPersonaNatural : \n- Cédula de Identidad\n- Registro de información fiscal (RIF)\n- Certificados de Declaración ISLR\n- Resumen curricular del facilitador o facilitadores\n- Copia de título universitario\n- Otros Recaudos específicos según el curso
-        RecaudosPersonaJuridica : \n- Registro Mercantil actualizado\n- Cédula de Identidad del representante legal\n- Registro de información fiscal (RIF)\n- Certificados de Declaración ISLR\n- Resumen curricular del facilitador o facilitadores\n- Copia de título universitario\n- Otros Recaudos específicos según el curso
-
-        RecaudosPersonaNatural --> RecaudosRegistrados
-        RecaudosPersonaJuridica --> RecaudosRegistrados
-        RecaudosRegistrados --> [*]
-    }
-
-    RegistroRecaudos --> [*] : Registro Completo
+    state EsPersonaNatural <<choice>>
+    DatosRegistrados --> EsPersonaNatural : es persona natural?
+    EsPersonaNatural --> PersonaNaturalEnRegistro : Sí
+    EsPersonaNatural --> PersonaJuridicaEnRegistro : No
+    PersonaNaturalEnRegistro --> RecaudosConsignados : consignar recaudos
+    PersonaJuridicaEnRegistro --> RecaudosConsignados : consignar recaudos
+    RecaudosConsignados --> [*]
 }
 
-RegistroProponente --> CargaFormulaciónCurso : Registro Completo
+ProponenteEnRegistro --> ProponenteRegistrado
+ProponenteRegistrado --> PropuestaEnFormulacion : iniciar formulacion
 
-state CargaFormulaciónCurso {
-    [*] --> IngresoDetallesCurso
-    IngresoDetallesCurso : \n- Denominación\n- Objetivos\n- Fundamentación\n- Perfiles de ingreso y egreso\n- Perfil del docente\n- Estructura curricular\n- Estrategias de evaluación\n- Exigencias en materiales y servicios\n- Duración\n- Estructura de costos\n- Cronograma de ejecución
-    IngresoDetallesCurso --> [*] : Detalles Completos
+state PropuestaEnFormulacion {
+    [*] --> DetallesIngresados : ingresar detalles de propuesta
+    DetallesIngresados --> [*]
 }
 
-CargaFormulaciónCurso --> EvaluacionPropuesta : Propuesta Cargada
+PropuestaEnFormulacion --> PropuestaFormulada
+PropuestaFormulada --> PropuestaEnEvaluacion : iniciar evaluacion
 
-state EvaluacionPropuesta {
-    [*] --> EvaluacionDEU
-    EvaluacionDEU --> EvaluacionCoordinacionExtension : Verificación Completa
+note right
+    Se entiende que las evaluaciones pueden ser concurrentes
+end note
+state PropuestaEnEvaluacion {
+    state EsDiplomado <<choice>>
+    [*] --> EnEvaluacionCoordinacionDeExtension
+    EnEvaluacionCoordinacionDeExtension --> EsDiplomado : es diplomado?
+    EsDiplomado --> EnEvaluacionConsejoDeFacultad : Sí
+    EsDiplomado --> EnEvaluacionComisionDeFacultad : No
+    EnEvaluacionConsejoDeFacultad --> EvaluadaPorCoordinacionDeExtension : evaluar
+    EnEvaluacionComisionDeFacultad --> EvaluadaPorCoordinacionDeExtension : evaluar
 
-    state EvaluacionCoordinacionExtension {
-        [*] --> EvaluacionComisionExtension : Curso, Taller, Programa
-        [*] --> EvaluacionConsejoFacultad : Diplomado
+    --
 
-        EvaluacionComisionExtension --> [*] : Evaluación Completa
-        EvaluacionConsejoFacultad --> [*] : Evaluación Completa
-    }
-
-    EvaluacionCoordinacionExtension --> ResultadoEvaluacion : Evaluación Completa
+    [*] --> EnEvaluacionDEU : delegar
+    EnEvaluacionDEU --> EvaluadaPorDEU : evaluar
+    
 }
 
-ResultadoEvaluacion : \n- Aval Técnico Aprobado\n- Aval Técnico Rechazado
-
-ResultadoEvaluacion --> AvalAprobado : Aval Aprobado
-ResultadoEvaluacion --> AvalRechazado : Aval Rechazado
-
-state AvalAprobado {
-    [*] --> GeneracionCartaIntencion
-    GeneracionCartaIntencion --> FirmaCartaIntencion : Carta de Intención Generada
-    FirmaCartaIntencion --> PresentacionCronogramaCostos : Carta Firmada
-
-    state PresentacionCronogramaCostos {
-        [*] --> EvaluacionCronograma
-        EvaluacionCronograma --> EvaluacionEstructuraCostos : Cronograma Aprobado
-        EvaluacionEstructuraCostos --> [*] : Estructura Aprobada
-    }
-
-    PresentacionCronogramaCostos --> FirmaCartaCompromiso : Cronograma y Costos Aprobados
-    FirmaCartaCompromiso --> [*] : Carta de Compromiso Firmada
+PropuestaEnEvaluacion --> PropuestaEvaluada
+PropuestaEvaluada --> ObtencionDeResultado
+state ObtencionDeResultado {
+    state AvalTecnicoEsAprobado <<choice>>
+    [*] --> AvalTecnicoEsAprobado : aval tecnico aprobado?
+    AvalTecnicoEsAprobado --> AvalTecnicoNoAprobado : No
+    AvalTecnicoEsAprobado --> AvalTecnicoAprobado : Sí
+    
 }
 
-AvalRechazado --> [*] : Fin del Proceso
+state AvalTecnicoAprobado {
+    [*] --> CartaDeIntencionGenerada : generar carta de intencion
+    CartaDeIntencionGenerada --> ProponenteAliado : cambiar status de proponente
+
+    ProponenteAliado --> CronogramaPresentado : presentar cronograma de ejecucion
+    CronogramaPresentado --> EstructuraDeCostosPresentada : presentar estructura de costos 
+    note right
+        Se entiende que son secuenciales tacitamente 
+    end note
+    EstructuraDeCostosPresentada --> CartaDeCompromisoGenerada : generar carta de compromiso
+    CartaDeCompromisoGenerada --> CartaDeCompromisoFirmada : firmar
+    CartaDeCompromisoFirmada --> [*]
+}
+
+AvalTecnicoAprobado --> [*]
+AvalTecnicoNoAprobado --> [*]
 @enduml
