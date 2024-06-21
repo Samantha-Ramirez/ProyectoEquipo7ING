@@ -4,46 +4,54 @@
 'PRIMER ACTOR
 actor :Usuario: as Men1
 actor :Proponente: as Men2
-actor :Usuario Administrativo: as Men3
+actor :Administrador: as Men3
 actor :Aliado: as Men4
 
 Men1 <|-- Men2
 Men1 <|-- Men3
 Men2 <|-- Men4
 left to right direction
+
 'INICIO DEL LIMITE
-rectangle Title{
-(Registrar usuario) as (UC1)
+rectangle PROFESSIONALCOURSEMANAGEMENTUCV{
+(Registrarse) as (UC1)
 
 
-(Registra recaudos) as (UC3)
+(Registrar recaudos) as (UC3)
+(Ver cursos propuestos) as (UC14)
+(Ver estado del aval) as (UC12)
+(Ver expediente) as (UC11)
 
 'CASO INCLUDE
-(Carga de la formulación del\n curso de extención) as (UC5)
+(Cargar la formulación del\n curso de extensión) as (UC5)
 
-(Gestión de sesión de usuario) as (UC2)
+(Ver dashboard) as (UC2)
 
 'CASO EXTEND
 (Volver a cargar formulación) as (UCE1)
 
 (Evaluar información consignada) as (UC6)
-(Responder evaluación de Aval) as (UC7)
-(Generación de Carta de Intención) as (UC8)
+(Responder evaluación de aval) as (UC7)
+(Generar carta de intención) as (UC8)
+(Generar carta de compromiso) as (UC13)
 
-(Presenta cronograma de ejecuación) as (UC9)
-(Presenta Estructura de costos e\n ingreso por concepto de lucro) as (UC10)
+(Presentar cronograma de ejecución) as (UC9)
+(Presentar estructura de costos e\n ingresos) as (UC10)
 }
 
 Men1 -- UC1
+Men1 -- UC2
 
-Men2 -- UC2
 Men2 -- UC3
+Men2 -- UC14
+UC14 <.. UC12: <<extend>>
+Men2 -- UC11
 UC3 ..> UC5  : <<include>>
 
-Men3 -- UC2
 Men3 -- UC7
 UC7 ..> UC6  : <<include>>
 Men3 -- UC8
+Men3 --UC13
 
 Men4 -- UC9
 Men4 -- UC10

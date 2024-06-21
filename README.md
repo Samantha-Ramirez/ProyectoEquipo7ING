@@ -13,3 +13,5 @@
 ![DiagramaDeClase](docs/scenariosView/DiagramaDeClase.png)
 ![GlosarioDeTerminos](docs/scenariosView/GlosarioDeTerminos.pdf)
 ![DiagramaDeEstado](docs/scenariosView/DiagramaDeEstado.png)
+
+## Modelo de Casos de Uso
