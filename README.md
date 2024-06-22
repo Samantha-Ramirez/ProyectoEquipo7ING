@@ -17,7 +17,6 @@
 
 ## Modelo de Casos de Uso
 ![DiagramaDeCasosDeUso](docs/scenariosView/DiagramaDeCasosDeUso.png)
-![EspecificacionesDeCasosDeUso](docs/scenariosView/EspecificacionesDeCasosDeUso.pdf)
 ![DiagramaDeEstadoRelacion](docs/scenariosView/DiagramaDeCasosDeUso.png)
 ![PrototipoDeInterfaz](docs/scenariosView/PrototipoDeInterfaz.pdf)
 ![Entrega2DisciplinaDeRequisitos](docs/scenariosView/Entrega2DisciplinaDeRequisitos.pdf)
