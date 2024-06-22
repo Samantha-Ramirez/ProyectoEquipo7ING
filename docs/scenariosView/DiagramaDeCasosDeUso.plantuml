@@ -13,7 +13,7 @@ Men2 <|-- Men4
 left to right direction
 
 'INICIO DEL LIMITE
-rectangle PROFESSIONALCOURSEMANAGEMENTUCV{
+rectangle CoursesManagerUCV{
 (Registrarse) as (UC1)
 
 
