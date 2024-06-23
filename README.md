@@ -19,6 +19,6 @@
 ![DiagramaDeCasosDeUso](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeCasosDeUso.png)
 ![DiagramaDeEstadoRelacionAliado](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAliado.png)
 ![DiagramaDeEstadoRelacionProponente](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionProponente.png)
-![DiagramaDeEstadoRelacionAdministrador](docs/scenariosView/DiagramaDeEstadoRelacionAdministrador.png)
+![DiagramaDeEstadoRelacionAdministrador](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAdministrador.png)
 ![PrototipoDeInterfaz](docs/scenariosView/DisciplinaDeRequisitosPrototipoDeInterfaz.png)
 ![Entrega2DisciplinaDeRequisitos](docs/scenariosView/DisciplinaDeRequisitosEntrega2.pdf)
