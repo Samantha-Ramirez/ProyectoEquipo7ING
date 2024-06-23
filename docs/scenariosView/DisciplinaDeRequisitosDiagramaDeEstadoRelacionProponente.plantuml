@@ -1,0 +1,17 @@
+@startuml DisciplinaDeRequisitosDiagramaDeEstadoRelacionProponente
+title Proponente
+
+[*] --> UsuarioIniciado : iniciar sesión
+UsuarioIniciado --> ViendoDashboardProponente : ver dashboard
+ViendoDashboardProponente --> ViendoExpediente : ver expediente
+ViendoExpediente --> ViendoDashboardProponente : regresar
+ViendoDashboardProponente ---> ViendoCursos : ver cursos propuestos
+ViendoCursos --> ViendoEstadoDelAval : ver estado del aval
+ViendoCursos -> ViendoDashboardProponente : regresar
+ViendoDashboardProponente ---> RegistrandoRecaudos : registrar recaudos
+RegistrandoRecaudos --> CargandoFormulacionDelCurso : cargar formulación del curso
+CargandoFormulacionDelCurso --> ViendoDashboardProponente : regresar
+ViendoDashboardProponente  ---> CerrandoSesion : cerrar sesión 
+CerrandoSesion --> [*]
+
+@enduml

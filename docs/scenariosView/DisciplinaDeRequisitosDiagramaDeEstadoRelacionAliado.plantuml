@@ -1,0 +1,21 @@
+@startuml DisciplinaDeRequisitosDiagramaDeEstadoRelacionAliado
+title Aliado
+
+[*] --> UsuarioIniciado : iniciar sesión
+UsuarioIniciado --> ViendoDashboardAliado: ver dashboard
+ViendoDashboardAliado --> ViendoExpediente : ver expediente
+ViendoExpediente --> CartaFirmada : firmar carta
+ViendoExpediente --> CartaRechazada : rechazar carta
+ViendoExpediente --> ViendoDashboardAliado : regresar
+ViendoDashboardAliado ---> ViendoCursos : ver cursos propuestos
+ViendoCursos --> ViendoEstadoDelAval : ver estado del aval
+ViendoCursos --> PresentandoCronogramaDeEjecucion : presentar cronograma de ejecucion
+PresentandoCronogramaDeEjecucion --> ViendoDashboardAliado : regresar
+ViendoCursos --> PresentandoEstructuraDeCostosEIngresos : presentar estructura de costos de ingreso
+PresentandoEstructuraDeCostosEIngresos --> ViendoDashboardAliado : regresar
+ViendoDashboardAliado ---> CargandoFormulacionDelCurso : cargar formulación del curso
+CargandoFormulacionDelCurso --> ViendoDashboardAliado : regresar
+ViendoDashboardAliado --> CerrandoSesion : cerrar sesión 
+CerrandoSesion --> [*]
+
+@enduml

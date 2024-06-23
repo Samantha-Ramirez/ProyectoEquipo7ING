@@ -1,4 +1,4 @@
-# COURSES MANAGER UCV
+# COURSE MANAGER UCV
 ***
 
 ## Integrantes
@@ -10,13 +10,15 @@
 5. Samantha Ramirez
 
 ## Modelo del Dominio
-![DiagramaDeClase](docs/scenariosView/DiagramaDeClase.png)
-![GlosarioDeTerminos](docs/scenariosView/GlosarioDeTerminos.pdf)
-![DiagramaDeEstado](docs/scenariosView/DiagramaDeEstado.png)
-![Entrega1ModeloDeDominio](docs/scenariosView/Entrega1ModeloDeDominio.pdf)
+![DiagramaDeClase](docs/scenariosView/ModeloDeDominioDiagramaDeClase.png)
+![GlosarioDeTerminos](docs/scenariosView/ModeloDeDominioGlosarioDeTerminos.pdf)
+![DiagramaDeEstado](docs/scenariosView/ModeloDeDominioDiagramaDeEstado.png)
+![Entrega1ModeloDeDominio](docs/scenariosView/ModeloDeDominioEntrega1.pdf)
 
 ## Modelo de Casos de Uso
-![DiagramaDeCasosDeUso](docs/scenariosView/DiagramaDeCasosDeUso.png)
-![DiagramaDeEstadoRelacion](docs/scenariosView/DiagramaDeCasosDeUso.png)
-![PrototipoDeInterfaz](docs/scenariosView/PrototipoDeInterfaz.pdf)
-![Entrega2DisciplinaDeRequisitos](docs/scenariosView/Entrega2DisciplinaDeRequisitos.pdf)
+![DiagramaDeCasosDeUso](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeCasosDeUso.png)
+![DiagramaDeEstadoRelacionAliado](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAliado.png)
+![DiagramaDeEstadoRelacionProponente](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionProponente.png)
+![DiagramaDeEstadoRelacionAdministrador](docs/scenariosView/DiagramaDeEstadoRelacionAdministrador.png)
+![PrototipoDeInterfaz](docs/scenariosView/DisciplinaDeRequisitosPrototipoDeInterfaz.png)
+![Entrega2DisciplinaDeRequisitos](docs/scenariosView/DisciplinaDeRequisitosEntrega2.pdf)

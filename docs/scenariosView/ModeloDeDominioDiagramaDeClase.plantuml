@@ -1,4 +1,4 @@
-@startuml DiagramaDeClase
+@startuml ModeloDeDominioDiagramaDeClase
 class DireccionExtensionUniversitaria {
   RIF
   Mision

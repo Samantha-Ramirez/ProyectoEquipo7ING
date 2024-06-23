@@ -1,4 +1,4 @@
-@startuml DiagramaDeCasosDeUso
+@startuml DisciplinaDeRequisitosDiagramaDeCasosDeUso
 
 'ACTORES PRIMARIOS
 actor :Usuario: as Men1
@@ -15,6 +15,7 @@ left to right direction
 rectangle "Course Manager UCV"{
 (Registrarse) as (UC1)
 (Iniciar sesión) as (UC14)
+(Cerrar sesión) as (UC15)
 
 
 (Registrar recaudos) as (UC3)
@@ -28,7 +29,7 @@ rectangle "Course Manager UCV"{
 (Ver dashboard) as (UC2)
 
 'CASO EXTEND
-(Volver a cargar formulación) as (UCE1)
+'(Volver a cargar formulación) as (UCE1)
 
 (Evaluar información consignada) as (UC6)
 (Responder evaluación de aval) as (UC7)
@@ -41,6 +42,7 @@ rectangle "Course Manager UCV"{
 
 Men1 -- UC1
 Men1 -- UC14
+Men1 -- UC15
 Men1 -- UC2
 
 Men2 -- UC3
@@ -48,7 +50,7 @@ Men2 -- UC4
 UC4 <.. UC12: <<extend>>
 Men2 -- UC11
 UC3 ..> UC5  : <<include>>
-UC3 <.. UCE1 : <<extend>>
+'UC3 <.. UCE1 : <<extend>>
 
 Men3 -- UC7
 UC7 ..> UC6  : <<include>>
