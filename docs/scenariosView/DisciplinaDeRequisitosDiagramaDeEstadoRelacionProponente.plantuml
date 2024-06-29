@@ -8,10 +8,10 @@ ViendoExpediente --> ViendoDashboardProponente : regresar
 ViendoDashboardProponente ---> ViendoCursos : ver cursos propuestos
 ViendoCursos --> ViendoEstadoDelAval : ver estado del aval
 ViendoCursos -> ViendoDashboardProponente : regresar
-ViendoDashboardProponente ---> RegistrandoRecaudos : registrar recaudos
-RegistrandoRecaudos --> CargandoFormulacionDelCurso : cargar formulación del curso
-CargandoFormulacionDelCurso --> ViendoDashboardProponente : regresar
-ViendoDashboardProponente  ---> CerrandoSesion : cerrar sesión 
-CerrandoSesion --> [*]
+ViendoDashboardProponente ---> RecaudosRegistrados : registrar recaudos
+RecaudosRegistrados --> FormulacionDelCursoCargada : cargar formulación del curso
+FormulacionDelCursoCargada --> ViendoDashboardProponente : regresar
+ViendoDashboardProponente  ---> SesionCerrada : cerrar sesión 
+SesionCerrada --> [*]
 
 @enduml

@@ -3,14 +3,14 @@ title Administrador
 
 [*] --> UsuarioIniciado : iniciar sesión
 UsuarioIniciado --> ViendoDashboardAdministrador : ver dashboard
-ViendoDashboardAdministrador --> ViendoCursos : ver cursos
-ViendoCursos --> RespondiendoEvaluacionDeAval : responder evaluación de aval
-RespondiendoEvaluacionDeAval --> ViendoDashboardAdministrador : regresar
-ViendoCursos --> GenerandoCartaDeIntencion : generar carta de intención
-GenerandoCartaDeIntencion --> ViendoDashboardAdministrador : regresar
-ViendoCursos --> GenerandoCartaDeCompromiso : generar carta de compromiso
-GenerandoCartaDeCompromiso --> ViendoDashboardAdministrador : regresar
-ViendoDashboardAdministrador ---> CerrandoSesion : cerrar sesión 
-CerrandoSesion --> [*]
+ViendoDashboardAdministrador --> ViendoPropuestas : ver propuestas
+ViendoPropuestas --> EvaluacionDeAvalRespondida : responder evaluación de aval
+EvaluacionDeAvalRespondida --> ViendoDashboardAdministrador : regresar
+ViendoPropuestas --> CartaDeIntencionFirmada : firmar carta de intención
+CartaDeIntencionFirmada --> ViendoDashboardAdministrador : regresar
+ViendoPropuestas --> CartaDeCompromisoGenerada : generar carta de compromiso
+CartaDeCompromisoGenerada --> ViendoDashboardAdministrador : regresar
+ViendoDashboardAdministrador ---> SesionCerrada : cerrar sesión 
+SesionCerrada --> [*]
 
 @enduml
