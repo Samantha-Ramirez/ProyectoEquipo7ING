@@ -1,20 +1,33 @@
 @startuml DisciplinaDeAnalisisDiagramaDeClaseGenerarCartaCompromiso
-actor "Administrador" as actorAdministrador
+left to right direction
+
+actor "Administrador" as actorAdmin
 actor "Aliado" as actorAliado
 
-entity "Carta de compromiso" as entidadCartaDeCompromiso
 
-boundary "Vista de generar carta" as vistaGenerarCartaDeCompromiso
+entity "Propuesta" as entidadPropuesta
+entity "Aval tecnico" as entidadAval
+entity "Expediente" as entidadExpediente
+entity "Carta de compromiso" as entidadCartaCompromiso
+
+boundary "Vista de propuestas" as vistaPropuestas
+boundary "Vista de generar carta de compromiso" as vistaGenerarCartaDeCompromiso
+boundary "Vista de ingresar informacion" as vistaIngresarInformacion
 boundary "Vista de revision de la carta" as vistaRevisionCartaDeCompromiso
 
-control "Gestor de informacion del curso" as ctrlGestorInformacionCurso
-control "Gestor de carga y envio" as ctrlGestorCargaYEnvio
 
-actorAdministrador -- vistaGenerarCartaDeCompromiso
+control "Gestor de carta de compromiso" as ctrlGestorCartaCompromiso
+
+actorAdmin -- vistaPropuestas
+vistaPropuestas -- entidadPropuesta
+vistaPropuestas -- vistaGenerarCartaDeCompromiso
+vistaGenerarCartaDeCompromiso -- ctrlGestorCartaCompromiso
+
+vistaGenerarCartaDeCompromiso -- vistaIngresarInformacion
+ctrlGestorCartaCompromiso -- entidadCartaCompromiso 
+entidadCartaCompromiso -- entidadExpediente
+ctrlGestorCartaCompromiso -- entidadAval
+
 actorAliado -- vistaRevisionCartaDeCompromiso
-vistaRevisionCartaDeCompromiso -- ctrlGestorCargaYEnvio
-vistaGenerarCartaDeCompromiso -- ctrlGestorInformacionCurso
-ctrlGestorInformacionCurso -- ctrlGestorCargaYEnvio
-ctrlGestorCargaYEnvio -- entidadCartaDeCompromiso
-
+vistaRevisionCartaDeCompromiso -- ctrlGestorCartaCompromiso
 @enduml

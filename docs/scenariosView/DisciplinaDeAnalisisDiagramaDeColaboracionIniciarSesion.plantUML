@@ -1,0 +1,16 @@
+@startuml DisciplinaDeAnalisisDiagramaDeColaboracionIniciarSesion
+
+:Usuario: as Usuario
+
+boundary "Formulario de inicio de sesion" as iniciar
+control "Base de datos de usuarios" as verificacion
+boundary "Mostrar Sesion " as Sesion
+entity "Sesion Iniciada" as iniciado
+
+Usuario-> iniciar: "solicitarIniciarSesion()"
+iniciar--> verificacion: "SolicitarInforacionDelFormulario()"
+verificacion --> Sesion: "AccederSesion()"
+Sesion --> iniciado:"inciado()"
+
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml DiagramaDeColaboracionDeDashboarAdministrador
+
+:Administrador: as administrador
+
+boundary "opcion ver dashboard" as ver
+control "Apertura dashboard" as verificacion
+control "carta de intencion" as firmar
+control "evaluacion Aval" as responder
+control "generacion carta de compromiso" as Generar
+
+boundary "Dashboard" as dashboard
+entity "Firmar carta de inencion" as carta
+entity "Responder evaluacion aval" as aval
+entity "carta de compromiso" as carta_compromiso
+
+
+administrador-> ver: "SolicitarVerdashboard()"
+ver--> verificacion: "AbrirDashboard()"
+verificacion --> dashboard: "MostrarDashboard()"
+dashboard --> firmar : "IniciaGenerarCartaDeIntencion()"
+dashboard ---> responder : "IniciarResponderEvaluacion()"
+dashboard--> Generar : "IniciarGenerarCartaDeCompromiso()"
+
+firmar--> carta : "AccedeFirmarCarta()"
+responder --> aval : "AccedeResponderEvaluacionAval()"
+Generar --> carta_compromiso : "AccedeCartaDeCompromiso"
+
+
+
+
+
+
+@enduml

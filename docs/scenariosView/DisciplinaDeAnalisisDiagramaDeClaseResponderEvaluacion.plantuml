@@ -1,19 +1,19 @@
 @startuml DisciplinaDeAnalisisDiagramaDeClaseResponderEvaluacion
+left to right direction
+
 actor "Administrador" as actorAdmin
 
-entity "Aval tecnico" as entidadAval
 entity "Propuesta" as entidadPropuesta
+entity "Aval tecnico" as entidadAval
 
-boundary "Vista de evaluacion de aval" as vistaRespuestaEvaluacion
+boundary "Vista de evaluacion de aval" as vistaEvaluacion
 
 control "Gestor de evaluacion" as ctrlGestorEvaluacion
-control "Gestor de observaciones" as ctrlGestorObservaciones
 
-actorAdmin -- vistaRespuestaEvaluacion
-vistaRespuestaEvaluacion -- ctrlGestorEvaluacion
+actorAdmin -- vistaEvaluacion
+vistaEvaluacion -- ctrlGestorEvaluacion
 ctrlGestorEvaluacion -- entidadPropuesta
+entidadPropuesta -- entidadAval
 ctrlGestorEvaluacion -- entidadAval
-vistaRespuestaEvaluacion -- ctrlGestorObservaciones
-ctrlGestorObservaciones -- entidadAval
 
 @enduml

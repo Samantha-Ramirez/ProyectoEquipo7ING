@@ -1,0 +1,20 @@
+@startuml DiagramaDeColaboracionDeCerrarSesion
+left to right direction
+
+:Usuario: as Usuario
+
+boundary "opcion cerrar sesion" as cerrar
+control "cierre de sesion" as verificacion
+boundary "Mostrar login" as mostrar
+entity "Sesion Iniciada" as iniciar
+entity "Registrarse" as registro
+
+
+Usuario-> cerrar: "solicitarCerrarSesion()"
+cerrar--> verificacion: "SolicidandoCierreDeSesion()"
+verificacion --> mostrar: "Mostrar()"
+mostrar --> iniciar:"iniciar()"
+mostrar --> registro: "Registro()"
+
+
+@enduml

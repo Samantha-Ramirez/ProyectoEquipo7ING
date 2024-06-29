@@ -1,29 +1,27 @@
 @startuml DisciplinaDeAnalisisDiagramaDeClaseFirmarCartaIntencion
+left to right direction
+
 actor "Administrador" as actorAdmin
 
 entity "Propuesta" as entidadPropuesta
 entity "Aval tecnico" as entidadAval
 entity "Expediente" as entidadExpediente
-entity "Carta de intencion" as entidadCartaDeIntencion
+entity "Carta de intencion" as entidadCartaIntencion
 
 boundary "Vista de propuestas" as vistaPropuestas
-boundary "Vista de generar carta de intencion" as vistaGenerarCartaDeIntencion
+boundary "Vista de generar carta de intencion" as vistaGenerarCartaIntencion
 boundary "Vista de ingresar informacion" as vistaIngresarInformacion
 
-control "Gestor de propuestas" as ctrlGestorPropuestas
-control "Gestor de carta de intencion" as ctrlGestorCartaDeIntencion
-control "Gestor de aval tecnico" as ctrlGestorAval
+control "Gestor de carta de intencion" as ctrlGestorCartaIntencion
 
-actorAdmin -- vistaPropuestas : solicita
-vistaPropuestas -- ctrlGestorPropuestas
+actorAdmin -- vistaPropuestas
 vistaPropuestas -- entidadPropuesta
-vistaPropuestas -- vistaGenerarCartaDeIntencion : solicita
-vistaGenerarCartaDeIntencion -- vistaIngresarInformacion : llama
-vistaGenerarCartaDeIntencion -- entidadCartaDeIntencion
-vistaGenerarCartaDeIntencion -- ctrlGestorCartaDeIntencion
-ctrlGestorCartaDeIntencion -- entidadCartaDeIntencion : modifica info, cambia a firmado
-entidadCartaDeIntencion -- ctrlGestorAval
-ctrlGestorAval -- entidadAval
-ctrlGestorCartaDeIntencion -- entidadExpediente
+vistaPropuestas -- vistaGenerarCartaIntencion
+vistaGenerarCartaIntencion -- ctrlGestorCartaIntencion
+
+vistaGenerarCartaIntencion -- vistaIngresarInformacion
+ctrlGestorCartaIntencion -- entidadCartaIntencion 
+entidadCartaIntencion -- entidadExpediente
+ctrlGestorCartaIntencion -- entidadAval
 
 @enduml

@@ -1,21 +1,20 @@
 @startuml DisciplinaDeAnalisisDiagramaDeColaboracionResponderEvaluacionAval
+left to right direction
+
 actor "Administrador" as actorAdmin
 
-entity "Aval tecnico" as entidadAval
 entity "Propuesta" as entidadPropuesta
+entity "Aval tecnico" as entidadAval
 
-boundary "Vista de respuesta de evaluacion de aval" as vistaRespuestaEvaluacion
+boundary "Vista de evaluacion de aval" as vistaEvaluacion
 
+control "Gestor de informacion de propuesta" as ctrlGestorInfoPropuesta
 control "Gestor de evaluacion" as ctrlGestorEvaluacion
 
-actorAdmin -- vistaRespuestaEvaluacion : 1:solicitarResponderEvaluacion()
-actorAdmin -- vistaRespuestaEvaluacion : 6:mostrarInfoPropuesta()
-vistaRespuestaEvaluacion -- ctrlGestorEvaluacion : 2:solicitarInfoPropuesta()
-vistaRespuestaEvaluacion -- ctrlGestorEvaluacion : 5:devolverInfoPropuesta()
-ctrlGestorEvaluacion -- entidadPropuesta : 3:solicitarPropuesta()
-ctrlGestorEvaluacion -- entidadPropuesta : 4:devolverPropuesta()
-
-vistaRespuestaEvaluacion -- ctrlGestorEvaluacion : 7:aprobarAval(), rechazarAval()
-ctrlGestorEvaluacion -- entidadAval : 8:guardarRespuesta()
+actorAdmin -- vistaEvaluacion : ""-->""\n//1:Seleccionar propuesta//\n""<--""\n//6:Mostrar info de propuesta//\n""-->""\n//7:Aprobar o rechazar aval//
+vistaEvaluacion -- ctrlGestorInfoPropuesta : ""-->""\n//2:Solicitar info de propuesta//\n""<--""\n//5:Devolver info de propuesta//
+ctrlGestorInfoPropuesta -- entidadPropuesta : ""-->""\n//3:Solicitar propuesta//\n""<--""\n//4:Devolver propuesta//
+vistaEvaluacion -- ctrlGestorEvaluacion : ""-->""\n//8:Enviar respuesta//
+ctrlGestorEvaluacion -- entidadAval : ""-->""\n//9:Guardar respuesta//
 
 @enduml

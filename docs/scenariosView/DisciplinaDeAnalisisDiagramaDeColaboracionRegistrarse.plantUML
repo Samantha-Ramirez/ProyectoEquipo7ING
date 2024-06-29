@@ -1,0 +1,18 @@
+@startuml DiagramaDeColaboracionDeRegitrarse
+
+:Usuario: as Usuario
+
+boundary "Formulario de registro" as iniciar
+control "Base de datos de usuarios" as verificacion
+boundary "Formulario iniciar Sesion " as mostrar
+entity "Iniciar sesion" as iniciar_sesion
+
+
+
+Usuario--> iniciar: "SolicitarRegistrarse()"
+iniciar--> verificacion: "SolicitarInforacionDelFormulario()"
+verificacion --> mostrar: "MostrarFormularioIniciarSesion()"
+mostrar --> iniciar_sesion: "accedersesion()"
+
+
+@enduml

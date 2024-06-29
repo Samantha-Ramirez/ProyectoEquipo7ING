@@ -1,0 +1,19 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseIniciarSesion
+left to right direction
+
+actor "Usuario" as usuario
+
+entity "Sesion usuario" as sesionUsuario
+
+boundary "Formulario de inicio de sesion" as vistaIniciarSesion
+boundary "Mostrar Sesion" as vistaSesion
+
+control "Gestor de sesion" as ctrlGestorSesion
+
+usuario -- vistaIniciarSesion
+vistaIniciarSesion -- ctrlGestorSesion
+ctrlGestorSesion -- sesionUsuario
+ctrlGestorSesion -- vistaSesion
+usuario -- vistaSesion
+
+@enduml

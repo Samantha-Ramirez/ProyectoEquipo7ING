@@ -1,4 +1,6 @@
 @startuml DisciplinaDeAnalisisDiagramaDeClaseVerExpediente
+left to right direction
+
 actor "Proponente" as actorProponente
 
 entity "Expediente" as entidadExpediente
@@ -8,13 +10,12 @@ entity "Carta de compromiso" as entidadCartaDeCompromiso
 
 boundary "Vista de expediente" as vistaExpediente
 
-control "Gestor de infomacion del expediente" as ctrlGestorExpediente
-control "Gestor de carta de intencion" as ctrlGestorCartaDeIntencion
-control "Gestor de carta de compromiso" as ctrlGestorCartaDeCompromiso
-
+control "Gestor de infomacion del expediente" as ctrlGestorInformacionExpediente
 
 actorProponente -- vistaExpediente
 vistaExpediente -- ctrlGestorInformacionExpediente
 ctrlGestorInformacionExpediente -- entidadExpediente
+entidadExpediente -- entidadCartaDeIntencion
+entidadExpediente -- entidadCartaDeCompromiso
 
 @enduml
