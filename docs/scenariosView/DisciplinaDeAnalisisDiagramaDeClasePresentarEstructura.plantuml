@@ -1,13 +1,18 @@
 @startuml DisciplinaDeAnalisisDiagramaDeClasePresentarEstructura
-actor Aliado
-boundary "Interfaz de Usuario" as IU
-control "Módulo de Gestión de Cronograma" as MGC
-entity "Base de Datos" as BD
+left to right direction
 
-Aliado -> IU : Ingresar cronograma
-IU -> MGC : Validar cronograma
-MGC -> BD : Guardar cronograma
-BD -> MGC : Confirmar almacenamiento
-MGC -> IU : Notificar éxito
-IU -> Aliado : Mostrar confirmación
+actor "Aliado" as actorAliado
+
+entity "Estructura de costos e ingresos" as entidadEstructura
+entity "Curso de extension" as entidadCursoExtension
+
+boundary "Vista de presentacion cronograma" as vistaPresentacionEstructura
+
+control "Gestor de cronograma" as ctrlGestorEstructura
+
+actorAliado -- vistaPresentacionEstructura
+vistaPresentacionEstructura -- ctrlGestorEstructura
+ctrlGestorEstructura -- entidadEstructura
+entidadCursoExtension -- entidadEstructura
+
 @enduml

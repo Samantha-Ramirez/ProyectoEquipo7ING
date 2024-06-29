@@ -1,4 +1,6 @@
 @startuml DisciplinaDeAnalisisDiagramaDeColaboracionCargarFormulacionCursoExtension
+left to right direction
+
 actor Proponente
 
 participant "Proponente" as Proponente
