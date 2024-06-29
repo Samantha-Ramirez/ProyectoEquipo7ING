@@ -1,4 +1,4 @@
-@startuml DisciplinaDeAnalisisDiagramaDeClaseAnalisisGenerarCartaCompromiso
+@startuml DisciplinaDeAnalisisDiagramaDeClaseGenerarCartaCompromiso
 actor "Administrador" as actorAdministrador
 actor "Aliado" as actorAliado
 

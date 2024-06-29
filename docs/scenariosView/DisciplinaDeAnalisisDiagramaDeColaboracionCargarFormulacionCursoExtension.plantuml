@@ -1,0 +1,22 @@
+@startuml DisciplinaDeAnalisisDiagramaDeColaboracionCargarFormulacionCursoExtension
+actor Proponente
+
+participant "Proponente" as Proponente
+boundary "Interfaz de Usuario" as IU
+control "Módulo de Gestión de Cursos" as MGC
+entity "Base de Datos" as BD
+
+Proponente -> IU : Iniciar sesión
+IU -> MGC : Validar credenciales
+MGC -> BD : Verificar credenciales
+BD -> MGC : Confirmar credenciales
+MGC -> IU : Notificar éxito
+IU -> Proponente : Mostrar dashboard
+
+Proponente -> IU : Ingresar datos del curso
+IU -> MGC : Validar datos del curso
+MGC -> BD : Guardar datos del curso
+BD -> MGC : Confirmar almacenamiento
+MGC -> IU : Notificar éxito
+IU -> Proponente : Mostrar confirmación
+@enduml

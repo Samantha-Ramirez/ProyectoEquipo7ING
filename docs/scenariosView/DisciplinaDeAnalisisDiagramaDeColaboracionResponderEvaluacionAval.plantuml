@@ -1,15 +1,21 @@
 @startuml DisciplinaDeAnalisisDiagramaDeColaboracionResponderEvaluacionAval
-
-actor "actorProponente" as actorProponente
+actor "Administrador" as actorAdmin
 
 entity "Aval tecnico" as entidadAval
+entity "Propuesta" as entidadPropuesta
 
-boundary "Revision de aval tecnico" as vistaRevisionAval
+boundary "Vista de respuesta de evaluacion de aval" as vistaRespuestaEvaluacion
 
-control "Gestor de informacion de formulacion" as ctrlGestorInformacionFormulacion
+control "Gestor de evaluacion" as ctrlGestorEvaluacion
 
-actorProponente --> vistaRevisionAval : "solicitarRevisarentidadAval()"
-vistaRevisionAval --> ctrlGestorInformacionFormulacion : "solicitarInformacion()"
-ctrlGestorInformacionFormulacion --> entidadAval : "aprobar(), rechazar()"
+actorAdmin -- vistaRespuestaEvaluacion : 1:solicitarResponderEvaluacion()
+actorAdmin -- vistaRespuestaEvaluacion : 6:mostrarInfoPropuesta()
+vistaRespuestaEvaluacion -- ctrlGestorEvaluacion : 2:solicitarInfoPropuesta()
+vistaRespuestaEvaluacion -- ctrlGestorEvaluacion : 5:devolverInfoPropuesta()
+ctrlGestorEvaluacion -- entidadPropuesta : 3:solicitarPropuesta()
+ctrlGestorEvaluacion -- entidadPropuesta : 4:devolverPropuesta()
+
+vistaRespuestaEvaluacion -- ctrlGestorEvaluacion : 7:aprobarAval(), rechazarAval()
+ctrlGestorEvaluacion -- entidadAval : 8:guardarRespuesta()
 
 @enduml

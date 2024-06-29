@@ -1,4 +1,4 @@
-@startuml DisciplinaDeAnalisisDiagramaDeClaseAnalisisFirmarCartaIntencion
+@startuml DisciplinaDeAnalisisDiagramaDeClaseFirmarCartaIntencion
 actor "Administrador" as actorAdmin
 
 entity "Propuesta" as entidadPropuesta

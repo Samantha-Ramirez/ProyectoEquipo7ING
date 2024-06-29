@@ -1,0 +1,29 @@
+@startuml DisciplinaDeAnalisisDiagramaDeColaboracionRegistrarRecaudos
+actor Proponente
+
+participant "Proponente" as Proponente
+boundary "Interfaz de Usuario" as IU
+control "Módulo de Gestión de Recaudos" as MGR
+entity "Base de Datos" as BD
+
+Proponente -> IU : Registrarse
+IU -> MGR : Validar datos de registro
+MGR -> BD : Guardar datos de registro
+BD -> MGR : Confirmar almacenamiento
+MGR -> IU : Notificar éxito
+IU -> Proponente : Confirmar registro
+
+Proponente -> IU : Iniciar sesión
+IU -> MGR : Validar credenciales
+MGR -> BD : Verificar credenciales
+BD -> MGR : Confirmar credenciales
+MGR -> IU : Notificar éxito
+IU -> Proponente : Mostrar dashboard
+
+Proponente -> IU : Cargar recaudos
+IU -> MGR : Validar recaudos
+MGR -> BD : Guardar recaudos
+BD -> MGR : Confirmar almacenamiento
+MGR -> IU : Notificar éxito
+IU -> Proponente : Mostrar confirmación
+@enduml

@@ -1,0 +1,14 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseCargarFormulacion
+actor Proponente
+boundary "Interfaz de Usuario" as IU
+control "Módulo de Gestión de Cursos" as MGC
+entity "Base de Datos" as BD
+
+
+Proponente -> IU : Ingresar datos del curso
+IU -> MGC : Validar datos del curso
+MGC -> BD : Guardar datos del curso
+BD -> MGC : Confirmar almacenamiento
+MGC -> IU : Notificar éxito
+IU -> Proponente : Mostrar confirmación
+@enduml

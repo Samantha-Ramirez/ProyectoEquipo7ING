@@ -1,0 +1,19 @@
+@startuml DisciplinaDeAnalisisDiagramaDeColaboracionVerCursosPropuestos
+left to right direction
+
+actor "Proponente" as actorProponente
+
+entity "Curso" as entidadCurso
+entity "Propuesta" as entidadPropuesta
+
+boundary "Vista de cursos propuestos" as vistaCursosPropuestos
+
+control "Gestor de informacion de cursos" as ctrlGestorInformacionCursos
+
+actorProponente -- vistaCursosPropuestos : ""-->""\n//1:Abrir interfaz//\n""<--""\n//8:Mostrar//
+vistaCursosPropuestos -- ctrlGestorInformacionCursos : ""-->""\n//2:Solicitar cursos del usuario//\n""<--""\n//7:Devolver cursos del usuario//
+ctrlGestorInformacionCursos -- entidadCurso : ""-->""\n//3:Buscar cursos//\n""<--""\n//4:Devolver cursos//
+ctrlGestorInformacionCursos -- entidadPropuesta : ""-->""\n//5:Buscar estado del aval del curso//\n""<--""\n//6:Devolver estado del aval//
+
+
+@enduml

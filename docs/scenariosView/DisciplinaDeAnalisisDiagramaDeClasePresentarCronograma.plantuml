@@ -1,0 +1,13 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClasePresentarCronograma
+actor Aliado
+boundary "Interfaz de Usuario" as IU
+control "Módulo de Gestión de Cronograma" as MGC
+entity "Base de Datos" as BD
+
+Aliado -> IU : Ingresar cronograma
+IU -> MGC : Validar cronograma
+MGC -> BD : Guardar cronograma
+BD -> MGC : Confirmar almacenamiento
+MGC -> IU : Notificar éxito
+IU -> Aliado : Mostrar confirmación
+@enduml
