@@ -1,0 +1,15 @@
+@startuml DisciplinaDeAnalisisDiagramaDeColaboracionResponderEvaluacionAval
+
+actor "actorProponente" as actorProponente
+
+entity "Aval tecnico" as entidadAval
+
+boundary "Revision de aval tecnico" as vistaRevisionAval
+
+control "Gestor de informacion de formulacion" as ctrlGestorInformacionFormulacion
+
+actorProponente --> vistaRevisionAval : "solicitarRevisarentidadAval()"
+vistaRevisionAval --> ctrlGestorInformacionFormulacion : "solicitarInformacion()"
+ctrlGestorInformacionFormulacion --> entidadAval : "aprobar(), rechazar()"
+
+@enduml

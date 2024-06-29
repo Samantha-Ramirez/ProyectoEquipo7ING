@@ -1,0 +1,15 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseAnalisisVerCursosPropuestos
+actor "Proponente" as actorProponente
+
+entity "Propuesta" as entidadPropuesta
+
+boundary "Vista de cursos propuestos" as vistaCursosPropuestos
+
+control "Gestor de propuestas" as ctrlGestorPropuestas
+
+actorProponente -- vistaCursosPropuestos : solicita
+vistaCursosPropuestos -- entidadPropuesta : muestra
+vistaCursosPropuestos -- ctrlGestorPropuestas : gestionar propuestas
+ctrlGestorPropuestas -- entidadPropuesta : solicita estado del aval
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseAnalisisResponderEvaluacionAval
+actor ":Proponente" as actorProponente
+
+entity ":Aval tecnico" as entidadAval
+
+boundary "Vista de revision de aval tecnico" as vistaRevisionAval
+
+control "Gestor de informacion de formulacion" as ctrlGestorInformacionFormulacion
+
+actorProponente -- vistaRevisionAval
+vistaRevisionAval -- ctrlGestorInformacionFormulacion
+ctrlGestorInformacionFormulacion -- entidadAval
+
+@enduml

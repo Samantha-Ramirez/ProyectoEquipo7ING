@@ -9,16 +9,20 @@
 4. Jesús Portillo
 5. Samantha Ramirez
 
-## Modelo del Dominio
+## Modelo del dominio
 ![DiagramaDeClase](docs/scenariosView/ModeloDeDominioDiagramaDeClase.png)
 ![GlosarioDeTerminos](docs/scenariosView/ModeloDeDominioGlosarioDeTerminos.pdf)
 ![DiagramaDeEstado](docs/scenariosView/ModeloDeDominioDiagramaDeEstado.png)
-![Entrega1ModeloDeDominio](docs/scenariosView/ModeloDeDominioEntrega1.pdf)
+![ModeloDeDominioEntrega1](docs/scenariosView/ModeloDeDominioEntrega1.pdf)
 
-## Modelo de Casos de Uso
+## Disciplina de requisitos
 ![DiagramaDeCasosDeUso](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeCasosDeUso.png)
 ![DiagramaDeEstadoRelacionAliado](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAliado.png)
 ![DiagramaDeEstadoRelacionProponente](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionProponente.png)
 ![DiagramaDeEstadoRelacionAdministrador](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAdministrador.png)
 ![PrototipoDeInterfaz](docs/scenariosView/DisciplinaDeRequisitosPrototipoDeInterfaz.png)
-![Entrega2DisciplinaDeRequisitos](docs/scenariosView/DisciplinaDeRequisitosEntrega2.pdf)
+![DisciplinaDeRequisitosEntrega2](docs/scenariosView/DisciplinaDeRequisitosEntrega2.pdf)
+
+## Disciplina de análisis
+![DiagramaDePaquetes](docs/scenariosView/DisciplinaDeAnalisisDiagramaDePaquetes.png)
+![DisciplinaDeAnalisisEntrega3](docs/scenariosView/DisciplinaDeAnalisisEntrega3.pdf)

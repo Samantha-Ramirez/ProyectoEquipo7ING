@@ -1,0 +1,20 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseAnalisisGenerarCartaCompromiso
+actor "Administrador" as actorAdministrador
+actor "Aliado" as actorAliado
+
+entity "Carta de compromiso" as entidadCartaDeCompromiso
+
+boundary "Vista de generar carta" as vistaGenerarCartaDeCompromiso
+boundary "Vista de revision de la carta" as vistaRevisionCartaDeCompromiso
+
+control "Gestor de informacion del curso" as ctrlGestorInformacionCurso
+control "Gestor de carga y envio" as ctrlGestorCargaYEnvio
+
+actorAdministrador -- vistaGenerarCartaDeCompromiso
+actorAliado -- vistaRevisionCartaDeCompromiso
+vistaRevisionCartaDeCompromiso -- ctrlGestorCargaYEnvio
+vistaGenerarCartaDeCompromiso -- ctrlGestorInformacionCurso
+ctrlGestorInformacionCurso -- ctrlGestorCargaYEnvio
+ctrlGestorCargaYEnvio -- entidadCartaDeCompromiso
+
+@enduml
