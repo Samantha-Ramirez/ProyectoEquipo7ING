@@ -33,7 +33,7 @@ rectangle "Course Manager UCV"{
 
 (Evaluar información consignada) as (UC6)
 (Responder evaluación de aval) as (UC7)
-(Generar carta de intención) as (UC8)
+(Firmar carta de intención) as (UC8)
 (Generar carta de compromiso) as (UC13)
 
 (Presentar cronograma de ejecución) as (UC9)
