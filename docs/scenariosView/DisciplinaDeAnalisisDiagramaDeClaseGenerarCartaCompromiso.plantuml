@@ -4,30 +4,28 @@ left to right direction
 actor "Administrador" as actorAdmin
 actor "Aliado" as actorAliado
 
-
-entity "Propuesta" as entidadPropuesta
 entity "Aval tecnico" as entidadAval
 entity "Expediente" as entidadExpediente
 entity "Carta de compromiso" as entidadCartaCompromiso
 
-boundary "Vista de propuestas" as vistaPropuestas
 boundary "Vista de generar carta de compromiso" as vistaGenerarCartaDeCompromiso
-boundary "Vista de ingresar informacion" as vistaIngresarInformacion
+boundary "Formulario de info sobre el curso" as vistaFormularioInfo
 boundary "Vista de revision de la carta" as vistaRevisionCartaDeCompromiso
-
+boundary "Vista de expediente" as vistaExpediente
 
 control "Gestor de carta de compromiso" as ctrlGestorCartaCompromiso
 
-actorAdmin -- vistaPropuestas
-vistaPropuestas -- entidadPropuesta
-vistaPropuestas -- vistaGenerarCartaDeCompromiso
-vistaGenerarCartaDeCompromiso -- ctrlGestorCartaCompromiso
+actorAdmin -- vistaGenerarCartaDeCompromiso
+vistaGenerarCartaDeCompromiso -- vistaFormularioInfo
 
-vistaGenerarCartaDeCompromiso -- vistaIngresarInformacion
+vistaGenerarCartaDeCompromiso -- ctrlGestorCartaCompromiso
 ctrlGestorCartaCompromiso -- entidadCartaCompromiso 
 entidadCartaCompromiso -- entidadExpediente
+
 ctrlGestorCartaCompromiso -- entidadAval
 
-actorAliado -- vistaRevisionCartaDeCompromiso
+actorAliado -- vistaExpediente
+vistaExpediente -- vistaRevisionCartaDeCompromiso
 vistaRevisionCartaDeCompromiso -- ctrlGestorCartaCompromiso
+
 @enduml

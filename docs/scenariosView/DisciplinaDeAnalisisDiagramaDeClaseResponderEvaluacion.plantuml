@@ -18,20 +18,8 @@ vistaEvaluacion -- vistaObservaciones
 
 vistaInfoConsignada -- entidadPropuesta
 
-
 vistaEvaluacion -- ctrlGestorEvaluacion
 entidadPropuesta -- entidadAval
 ctrlGestorEvaluacion -- entidadAval
-
-' 1. El administrador solicita responder evaluación de aval de un 
-' curso. 
-' 2. El sistema muestra la información de la formulación. 
-' 3. El administrador evalúa la información consignada y responde 
-' la solicitud. 
-' 4. Si la formulación cumple con los requisitos necesarios, el 
-' administrador aprueba el aval y envía.  
-' 5. Si no, el administrador rechaza el aval, carga observaciones y 
-' envía. 
-' 3. El sistema permite el envío de la respuesta.
 
 @enduml
