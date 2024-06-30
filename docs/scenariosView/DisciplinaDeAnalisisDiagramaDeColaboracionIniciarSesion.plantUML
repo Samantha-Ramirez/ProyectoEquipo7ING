@@ -1,16 +1,21 @@
 @startuml DisciplinaDeAnalisisDiagramaDeColaboracionIniciarSesion
 
-:Usuario: as Usuario
+left to right direction
 
-boundary "Formulario de inicio de sesion" as iniciar
-control "Base de datos de usuarios" as verificacion
-boundary "Mostrar Sesion " as Sesion
-entity "Sesion Iniciada" as iniciado
+actor ":Usuario" as actorUsuario
 
-Usuario-> iniciar: "solicitarIniciarSesion()"
-iniciar--> verificacion: "SolicitarInforacionDelFormulario()"
-verificacion --> Sesion: "AccederSesion()"
-Sesion --> iniciado:"inciado()"
+entity ":Sesion usuario" as entidadSesionUsuario
 
+boundary ":Formulario de inicio de sesion" as vistaIniciarSesion 
+boundary ":Vista de dashboard" as vistaDashboard
+
+control ":Gestor de sesion" as ctrlGestorSesion
+
+actorUsuario -- vistaIniciarSesion : ""-->""\n//1:iniciarSesion()//\n""-->""\n//2:ingresarDatos()//
+
+vistaIniciarSesion -- ctrlGestorSesion : ""-->""\n//3:enviarDatos()//\n""<--""\n//6:responderValidacion()//
+ctrlGestorSesion -- entidadSesionUsuario : ""-->""\n//4:verificarDatos()//\n""<--""\n//5:esCorrecto()//
+
+vistaIniciarSesion -- vistaDashboard : ""-->""\n//7:mostrarDashboard()//
 
 @enduml

@@ -1,0 +1,20 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseRegistrarRecaudos
+left to right direction
+
+actor "Proponente" as actorProponente
+
+entity "Propuesta" as entidadPropuesta
+entity "Sesion de usuario" as entidadSesionUsuario
+
+boundary "Formulario de registro de recaudos" as vistaDeRegistrarRecaudos
+boundary "Formulario de carga de formulacion" as vistaDeFormulacion
+
+control "Gestor de datos y recaudos" as ctrlGestorRecaudos
+
+actorProponente -- vistaDeRegistrarRecaudos
+vistaDeRegistrarRecaudos -- ctrlGestorRecaudos
+ctrlGestorRecaudos -- entidadPropuesta
+ctrlGestorRecaudos -- entidadSesionUsuario
+vistaDeRegistrarRecaudos -- vistaDeFormulacion
+
+@enduml

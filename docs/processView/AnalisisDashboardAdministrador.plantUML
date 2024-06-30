@@ -1,0 +1,43 @@
+@startuml DiagramaDeAnalisisDeDashboarAdministrador
+
+title Dashboard administrador
+
+:Administrador: as administrador
+
+
+control "Generar Carta de intencion" as firmar
+control "Evaluar Avalar" as responder
+control "Generador de cartas de compromiso" as Generar
+
+boundary "Ver cursos a evaluar" as dashboard
+boundary "Carta de intencion" as Carta_intencion
+boundary "Evaluacion Aval" as Aval
+boundary "Generar Carta de compromiso" as mostrar_carta_compromiso
+
+entity "Firmar carta de intencion" as carta
+entity "Responder evaluacion aval" as evaluacion_aval
+entity "Carta de compromiso" as carta_compromiso
+
+
+
+administrador - dashboard: "Solicita"
+dashboard ----- firmar : "Generador de cartas de intencion"
+dashboard --- responder : "Evaluacion de Avales"
+dashboard - Generar : "Generador de cartas de compromiso"
+
+firmar--- Carta_intencion: "solicita carta de intencion"
+Carta_intencion -- carta
+Carta_intencion - administrador : "Muestra"
+responder -- Aval : "Solicita Aval"
+Aval - evaluacion_aval
+Aval -- administrador : "Muestra"
+Generar - mostrar_carta_compromiso : "Solicita carta de compromiso"
+mostrar_carta_compromiso - carta_compromiso
+mostrar_carta_compromiso - administrador : "Muestra"
+
+
+
+
+
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseCargarFormulacion
+left to right direction
+
+actor "Proponente" as actorProponente
+
+entity "Propuesta" as entidadPropuesta
+entity "Curso de extension" as entidadCursoDeExtension
+
+boundary "Formulario de carga de formulacion" as vistaDeFormulacion
+
+control "Gestor de formulacion" as ctrlGestorFormulacion
+
+actorProponente -- vistaDeFormulacion
+vistaDeFormulacion -- ctrlGestorFormulacion
+ctrlGestorFormulacion -- entidadPropuesta
+ctrlGestorFormulacion -- entidadCursoDeExtension
+entidadPropuesta -- entidadCursoDeExtension
+
+@enduml

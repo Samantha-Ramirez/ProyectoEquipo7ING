@@ -1,0 +1,39 @@
+@startuml DiagramaDeColaboracionDeDashboardAliado
+
+:Aliado: as Aliado
+
+
+
+control "generacion carta de compromiso" as Generar
+control "estructuras de costos e ingresos" as costos
+control "cronograma de ejecucion" as cronograma
+
+
+boundary "Dashboard" as dashboard
+
+entity "Generar carta de compromiso" as carta_compromiso
+entity "Presentar estructuras de costos e ingresos" as estructuras
+entity "Presentar cronograma de ejecucion" as ejecucion
+
+
+
+
+Aliado--> dashboard: "SolicitarVerdashboard()"
+
+
+dashboard--> Generar : "IniciarGenerarCarta()"
+dashboard --> costos : "IniciarEstructuras_CostosIngresos()"
+dashboard --> cronograma : "IniciarCronograma()"
+
+
+Generar --> carta_compromiso : "AccedeGenerarCarta()"
+costos --> estructuras : "AccedePresentarEstructuras_CostosIngresos"
+cronograma --> ejecucion : "AccedePresentarCronograma"
+
+
+
+
+
+
+
+@enduml

@@ -1,24 +1,19 @@
 @startuml DisciplinaDeAnalisisDiagramaDeColaboracionCargarFormulacionCursoExtension
 left to right direction
 
-actor Proponente
+actor ":Proponente" as actorProponente
 
-participant "Proponente" as Proponente
-boundary "Interfaz de Usuario" as IU
-control "Módulo de Gestión de Cursos" as MGC
-entity "Base de Datos" as BD
+entity ":Propuesta" as entidadPropuesta
+entity ":Curso de extension" as entidadCursoDeExtension
 
-Proponente -> IU : Iniciar sesión
-IU -> MGC : Validar credenciales
-MGC -> BD : Verificar credenciales
-BD -> MGC : Confirmar credenciales
-MGC -> IU : Notificar éxito
-IU -> Proponente : Mostrar dashboard
+boundary ":Formulario de carga de formulacion" as vistaDeFormulacion
 
-Proponente -> IU : Ingresar datos del curso
-IU -> MGC : Validar datos del curso
-MGC -> BD : Guardar datos del curso
-BD -> MGC : Confirmar almacenamiento
-MGC -> IU : Notificar éxito
-IU -> Proponente : Mostrar confirmación
+control ":Gestor de formulacion" as ctrlGestorFormulacion
+
+actorProponente -- vistaDeFormulacion : ""-->""\n//1:cargarFormulacion()//
+vistaDeFormulacion -- ctrlGestorFormulacion : ""-->""\n//2:verificarCantidadFormulaciones()//\n""<--""\n//8:confirmar()//
+ctrlGestorFormulacion -- entidadPropuesta : ""-->""\n//3:guardar()//\n""<--""\n//4:confirmar()//
+ctrlGestorFormulacion -- entidadCursoDeExtension : ""-->""\n//5:crearCurso()//\n""<--""\n//6:confirmarCreacion()//
+entidadPropuesta -- entidadCursoDeExtension : ""-->""\n//7:asociar()//
+
 @enduml

@@ -10,10 +10,9 @@ boundary "Vista de cursos propuestos" as vistaCursosPropuestos
 
 control "Gestor de informacion de cursos" as ctrlGestorInformacionCursos
 
-actorProponente -- vistaCursosPropuestos : ""-->""\n//1:Abrir interfaz//\n""<--""\n//8:Mostrar//
-vistaCursosPropuestos -- ctrlGestorInformacionCursos : ""-->""\n//2:Solicitar cursos del usuario//\n""<--""\n//7:Devolver cursos del usuario//
-ctrlGestorInformacionCursos -- entidadCurso : ""-->""\n//3:Buscar cursos//\n""<--""\n//4:Devolver cursos//
-ctrlGestorInformacionCursos -- entidadPropuesta : ""-->""\n//5:Buscar sus estado del aval//\n""<--""\n//6:Devolver estado del aval//
-
+actorProponente -- vistaCursosPropuestos : ""-->""\n//1:verCursos()//\n""<--""\n//8:mostrarCursos()//
+vistaCursosPropuestos -- ctrlGestorInformacionCursos : ""-->""\n//2:obtenerCursos()//\n""<--""\n//7:devolverCursos()//
+ctrlGestorInformacionCursos -- entidadCurso : ""-->""\n//3:obtenerCursos()//\n""<--""\n//6:devolverCursos()//
+entidadCurso -- entidadPropuesta : ""-->""\n//4:obtenerEstadoAval()//\n""<--""\n//5:devolverEstado()//
 
 @enduml

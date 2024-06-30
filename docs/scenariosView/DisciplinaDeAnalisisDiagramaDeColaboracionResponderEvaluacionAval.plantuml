@@ -6,15 +6,19 @@ actor "Administrador" as actorAdmin
 entity "Propuesta" as entidadPropuesta
 entity "Aval tecnico" as entidadAval
 
-boundary "Vista de evaluacion de aval" as vistaEvaluacion
+boundary "Vista de evaluacion" as vistaEvaluacion
+boundary "Vista de informacion consignada" as vistaInfoConsignada
+boundary "Vista de observaciones" as vistaObservaciones
 
-control "Gestor de informacion de propuesta" as ctrlGestorInfoPropuesta
 control "Gestor de evaluacion" as ctrlGestorEvaluacion
 
-actorAdmin -- vistaEvaluacion : ""-->""\n//1:Seleccionar propuesta//\n""<--""\n//6:Mostrar info de propuesta//\n""-->""\n//7:Aprobar o rechazar aval//
-vistaEvaluacion -- ctrlGestorInfoPropuesta : ""-->""\n//2:Solicitar info de propuesta//\n""<--""\n//5:Devolver info de propuesta//
-ctrlGestorInfoPropuesta -- entidadPropuesta : ""-->""\n//3:Solicitar propuesta//\n""<--""\n//4:Devolver propuesta//
-vistaEvaluacion -- ctrlGestorEvaluacion : ""-->""\n//8:Enviar respuesta//
-ctrlGestorEvaluacion -- entidadAval : ""-->""\n//9:Guardar respuesta//
+actorAdmin -- vistaEvaluacion : ""-->""\n//1:verPropuesta()//\n""<--""\n//4:mostrarInfoPropuesta()//\n""-->""\n//5:evaluarAval()//
+vistaEvaluacion -- vistaInfoConsignada
+vistaEvaluacion -- vistaObservaciones
+
+vistaInfoConsignada -- entidadPropuesta : ""-->""\n//2:obtenerInfoPropuesta()//\n""<--""\n//3:devolverInfoPropuesta()//
+
+vistaEvaluacion -- ctrlGestorEvaluacion : ""-->""\n//6:enviarEvaluacion()//
+ctrlGestorEvaluacion -- entidadAval : ""-->""\n//7:guardar()//
 
 @enduml

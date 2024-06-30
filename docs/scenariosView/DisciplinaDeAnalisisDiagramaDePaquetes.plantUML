@@ -1,18 +1,18 @@
 @startuml DisciplinaDeAnalisisDiagramaDePaquetes
 left to right direction
 
-package "Gestion de curso de extension" as G_cursoExtension{
+package "gestionDeCursoDeExtension" as G_cursoExtension{
     object CursoDeExtension
 } 
 
-package "Gestion de propuesta" as G_propuesta{
+package "gestionDePropuesta" as G_propuesta{
     object RegistrarRecaudos
     object CargarFormulacionDelCursoDeExtension
     object PresentarCronogramaDeEjecucion
     object PresentarEstructuraDeCostosEIngreso
 }
 
-package "Gestion de aval" as G_aval{
+package "gestionDeAval" as G_aval{
     object EvaluarInformacionConsignada
     object ResponderEvaluacionDeAval
     object GenerarCartaDeCompromiso
@@ -22,13 +22,13 @@ package "Gestion de aval" as G_aval{
 G_aval --> G_cursoExtension #Black;line.dashed;
 G_propuesta --> G_cursoExtension #Black;line.dashed;
 
-package "Gestion de usuario proponente" as G_userProponente{
-    object VerExpediente
-    object VerCursoPropusto
+package "GestionDeCursosPropuestos" as G_userProponente{
+    object VerCursosPropuestos
     object VerEstadoDeAval
+    object VerExpediente
 }
 
-package "Gestion de usuario" as G_user {
+package "gestionSesionUsuario" as G_user {
     object Registrarse
     object IniciarSesion
     object CerrarSesion

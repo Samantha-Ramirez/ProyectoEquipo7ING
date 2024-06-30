@@ -1,19 +1,18 @@
 @startuml DisciplinaDeAnalisisDiagramaDeClaseIniciarSesion
 left to right direction
 
-actor "Usuario" as usuario
+actor "Usuario" as actorUsuario
 
-entity "Sesion usuario" as sesionUsuario
+entity "Sesion usuario" as entidadSesionUsuario
 
 boundary "Formulario de inicio de sesion" as vistaIniciarSesion
-boundary "Mostrar Sesion" as vistaSesion
+boundary "Vista de dashboard" as vistaDashboard
 
-control "Gestor de sesion" as ctrlGestorSesion
+control "Gestor de sesion de usuario" as ctrlGestorSesion
 
-usuario -- vistaIniciarSesion
+actorUsuario -- vistaIniciarSesion
+vistaIniciarSesion -- vistaDashboard
 vistaIniciarSesion -- ctrlGestorSesion
-ctrlGestorSesion -- sesionUsuario
-ctrlGestorSesion -- vistaSesion
-usuario -- vistaSesion
+ctrlGestorSesion -- entidadSesionUsuario
 
 @enduml
