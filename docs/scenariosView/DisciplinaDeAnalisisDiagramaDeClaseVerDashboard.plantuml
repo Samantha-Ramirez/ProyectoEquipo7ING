@@ -1,0 +1,15 @@
+@startuml DisciplinaDeAnalisisDiagramaDeClaseVerDashboard
+left to right direction
+
+actor "Usuario" as actorUsuario
+
+boundary "Vista dashboard" as vistaDashboard
+
+control "Gestor de funcionalidades de dashboard" as ctrlGestorDashboard
+
+boundary "Ver cursos a evaluar" as dashboard
+boundary "Carta de intencion" as Carta_intencion
+boundary "Evaluacion Aval" as Aval
+boundary "Generar Carta de compromiso" as mostrar_carta_compromiso
+
+@enduml
