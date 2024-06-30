@@ -15,6 +15,6 @@ actorProponente -- vistaDeRegistrarRecaudos : ""-->""\n//1:registrarRecaudos()//
 vistaDeRegistrarRecaudos -- ctrlGestorRecaudos : ""-->""\n//3:esDatosCompletos()//\n""<--""\n//7:confirmarCreacion()//
 ctrlGestorRecaudos -- entidadPropuesta : ""-->""\n//4:crearPropuesta()//\n""<--""\n//5:confirmarCreacion()//
 ctrlGestorRecaudos -- entidadSesionUsuario : ""-->""\n//6:guardarDatos()//
-vistaDeRegistrarRecaudos -- vistaDeFormulacion : ""-->""\n//9:mostrarCargaFormulacion()//
+vistaDeRegistrarRecaudos -- vistaDeFormulacion : ""-->""\n//8:mostrarCargaFormulacion()//
 
 @enduml

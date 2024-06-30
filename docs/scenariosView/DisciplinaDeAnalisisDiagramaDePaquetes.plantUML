@@ -1,13 +1,22 @@
 @startuml DisciplinaDeAnalisisDiagramaDePaquetes
 left to right direction
 
-package "gestionDeCursoDeExtension" as G_cursoExtension{
-    object CursoDeExtension
+package "gestionDeCursos" as G_cursos{
+    'object CursoDeExtension
 } 
 
-package "gestionDePropuesta" as G_propuesta{
+package "gestionDeCursosPropuestos" as G_cursosPropuestos{
+    object VerCursosPropuestos
+    object VerEstadoDeAval
+    object VerExpediente
+}
+
+package "gestionDeProcesoPropuesta" as G_propuesta{
     object RegistrarRecaudos
     object CargarFormulacionDelCursoDeExtension
+}
+
+package "gestionDePresentacionesDeCurso" as G_presentaciones{
     object PresentarCronogramaDeEjecucion
     object PresentarEstructuraDeCostosEIngreso
 }
@@ -15,28 +24,29 @@ package "gestionDePropuesta" as G_propuesta{
 package "gestionDeAval" as G_aval{
     object EvaluarInformacionConsignada
     object ResponderEvaluacionDeAval
+}
+
+package "gestionDeCartasDePropuesta" as G_cartas{
     object GenerarCartaDeCompromiso
     object FirmarCartaDeIntencion
 }
 
-G_aval --> G_cursoExtension #Black;line.dashed;
-G_propuesta --> G_cursoExtension #Black;line.dashed;
 
-package "GestionDeCursosPropuestos" as G_userProponente{
-    object VerCursosPropuestos
-    object VerEstadoDeAval
-    object VerExpediente
-}
-
-package "gestionSesionUsuario" as G_user {
+package "gestionDeSesionUsuario" as G_user {
     object Registrarse
     object IniciarSesion
     object CerrarSesion
     object VerDashboard
 }
-G_userProponente --> G_propuesta #Black;line.dashed;
-G_aval --> G_user #Black;line.dashed;
-G_userProponente ----> G_user #Black;line.dashed;
-G_propuesta ------> G_user #Black;line.dashed;
+
+G_cursos --> G_user #Black;line.dashed;
+G_aval --> G_cursos #Black;line.dashed;
+G_cursosPropuestos --> G_cursos #Black;line.dashed;
+G_propuesta --> G_cursosPropuestos #Black;line.dashed;
+G_cartas --> G_propuesta #Black;line.dashed;
+G_presentaciones --> G_cursosPropuestos #Black;line.dashed;
+'G_aval --> G_user #Black;line.dashed;
+'G_cursosPropuestos ----> G_user #Black;line.dashed;
+'G_propuesta ------> G_user #Black;line.dashed;
 
 @enduml

@@ -5,7 +5,6 @@ actor "Administrador" as actorAdmin
 actor "Aliado" as actorAliado
 
 entity "Aval tecnico" as entidadAval
-entity "Expediente" as entidadExpediente
 entity "Carta de compromiso" as entidadCartaCompromiso
 
 boundary "Vista de generar carta de compromiso" as vistaGenerarCartaDeCompromiso
@@ -20,7 +19,6 @@ vistaGenerarCartaDeCompromiso -- vistaFormularioInfo
 
 vistaGenerarCartaDeCompromiso -- ctrlGestorCartaCompromiso
 ctrlGestorCartaCompromiso -- entidadCartaCompromiso 
-entidadCartaCompromiso -- entidadExpediente
 
 ctrlGestorCartaCompromiso -- entidadAval
 

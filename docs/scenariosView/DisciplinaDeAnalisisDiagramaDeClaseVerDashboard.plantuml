@@ -4,12 +4,14 @@ left to right direction
 actor "Usuario" as actorUsuario
 
 boundary "Vista dashboard" as vistaDashboard
-
-control "Gestor de funcionalidades de dashboard" as ctrlGestorDashboard
-
-boundary "Ver cursos a evaluar" as dashboard
-boundary "Carta de intencion" as Carta_intencion
-boundary "Evaluacion Aval" as Aval
-boundary "Generar Carta de compromiso" as mostrar_carta_compromiso
+boundary "Vista de expediente" as vistaExpediente
+boundary "Vista de cursos propuestos" as vistaCursosPropuestos
+boundary "Vista de registrar recaudos" as vistaRecaudos
+boundary "Vista de propuestas" as vistaPropuestas
+actorUsuario -- vistaDashboard
+vistaDashboard -- vistaExpediente
+vistaDashboard -- vistaCursosPropuestos
+vistaDashboard -- vistaRecaudos
+vistaDashboard -- vistaPropuestas
 
 @enduml
