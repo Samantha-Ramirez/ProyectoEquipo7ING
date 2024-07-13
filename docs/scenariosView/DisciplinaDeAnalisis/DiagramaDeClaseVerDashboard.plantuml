@@ -1,0 +1,17 @@
+@startuml DiagramaDeClaseVerDashboard
+left to right direction
+
+actor "Usuario" as actorUsuario
+
+boundary "Vista dashboard" as vistaDashboard
+boundary "Vista de expediente" as vistaExpediente
+boundary "Vista de cursos propuestos" as vistaCursosPropuestos
+boundary "Vista de registrar recaudos" as vistaRecaudos
+boundary "Vista de propuestas" as vistaPropuestas
+actorUsuario -- vistaDashboard
+vistaDashboard -- vistaExpediente
+vistaDashboard -- vistaCursosPropuestos
+vistaDashboard -- vistaRecaudos
+vistaDashboard -- vistaPropuestas
+
+@enduml

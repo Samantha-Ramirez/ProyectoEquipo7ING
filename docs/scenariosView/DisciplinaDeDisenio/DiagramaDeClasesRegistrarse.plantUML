@@ -1,0 +1,37 @@
+@startuml DiagramaDeClasesRegistrarse
+left to right direction
+
+class Usuario{
+    -String usuario
+    -String contraseña
+    +void registrarUsuario()
+    +void ingresarDatos(String usuario, String contraseña)
+}
+class FormularioDeRegistro{
+    +boolean esDatosCompletos()
+    +void enviarDatos(String usuario, String contraseña)
+}
+Usuario -> FormularioDeRegistro
+class GestorDeSesionDeUsuario{
+    +void registrarUsuario(String usuario, String contraseña)
+    
+}
+note right of (GestorDeSesionDeUsuario)
+    patron de diseño 
+        Singleton 
+end note
+FormularioDeRegistro "*" --> "1" GestorDeSesionDeUsuario
+class SesionUsuario{
+    -String FechaHoraDeInicio
+    +void actualizarHoraDeInicio(String FechaHoraActual)
+    +void crearUsuario()
+    +boolean esExitosa()
+}
+GestorDeSesionDeUsuario "1" -> "*" SesionUsuario
+class VistaDeDashboard{
+    +void mostrarDashboard()
+}
+GestorDeSesionDeUsuario -> VistaDeDashboard
+
+
+@enduml

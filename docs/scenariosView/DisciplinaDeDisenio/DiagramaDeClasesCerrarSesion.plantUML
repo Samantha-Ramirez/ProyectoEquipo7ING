@@ -1,0 +1,30 @@
+@startuml DiagramaDeClasesCerrarSesion
+left to right direction
+
+class Usuario{
+    -String usuario
+    -String contraseña
+    +void cerrarSesion()
+}
+class OpcionCerrarSesion{
+    +void ActivarOpcionCerrarSesion()
+}
+Usuario -> OpcionCerrarSesion
+class GestorDeSesionDeUsuario{
+    +void realizarCierreDeSesion()
+}
+note right of (GestorDeSesionDeUsuario)
+    patron de diseño 
+        Singleton 
+end note
+OpcionCerrarSesion -> GestorDeSesionDeUsuario
+class SesionUsuario{
+    -String FechaHoraDeFIn
+    +void actualizarHoraDeFin(String FechaHoraActual)
+}
+GestorDeSesionDeUsuario -> SesionUsuario
+class FormularioDeInicioDeSesion{
+    +void mostrarFormularioDeInicio()
+}
+GestorDeSesionDeUsuario -> FormularioDeInicioDeSesion
+@enduml

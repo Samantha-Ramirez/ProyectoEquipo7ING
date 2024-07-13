@@ -1,0 +1,19 @@
+@startuml DiagramaDeColaboracionCargarFormulacionCursoExtension
+left to right direction
+
+actor ":Proponente" as actorProponente
+
+entity ":Propuesta" as entidadPropuesta
+entity ":Curso de extension" as entidadCursoDeExtension
+
+boundary ":Formulario de carga de formulacion" as vistaDeFormulacion
+
+control ":Gestor de formulacion" as ctrlGestorFormulacion
+
+actorProponente -- vistaDeFormulacion : ""-->""\n//1:cargarFormulacion()//
+vistaDeFormulacion -- ctrlGestorFormulacion : ""-->""\n//2:verificarCantidadFormulaciones()//\n""<--""\n//8:confirmar()//
+ctrlGestorFormulacion -- entidadPropuesta : ""-->""\n//3:guardar()//\n""<--""\n//4:confirmar()//
+ctrlGestorFormulacion -- entidadCursoDeExtension : ""-->""\n//5:crearCurso()//\n""<--""\n//6:confirmarCreacion()//
+entidadPropuesta -- entidadCursoDeExtension : ""-->""\n//7:asociar()//
+
+@enduml

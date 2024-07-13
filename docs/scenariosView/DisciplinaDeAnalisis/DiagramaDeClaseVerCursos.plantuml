@@ -1,0 +1,18 @@
+@startuml DiagramaDeClaseVerCursos
+left to right direction
+
+actor "Proponente" as actorProponente
+
+entity "Curso" as entidadCurso
+entity "Propuesta" as entidadPropuesta
+
+boundary "Vista de cursos propuestos" as vistaCursosPropuestos
+
+control "Gestor de informacion de cursos" as ctrlGestorInformacionCursos
+
+actorProponente -- vistaCursosPropuestos
+vistaCursosPropuestos -- ctrlGestorInformacionCursos
+ctrlGestorInformacionCursos -- entidadCurso
+entidadCurso -- entidadPropuesta
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml DiagramaDeEstadoRelacionAliado
+title Aliado
+
+[*] --> UsuarioIniciado : iniciar sesión
+UsuarioIniciado --> ViendoDashboardAliado: ver dashboard
+ViendoDashboardAliado --> ViendoExpediente : ver expediente
+ViendoExpediente --> CartaFirmada : firmar carta
+ViendoExpediente --> CartaRechazada : rechazar carta
+ViendoExpediente --> ViendoDashboardAliado : regresar
+ViendoDashboardAliado ---> ViendoCursos : ver cursos propuestos
+ViendoCursos --> ViendoEstadoDelAval : ver estado del aval
+ViendoCursos --> CronogramaDeEjecucionPresentado : presentar cronograma de ejecucion
+CronogramaDeEjecucionPresentado --> ViendoDashboardAliado : regresar
+ViendoCursos --> EstructuraDeCostosEIngresosPresentada : presentar estructura de costos e ingresos
+EstructuraDeCostosEIngresosPresentada --> ViendoDashboardAliado : regresar
+ViendoDashboardAliado ---> FormulacionDelCursoCargada : cargar formulación del curso
+FormulacionDelCursoCargada --> ViendoDashboardAliado : regresar
+ViendoDashboardAliado --> SesionCerrada : cerrar sesión 
+SesionCerrada --> [*]
+
+@enduml

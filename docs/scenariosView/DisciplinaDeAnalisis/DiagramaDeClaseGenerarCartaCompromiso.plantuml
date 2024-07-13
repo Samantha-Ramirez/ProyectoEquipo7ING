@@ -1,0 +1,29 @@
+@startuml DiagramaDeClaseGenerarCartaCompromiso
+left to right direction
+
+actor "Administrador" as actorAdmin
+actor "Aliado" as actorAliado
+
+entity "Aval tecnico" as entidadAval
+entity "Carta de compromiso" as entidadCartaCompromiso
+
+boundary "Vista de generar carta de compromiso" as vistaGenerarCartaDeCompromiso
+boundary "Formulario de info sobre el curso" as vistaFormularioInfo
+boundary "Vista de revision de la carta" as vistaRevisionCartaDeCompromiso
+boundary "Vista de expediente" as vistaExpediente
+
+control "Gestor de carta de compromiso" as ctrlGestorCartaCompromiso
+
+actorAdmin -- vistaGenerarCartaDeCompromiso
+vistaGenerarCartaDeCompromiso -- vistaFormularioInfo
+
+vistaGenerarCartaDeCompromiso -- ctrlGestorCartaCompromiso
+ctrlGestorCartaCompromiso -- entidadCartaCompromiso 
+
+ctrlGestorCartaCompromiso -- entidadAval
+
+actorAliado -- vistaExpediente
+vistaExpediente -- vistaRevisionCartaDeCompromiso
+vistaRevisionCartaDeCompromiso -- ctrlGestorCartaCompromiso
+
+@enduml

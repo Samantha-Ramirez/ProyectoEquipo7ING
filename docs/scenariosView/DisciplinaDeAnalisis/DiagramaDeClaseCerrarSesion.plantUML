@@ -1,0 +1,18 @@
+@startuml DiagramaDeClaseCerrarSesion
+left to right direction
+
+actor "Usuario" as actorUsuario
+
+entity "Sesion usuario" as entidadSesionUsuario
+
+boundary "Opcion cerrar sesion" as vistaCerrarSesion
+boundary "Formulario de inicio de sesion" as vistaInicioSesion
+
+control "Gestor de sesion de usuario" as ctrlGestorSesion
+
+actorUsuario -- vistaCerrarSesion
+vistaCerrarSesion -- ctrlGestorSesion
+ctrlGestorSesion -- entidadSesionUsuario
+vistaCerrarSesion -- vistaInicioSesion
+
+@enduml

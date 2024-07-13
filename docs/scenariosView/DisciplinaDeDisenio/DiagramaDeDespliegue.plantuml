@@ -1,0 +1,50 @@
+@startuml DiagramaDeDespliegue
+title Diagrama de Despliegue - Course Manager UCV
+
+node "Usuario" {
+  [Navegador Web Usuario]
+}
+
+node "Administrador" {
+  [Navegador Web Administrador]
+}
+
+node "Servidor de Aplicaciones" {
+  node "gestionDeCartasDePropuesta" {
+    [GenerarCartaDeCompromiso]
+    [FirmarCartaDeIntencion]
+  }
+  
+  node "gestionDeProcesoPropuesta" {
+    [RegistrarRecaudos]
+    [CargarFormulacionDelCursoDeExtension]
+  }
+
+  node "gestionDeAval" {
+    [EvaluarInformacionConsignada]
+    [ResponderEvaluacionDeAval]
+  }
+
+  node "gestionDeSesionUsuario" {
+    [IniciarSesion]
+    [Registrarse]
+    [VerDashboard]
+    [CerrarSesion]
+  }
+
+  node "gestionDePresentacionesDeCurso" {
+    [PresentarCronogramaDeEjecucion]
+    [PresentarEstructuraDeCostosEIngreso]
+  }
+
+  node "gestionDeCursosPropuestos" {
+    [VerEstadoDeAval]
+    [VerCursosPropuestos]
+    [VerExpediente]
+  }
+}
+
+[Navegador Web Usuario] --> [Servidor de Aplicaciones] : HTTP
+[Navegador Web Administrador] --> [Servidor de Aplicaciones] : HTTP
+
+@enduml

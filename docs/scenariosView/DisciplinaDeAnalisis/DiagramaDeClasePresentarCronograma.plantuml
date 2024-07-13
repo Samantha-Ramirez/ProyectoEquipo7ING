@@ -1,0 +1,20 @@
+@startuml DiagramaDeClasePresentarCronograma
+left to right direction
+
+actor "Aliado" as actorAliado
+
+entity "Cronograma de ejecucion" as entidadCronogramaEjecucion
+entity "Curso de extension" as entidadCursoExtension
+
+boundary "Vista de presentacion cronograma" as vistaPresentacionCronograma
+boundary "Formulario de info cronograma" as vistaFormularioInfo
+
+control "Gestor de cronograma" as ctrlGestorCronograma
+
+actorAliado -- vistaPresentacionCronograma
+vistaPresentacionCronograma -- vistaFormularioInfo
+vistaPresentacionCronograma -- ctrlGestorCronograma
+ctrlGestorCronograma -- entidadCronogramaEjecucion
+entidadCursoExtension -- entidadCronogramaEjecucion
+
+@enduml

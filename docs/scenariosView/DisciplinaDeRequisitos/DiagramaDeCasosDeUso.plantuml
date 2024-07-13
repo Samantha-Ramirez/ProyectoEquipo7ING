@@ -1,0 +1,64 @@
+@startuml DiagramaDeCasosDeUso
+
+'ACTORES PRIMARIOS
+actor :Usuario: as Men1
+actor :Proponente: as Men2
+actor :Administrador: as Men3
+actor :Aliado: as Men4
+
+Men1 <|-- Men2
+Men1 <|-- Men3
+Men2 <|-- Men4
+left to right direction
+
+'INICIO DEL LIMITE
+rectangle "Course Manager UCV"{
+(Registrarse) as (UC1)
+(Iniciar sesión) as (UC14)
+(Cerrar sesión) as (UC15)
+
+
+(Registrar recaudos) as (UC3)
+(Ver cursos propuestos) as (UC4)
+(Ver estado del aval) as (UC12)
+(Ver expediente) as (UC11)
+
+'CASO INCLUDE
+(Cargar la formulación del\n curso de extensión) as (UC5)
+
+(Ver dashboard) as (UC2)
+
+'CASO EXTEND
+'(Volver a cargar formulación) as (UCE1)
+
+(Evaluar información consignada) as (UC6)
+(Responder evaluación de aval) as (UC7)
+(Firmar carta de intención) as (UC8)
+(Generar carta de compromiso) as (UC13)
+
+(Presentar cronograma de ejecución) as (UC9)
+(Presentar estructura de costos e\n ingresos) as (UC10)
+}
+
+Men1 -- UC1
+Men1 -- UC14
+Men1 -- UC15
+Men1 -- UC2
+
+Men2 -- UC3
+Men2 -- UC4
+UC4 <.. UC12: <<extend>>
+Men2 -- UC11
+UC3 ..> UC5  : <<include>>
+'UC3 <.. UCE1 : <<extend>>
+
+Men3 -- UC7
+UC7 ..> UC6  : <<include>>
+Men3 -- UC8
+Men3 --UC13 : crea
+
+Men4 -- UC9
+Men4 -- UC10
+Men4 -- UC13 : firma
+
+@enduml

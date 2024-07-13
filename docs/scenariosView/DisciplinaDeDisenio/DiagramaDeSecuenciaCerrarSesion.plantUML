@@ -1,0 +1,26 @@
+@startuml DiagramaDeSecuenciaCerrarSesion
+skinparam sequenceParticipant underline
+
+actor Usuario as user
+boundary ":Opcion cerrar sesión" as OCS
+control ":Gestor de sesión de Usuario" as GSU
+entity ":Sesión de usuario" as SU
+boundary ":Formulario de inicio de sesión" as FIS
+
+
+user -> OCS : cerrarSesion()
+activate OCS
+OCS -> GSU : activarOpcionCerrarSesion()
+deactivate OCS
+activate GSU
+GSU -> SU : realizarCierreDeSesion()
+activate SU
+SU -> SU : actualizarHoraDeFin()
+SU -> GSU : esExitoso()
+deactivate SU
+GSU -> FIS : mostrarFormularioDeInicio()
+deactivate GSU
+activate FIS
+deactivate FIS
+
+@enduml

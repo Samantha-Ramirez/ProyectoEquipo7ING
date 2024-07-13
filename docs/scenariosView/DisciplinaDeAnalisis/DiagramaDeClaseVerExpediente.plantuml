@@ -1,0 +1,21 @@
+@startuml DiagramaDeClaseVerExpediente
+left to right direction
+
+actor "Proponente" as actorProponente
+
+entity "Expediente" as entidadExpediente
+entity "Carta de intencion" as entidadCartaDeIntencion
+entity "Carta de compromiso" as entidadCartaDeCompromiso
+
+
+boundary "Vista de expediente" as vistaExpediente
+
+control "Gestor de infomacion del expediente" as ctrlGestorInformacionExpediente
+
+actorProponente -- vistaExpediente
+vistaExpediente -- ctrlGestorInformacionExpediente
+ctrlGestorInformacionExpediente -- entidadExpediente
+entidadExpediente -- entidadCartaDeIntencion
+entidadExpediente -- entidadCartaDeCompromiso
+
+@enduml

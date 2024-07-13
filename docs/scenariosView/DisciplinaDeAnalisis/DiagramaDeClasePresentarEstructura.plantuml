@@ -1,0 +1,21 @@
+@startuml DiagramaDeClasePresentarEstructura
+left to right direction
+
+actor "Aliado" as actorAliado
+
+entity "Estructura de costos e ingresos" as entidadEstructura
+entity "Curso de extension" as entidadCursoExtension
+
+boundary "Vista de presentacion cronograma" as vistaPresentacionEstructura
+boundary "Formulario de info cronograma" as vistaFormularioInfo
+
+control "Gestor de cronograma" as ctrlGestorEstructura
+
+actorAliado -- vistaPresentacionEstructura
+vistaPresentacionEstructura -- vistaFormularioInfo
+
+vistaPresentacionEstructura -- ctrlGestorEstructura
+ctrlGestorEstructura -- entidadEstructura
+entidadCursoExtension -- entidadEstructura
+
+@enduml

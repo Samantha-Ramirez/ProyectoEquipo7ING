@@ -1,0 +1,24 @@
+@startuml DiagramaDeClaseFirmarCartaIntencion
+left to right direction
+
+actor "Administrador" as actorAdmin
+
+entity "Aval tecnico" as entidadAval
+entity "Expediente" as entidadExpediente
+entity "Carta de intencion" as entidadCartaIntencion
+
+boundary "Vista de firma carta de intencion" as vistaFirmaCartaIntencion
+boundary "Formulario de info sobre el curso" as vistaFormularioInfo
+
+control "Gestor de carta de intencion" as ctrlGestorCartaIntencion
+
+actorAdmin -- vistaFormularioInfo
+vistaFormularioInfo -- vistaFirmaCartaIntencion
+
+vistaFirmaCartaIntencion -- ctrlGestorCartaIntencion
+ctrlGestorCartaIntencion -- entidadCartaIntencion 
+entidadCartaIntencion -- entidadExpediente
+
+ctrlGestorCartaIntencion -- entidadAval
+
+@enduml

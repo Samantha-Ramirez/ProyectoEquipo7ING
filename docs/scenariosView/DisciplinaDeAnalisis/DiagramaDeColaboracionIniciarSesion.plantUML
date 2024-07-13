@@ -1,0 +1,21 @@
+@startuml DiagramaDeColaboracionIniciarSesion
+
+left to right direction
+
+actor ":Usuario" as actorUsuario
+
+entity ":Sesion usuario" as entidadSesionUsuario
+
+boundary ":Formulario de inicio de sesion" as vistaIniciarSesion 
+boundary ":Vista de dashboard" as vistaDashboard
+
+control ":Gestor de sesion" as ctrlGestorSesion
+
+actorUsuario -- vistaIniciarSesion : ""-->""\n//1:iniciarSesion()//\n""-->""\n//2:ingresarDatos()//
+
+vistaIniciarSesion -- ctrlGestorSesion : ""-->""\n//3:enviarDatos()//\n""<--""\n//6:responderValidacion()//
+ctrlGestorSesion -- entidadSesionUsuario : ""-->""\n//4:verificarDatos()//\n""<--""\n//5:esCorrecto()//
+
+vistaIniciarSesion -- vistaDashboard : ""-->""\n//7:mostrarDashboard()//
+
+@enduml
