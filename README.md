@@ -10,22 +10,22 @@
 5. Samantha Ramirez
 
 ## Modelo del dominio
-![DiagramaDeClase](docs/scenariosView/ModeloDeDominioDiagramaDeClase.png)
-![GlosarioDeTerminos](docs/scenariosView/ModeloDeDominioGlosarioDeTerminos.pdf)
-![DiagramaDeEstado](docs/scenariosView/ModeloDeDominioDiagramaDeEstado.png)
-![ModeloDeDominioEntrega1](docs/scenariosView/ModeloDeDominioEntrega1.pdf)
+![DiagramaDeClase](docs/scenariosView/ModeloDeDominio/DiagramaDeClase.png)
+![GlosarioDeTerminos](docs/scenariosView/ModeloDeDominio/GlosarioDeTerminos.pdf)
+![DiagramaDeEstado](docs/scenariosView/ModeloDeDominio/DiagramaDeEstado.png)
+![ModeloDeDominioEntrega1](docs/scenariosView/ModeloDeDominio/Entrega1.pdf)
 
 ## Disciplina de requisitos
-![DiagramaDeCasosDeUso](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeCasosDeUso.png)
-![DiagramaDeEstadoRelacionAliado](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAliado.png)
-![DiagramaDeEstadoRelacionProponente](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionProponente.png)
-![DiagramaDeEstadoRelacionAdministrador](docs/scenariosView/DisciplinaDeRequisitosDiagramaDeEstadoRelacionAdministrador.png)
-![PrototipoDeInterfaz](docs/scenariosView/DisciplinaDeRequisitosPrototipoDeInterfaz.png)
-![DisciplinaDeRequisitosEntrega2](docs/scenariosView/DisciplinaDeRequisitosEntrega2.pdf)
+![DiagramaDeCasosDeUso](docs/scenariosView/DisciplinaDeRequisitos/DiagramaDeCasosDeUso.png)
+![DiagramaDeEstadoRelacionAliado](docs/scenariosView/DisciplinaDeRequisitos/DiagramaDeEstadoRelacionAliado.png)
+![DiagramaDeEstadoRelacionProponente](docs/scenariosView/DisciplinaDeRequisitos/DiagramaDeEstadoRelacionProponente.png)
+![DiagramaDeEstadoRelacionAdministrador](docs/scenariosView/DisciplinaDeRequisitos/DiagramaDeEstadoRelacionAdministrador.png)
+![PrototipoDeInterfaz](docs/scenariosView/DisciplinaDeRequisitos/PrototipoDeInterfaz.png)
+![DisciplinaDeRequisitosEntrega2](docs/scenariosView/DisciplinaDeRequisitos/Entrega2.pdf)
 
 ## Disciplina de análisis
-![DiagramaDePaquetes](docs/scenariosView/DisciplinaDeAnalisisDiagramaDePaquetes.png)
-![DisciplinaDeAnalisisEntrega3](docs/scenariosView/DisciplinaDeAnalisisEntrega3.pdf)
+![DiagramaDePaquetes](docs/scenariosView/DisciplinaDeAnalisis/DiagramaDePaquetes.png)
+![DisciplinaDeAnalisisEntrega3](docs/scenariosView/DisciplinaDeAnalisis/Entrega3.pdf)
 
 ## Disciplina de diseño
-![DisciplinaDeDiseñoEntrega4](docs/scenariosView/DisciplinaDeDiseñoEntrega4.pdf)
+![DisciplinaDeDiseñoEntrega4](docs/scenariosView/DisciplinaDeDisenio/Entrega4.pdf)
