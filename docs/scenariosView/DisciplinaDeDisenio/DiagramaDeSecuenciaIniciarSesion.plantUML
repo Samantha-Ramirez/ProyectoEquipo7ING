@@ -2,27 +2,27 @@
 skinparam sequenceParticipant underline
 
 actor Usuario as user
-boundary ":Formulario de inicio de sesión" as FIS
-control ":Gestor de sesión" as GS
-entity ":Sesión de usuario" as SU
-boundary ":Vista de dashboard" as VD
+boundary VistaFormularioInicioSesion
+control GestorSesionUsuario
+entity SesionUsuario
+boundary VistaDashboard
 
 
-user -> FIS : iniciarSesion()
-activate FIS
-user -> FIS : IngresarDatos()
-FIS -> GS : enviarDatos()
-deactivate FIS
-activate GS
-GS -> SU : verficarDatos()
-activate SU
-SU -> SU : esCorrecto()
-SU -> SU : actualizarHoraDeInicio()
-SU --> GS : responderValidacion()
-deactivate SU
-GS -> VD : mostrarDashboard()
-deactivate GS
-activate VD
-deactivate VD
+user -> VistaFormularioInicioSesion : iniciarSesion()
+activate VistaFormularioInicioSesion
+user -> VistaFormularioInicioSesion : IngresarDatos()
+VistaFormularioInicioSesion -> GestorSesionUsuario : enviarDatos()
+deactivate VistaFormularioInicioSesion
+activate GestorSesionUsuario
+GestorSesionUsuario -> SesionUsuario : verficarDatos()
+activate SesionUsuario
+SesionUsuario -> SesionUsuario : esCorrecto()
+SesionUsuario -> SesionUsuario : actualizarHoraDeInicio()
+SesionUsuario --> GestorSesionUsuario : responderValidacion()
+deactivate SesionUsuario
+GestorSesionUsuario -> VistaDashboard : mostrarDashboard()
+deactivate GestorSesionUsuario
+activate VistaDashboard
+deactivate VistaDashboard
 
 @enduml

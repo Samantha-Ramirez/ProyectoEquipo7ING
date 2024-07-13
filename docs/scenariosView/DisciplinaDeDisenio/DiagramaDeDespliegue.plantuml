@@ -1,5 +1,4 @@
 @startuml DiagramaDeDespliegue
-title Diagrama de Despliegue - Course Manager UCV
 
 node "Usuario" {
   [Navegador Web Usuario]

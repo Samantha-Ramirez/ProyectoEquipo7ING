@@ -2,25 +2,25 @@
 skinparam sequenceParticipant underline
 
 actor Usuario as user
-boundary ":Opcion cerrar sesión" as OCS
-control ":Gestor de sesión de Usuario" as GSU
-entity ":Sesión de usuario" as SU
-boundary ":Formulario de inicio de sesión" as FIS
+boundary VistaOpcionCerrarSesion
+control GestorSesionUsuario
+entity SesionUsuario
+boundary VistaFormularioInicioSesion
 
 
-user -> OCS : cerrarSesion()
-activate OCS
-OCS -> GSU : activarOpcionCerrarSesion()
-deactivate OCS
-activate GSU
-GSU -> SU : realizarCierreDeSesion()
-activate SU
-SU -> SU : actualizarHoraDeFin()
-SU -> GSU : esExitoso()
-deactivate SU
-GSU -> FIS : mostrarFormularioDeInicio()
-deactivate GSU
-activate FIS
-deactivate FIS
+user -> VistaOpcionCerrarSesion : cerrarSesion()
+activate VistaOpcionCerrarSesion
+VistaOpcionCerrarSesion -> GestorSesionUsuario : activarOpcionCerrarSesion()
+deactivate VistaOpcionCerrarSesion
+activate GestorSesionUsuario
+GestorSesionUsuario -> SesionUsuario : realizarCierreDeSesion()
+activate SesionUsuario
+SesionUsuario -> SesionUsuario : actualizarHoraDeFin()
+SesionUsuario -> GestorSesionUsuario : esExitoso()
+deactivate SesionUsuario
+GestorSesionUsuario -> VistaFormularioInicioSesion : mostrarFormularioDeInicio()
+deactivate GestorSesionUsuario
+activate VistaFormularioInicioSesion
+deactivate VistaFormularioInicioSesion
 
 @enduml

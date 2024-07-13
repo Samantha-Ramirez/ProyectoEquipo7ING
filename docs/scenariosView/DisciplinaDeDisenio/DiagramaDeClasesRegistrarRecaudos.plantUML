@@ -1,0 +1,35 @@
+@startuml DiagramaDeClasesRegistrarRecaudos
+left to right direction
+
+class Proponente{
+    
+}
+class Propuesta{
+    +crearPropuesta()
+    confirmarCreacion()
+}
+class SesionUsuario{
+    guardarDatos
+}
+class FormularioRegistroRecaudos{
+    +void mostrarVista()
+    +void mostrarDatosPersonales()
+    +void mostrarRecaudos()
+    registrarRecaudos()
+    ingresarDatosYRecaudos()
+}
+class FormularioCargaFormulacion{
+    mostrarCargaFormulacion()
+}
+class GestorDatosRecaudos{
+    +void esDatosCompletos()
+    confirmarCreacion()
+}
+
+Proponente -> FormularioRegistroRecaudos
+FormularioRegistroRecaudos -> GestorDatosRecaudos
+GestorDatosRecaudos -> Propuesta
+GestorDatosRecaudos -> SesionUsuario
+FormularioRegistroRecaudos -> FormularioCargaFormulacion
+
+@enduml

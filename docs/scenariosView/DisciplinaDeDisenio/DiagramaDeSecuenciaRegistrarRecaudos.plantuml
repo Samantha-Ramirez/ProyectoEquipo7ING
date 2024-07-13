@@ -1,0 +1,22 @@
+@startuml DiagramaDeSecuenciaRegistrarRecaudos
+
+actor ":Proponente" as actorProponente
+
+entity ":Propuesta" as entidadPropuesta
+entity ":Sesion de usuario" as entidadSesionUsuario
+
+boundary ":Formulario de registro de recaudos" as vistaDeRegistrarRecaudos
+boundary ":Formulario de carga de formulacion" as vistaDeFormulacion
+
+control ":Gestor de datos y recaudos" as ctrlGestorRecaudos
+
+actorProponente -> vistaDeRegistrarRecaudos : 1:registrarRecaudos()
+actorProponente -> vistaDeRegistrarRecaudos : 2:ingresarDatosYRecaudos()
+vistaDeRegistrarRecaudos -> ctrlGestorRecaudos : 3:esDatosCompletos()
+ctrlGestorRecaudos -> entidadPropuesta : 4:crearPropuesta()
+ctrlGestorRecaudos -> entidadPropuesta : 5:confirmarCreacion()
+ctrlGestorRecaudos -> entidadSesionUsuario : 6:guardarDatos()
+vistaDeRegistrarRecaudos -> ctrlGestorRecaudos : 7:confirmarCreacion()
+vistaDeRegistrarRecaudos -> vistaDeFormulacion : 8:mostrarCargaFormulacion()
+
+@enduml
