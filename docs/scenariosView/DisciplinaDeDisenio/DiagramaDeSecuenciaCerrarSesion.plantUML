@@ -8,17 +8,17 @@ entity SesionUsuario
 boundary VistaFormularioInicioSesion
 
 
-user -> VistaOpcionCerrarSesion : cerrarSesion()
+user -> VistaOpcionCerrarSesion : 1:cerrarSesion()
 activate VistaOpcionCerrarSesion
-VistaOpcionCerrarSesion -> GestorSesionUsuario : activarOpcionCerrarSesion()
+VistaOpcionCerrarSesion -> GestorSesionUsuario : 2:cerrarSesion(userId)
 deactivate VistaOpcionCerrarSesion
 activate GestorSesionUsuario
-GestorSesionUsuario -> SesionUsuario : realizarCierreDeSesion()
+GestorSesionUsuario -> SesionUsuario : 3:cerrarSesion(userId)
 activate SesionUsuario
-SesionUsuario -> SesionUsuario : actualizarHoraDeFin()
-SesionUsuario -> GestorSesionUsuario : esExitoso()
+SesionUsuario -> SesionUsuario : 4:actualizarHoraDeFin()
+SesionUsuario --> GestorSesionUsuario : 5:esExitoso()
 deactivate SesionUsuario
-GestorSesionUsuario -> VistaFormularioInicioSesion : mostrarFormularioDeInicio()
+GestorSesionUsuario -> VistaFormularioInicioSesion : 6:mostrarFormularioDeInicio()
 deactivate GestorSesionUsuario
 activate VistaFormularioInicioSesion
 deactivate VistaFormularioInicioSesion

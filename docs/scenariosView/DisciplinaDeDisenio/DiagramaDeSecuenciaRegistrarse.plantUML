@@ -1,27 +1,31 @@
 @startuml DiagramaDeSecuenciaRegistrarse
 skinparam sequenceParticipant underline
 
-actor Usuario as user
+actor Usuario
 boundary VistaFormularioRegistro
 control GestorSesionUsuario
 entity SesionUsuario
 boundary VistaDashboard
+boundary VistaError
 
 
-user -> VistaFormularioRegistro : Registrarse()
+Usuario -> VistaFormularioRegistro : 1:registrarse()
 activate VistaFormularioRegistro
-user -> VistaFormularioRegistro : IngresarDatos()
-VistaFormularioRegistro -> VistaFormularioRegistro : esDatosCompletos()
-VistaFormularioRegistro -> GestorSesionUsuario : enviarDatos()
+Usuario -> VistaFormularioRegistro : 2:ingresarDatos()
+VistaFormularioRegistro -> VistaFormularioRegistro : 3:esDatosCompletos()
+alt False
+VistaFormularioRegistro --> VistaError: 4:mostrarError()
+end
+VistaFormularioRegistro -> GestorSesionUsuario : 4:registrarse(datos)
 deactivate VistaFormularioRegistro
 activate GestorSesionUsuario
-GestorSesionUsuario -> SesionUsuario : registrarUsuario()
+GestorSesionUsuario -> SesionUsuario : 5:registrarUsuario(datos)
 activate SesionUsuario
-SesionUsuario -> SesionUsuario : CrearUsuario()
-SesionUsuario -> SesionUsuario :  actualizarHoraDeInicio()
-SesionUsuario --> GestorSesionUsuario : esExitosa()
+SesionUsuario -> SesionUsuario : 6:crearUsuario(datos)
+SesionUsuario -> SesionUsuario : 7:actualizarHoraDeInicio()
+SesionUsuario --> GestorSesionUsuario : 8:esExitosa()
 deactivate SesionUsuario
-GestorSesionUsuario -> VistaDashboard : mostrarDashboard()
+GestorSesionUsuario -> VistaDashboard : 9:mostrarDashboard()
 deactivate GestorSesionUsuario
 activate VistaDashboard
 deactivate VistaDashboard

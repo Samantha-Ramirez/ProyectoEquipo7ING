@@ -6,21 +6,26 @@ boundary VistaFormularioInicioSesion
 control GestorSesionUsuario
 entity SesionUsuario
 boundary VistaDashboard
+boundary VistaError
 
 
-user -> VistaFormularioInicioSesion : iniciarSesion()
+user -> VistaFormularioInicioSesion : 1:iniciarSesion()
 activate VistaFormularioInicioSesion
-user -> VistaFormularioInicioSesion : IngresarDatos()
-VistaFormularioInicioSesion -> GestorSesionUsuario : enviarDatos()
+user -> VistaFormularioInicioSesion : 2:ingresarDatos()
+VistaFormularioInicioSesion -> GestorSesionUsuario : 3:iniciarSesion()
 deactivate VistaFormularioInicioSesion
 activate GestorSesionUsuario
-GestorSesionUsuario -> SesionUsuario : verficarDatos()
+GestorSesionUsuario -> SesionUsuario : 4:verficarDatos()
 activate SesionUsuario
-SesionUsuario -> SesionUsuario : esCorrecto()
-SesionUsuario -> SesionUsuario : actualizarHoraDeInicio()
-SesionUsuario --> GestorSesionUsuario : responderValidacion()
+SesionUsuario -> SesionUsuario : 5:esCorrecto()
+SesionUsuario -> SesionUsuario : 6:actualizarHoraDeInicio()
+SesionUsuario --> GestorSesionUsuario : 7:responderValidacion()
 deactivate SesionUsuario
-GestorSesionUsuario -> VistaDashboard : mostrarDashboard()
+alt True
+GestorSesionUsuario -> VistaDashboard : 8:mostrarDashboard()
+else False
+GestorSesionUsuario -> VistaError : 8:mostrarError()
+end
 deactivate GestorSesionUsuario
 activate VistaDashboard
 deactivate VistaDashboard

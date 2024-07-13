@@ -1,22 +1,26 @@
 @startuml DiagramaDeSecuenciaRegistrarRecaudos
 
-actor ":Proponente" as actorProponente
+actor Proponente
+boundary VistaFormularioRegistroRecaudos
+control GestorRecaudos
+entity SesionUsuario
+boundary VistaError
+boundary VistaFormularioCargaCurso
 
-entity ":Propuesta" as entidadPropuesta
-entity ":Sesion de usuario" as entidadSesionUsuario
-
-boundary ":Formulario de registro de recaudos" as vistaDeRegistrarRecaudos
-boundary ":Formulario de carga de formulacion" as vistaDeFormulacion
-
-control ":Gestor de datos y recaudos" as ctrlGestorRecaudos
-
-actorProponente -> vistaDeRegistrarRecaudos : 1:registrarRecaudos()
-actorProponente -> vistaDeRegistrarRecaudos : 2:ingresarDatosYRecaudos()
-vistaDeRegistrarRecaudos -> ctrlGestorRecaudos : 3:esDatosCompletos()
-ctrlGestorRecaudos -> entidadPropuesta : 4:crearPropuesta()
-ctrlGestorRecaudos -> entidadPropuesta : 5:confirmarCreacion()
-ctrlGestorRecaudos -> entidadSesionUsuario : 6:guardarDatos()
-vistaDeRegistrarRecaudos -> ctrlGestorRecaudos : 7:confirmarCreacion()
-vistaDeRegistrarRecaudos -> vistaDeFormulacion : 8:mostrarCargaFormulacion()
-
+Proponente -> VistaFormularioRegistroRecaudos : 1:registrarDatosRecaudos()
+activate VistaFormularioRegistroRecaudos
+VistaFormularioRegistroRecaudos -> VistaFormularioRegistroRecaudos : 2:esDatosRecaudosCompletos()
+alt False
+VistaFormularioRegistroRecaudos -> VistaError : 3:mostrarError()
+end
+VistaFormularioRegistroRecaudos -> GestorRecaudos : 3:registrarRecaudos()
+deactivate VistaFormularioRegistroRecaudos
+activate GestorRecaudos
+activate SesionUsuario
+GestorRecaudos -> SesionUsuario : 4:guardarDatos(datos, userId)
+SesionUsuario -> SesionUsuario : 5:actualizarDatos(datos, userId)
+SesionUsuario --> GestorRecaudos : 6:esExitoso()
+deactivate SesionUsuario
+deactivate GestorRecaudos
+GestorRecaudos -> VistaFormularioCargaCurso : 7:mostrarCargaFormulacion(datos)
 @enduml

@@ -1,0 +1,32 @@
+@startuml DiagramaDeSecuenciaCargarFormulacion
+
+actor Proponente
+boundary VistaFormularioCargaCurso
+control GestorFormulacion
+entity Propuesta
+entity CursoDeExtension
+boundary VistaError
+
+Proponente -> VistaFormularioCargaCurso : 1:cargarFormulacion()
+activate VistaFormularioCargaCurso
+VistaFormularioCargaCurso -> GestorFormulacion : cargarFormulacion()
+deactivate VistaFormularioCargaCurso
+
+activate GestorFormulacion
+GestorFormulacion -> Propuesta : 4:crearPropuesta(datos, userId)
+
+activate Propuesta
+Propuesta -> Propuesta : 5:crearPropuesta(datos, userId)
+Propuesta --> GestorFormulacion : 6:confirmarCreacion()
+deactivate Propuesta
+
+alt False reenvío es mayor a 3 veces al año
+GestorFormulacion -> VistaError : 7:mostrarError()
+end
+
+GestorFormulacion -> CursoDeExtension : crearCurso(propuesta)
+CursoDeExtension -> CursoDeExtension : crearCurso(propuesta)
+CursoDeExtension --> GestorFormulacion : confirmarCreacion()
+deactivate GestorFormulacion
+
+@enduml
