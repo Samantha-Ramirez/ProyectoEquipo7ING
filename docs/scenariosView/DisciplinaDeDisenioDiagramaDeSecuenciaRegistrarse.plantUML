@@ -1,0 +1,30 @@
+@startuml DisciplinaDeDisenioDiagramaDeSecuenciaRegistrarse
+skinparam sequenceParticipant underline
+
+actor Usuario as user
+boundary ":Formulario de Registro" as FR
+control ":Gestor de sesión de usuario" as GSU
+entity ":Sesión de usuario" as SU
+boundary ":Vista de dashboard" as VD
+
+
+user -> FR : Registrarse()
+activate FR
+user -> FR : IngresarDatos()
+FR -> FR : esDatosCompletos()
+FR -> GSU : enviarDatos()
+deactivate FR
+activate GSU
+GSU -> SU : registrarUsuario()
+activate SU
+SU -> SU : CrearUsuario()
+SU -> SU :  actualizarHoraDeInicio()
+SU --> GSU : esExitosa()
+deactivate SU
+GSU -> VD : mostrarDashboard()
+deactivate GSU
+activate VD
+deactivate VD
+
+
+@enduml

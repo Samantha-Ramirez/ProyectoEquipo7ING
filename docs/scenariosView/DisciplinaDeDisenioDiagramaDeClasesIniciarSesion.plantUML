@@ -1,0 +1,34 @@
+@startuml DisciplinaDeDisenioDiagramaDeClasesIniciarSesion
+left to right direction
+
+class Usuario{
+    -String usuario
+    -String contraseña
+    +void iniciarSesion()
+    +void ingresarDatos(string usuario,String contraseña)
+}
+class FormularioDeInicioSesion{
+    +void enviarDatos(String usuario, String contrasña)
+}
+Usuario  -> FormularioDeInicioSesion 
+class GestorDeSesion{
+    +boolean verificarDatos(String Usuario, String contraseña)
+}
+note right of (GestorDeSesion)
+    patron de diseño 
+        Singleton 
+end note
+FormularioDeInicioSesion "*" --> "1" GestorDeSesion
+class SesionUsiario{
+    -String FechaHoraDeInicio
+    +void actualizarHoraDeInicio(String FechaHoraActual)
+    +boolean esCorrecto(String Usuario, String contraseña)
+}
+GestorDeSesion "1" -> "*" SesionUsiario
+
+class VistaDeDashboard{
+    +void mostrarDashboard()
+}
+GestorDeSesion  ->  VistaDeDashboard
+
+@enduml

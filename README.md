@@ -26,3 +26,6 @@
 ## Disciplina de análisis
 ![DiagramaDePaquetes](docs/scenariosView/DisciplinaDeAnalisisDiagramaDePaquetes.png)
 ![DisciplinaDeAnalisisEntrega3](docs/scenariosView/DisciplinaDeAnalisisEntrega3.pdf)
+
+## Disciplina de diseño
+![DisciplinaDeDiseñoEntrega4](docs/scenariosView/DisciplinaDeDiseñoEntrega4.pdf)
