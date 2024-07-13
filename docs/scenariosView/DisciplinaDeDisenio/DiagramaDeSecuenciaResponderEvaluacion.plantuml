@@ -1,0 +1,43 @@
+@startuml DiagramaDeSecuenciaResponderEvaluacion
+actor Administrador
+participant ":VistaEvaluacion" as VistaEvaluacion
+participant ":VistaInfoPropuesta" as VistaInfoPropuesta
+participant ":VistaObservaciones" as VistaObservaciones
+participant ":GestorEvaluacion" as GestorEvaluacion
+participant ":Propuesta" as Propuesta
+participant ":Aval" as Aval
+
+Administrador -> VistaEvaluacion : 1:verPropuesta()
+
+activate VistaEvaluacion
+VistaEvaluacion -> VistaInfoPropuesta : 2:getInfoPropuesta()
+
+activate VistaInfoPropuesta
+VistaInfoPropuesta -> Propuesta: 3:getInfoPropuesta(propuestaId)
+deactivate VistaInfoPropuesta
+
+activate Propuesta 
+Propuesta -> Propuesta : 4:getInfo(propuestaId)
+deactivate Propuesta
+'VistaInfoPropuesta --> VistaEvaluacion : returnInfoPropuesta()
+'VistaEvaluacion -> Administrador : mostrarInfoPropuesta()
+
+Administrador -> VistaEvaluacion : 5:evaluarAval()
+alt Es rechazado
+VistaEvaluacion -> VistaObservaciones : 6:mostrarObservaciones()
+activate VistaObservaciones
+Administrador -> VistaObservaciones : 7:setObservaciones()
+VistaObservaciones -> GestorEvaluacion : 8:setObservaciones()
+
+end
+VistaEvaluacion -> GestorEvaluacion : 9:evaluarAval()
+deactivate VistaEvaluacion 
+
+activate GestorEvaluacion
+GestorEvaluacion -> Aval: 10:guardarEvaluacion()
+activate Aval
+GestorEvaluacion -> Aval: 11:guardarObservaciones()
+deactivate Aval
+deactivate GestorEvaluacion
+
+@enduml

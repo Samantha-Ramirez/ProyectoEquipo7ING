@@ -1,32 +1,32 @@
 @startuml DiagramaDeSecuenciaCargarFormulacion
 
 actor Proponente
-boundary VistaFormularioCargaCurso
-control GestorFormulacion
-entity Propuesta
-entity CursoDeExtension
-boundary VistaError
+participant ":VistaFormularioCargaCurso" as VistaFormularioCargaCurso
+participant ":GestorFormulacion" as GestorFormulacion
+participant ":Propuesta" as Propuesta
+participant ":CursoDeExtension" as CursoDeExtension
+participant ":VistaError" as VistaError
 
 Proponente -> VistaFormularioCargaCurso : 1:cargarFormulacion()
 activate VistaFormularioCargaCurso
-VistaFormularioCargaCurso -> GestorFormulacion : cargarFormulacion()
+VistaFormularioCargaCurso -> GestorFormulacion : 2:cargarFormulacion()
 deactivate VistaFormularioCargaCurso
 
 activate GestorFormulacion
-GestorFormulacion -> Propuesta : 4:crearPropuesta(datos, userId)
+GestorFormulacion -> Propuesta : 3:crearPropuesta(datos, userId)
 
 activate Propuesta
-Propuesta -> Propuesta : 5:crearPropuesta(datos, userId)
-Propuesta --> GestorFormulacion : 6:confirmarCreacion()
+Propuesta -> Propuesta : 4:crearPropuesta(datos, userId)
 deactivate Propuesta
 
 alt False reenvío es mayor a 3 veces al año
-GestorFormulacion -> VistaError : 7:mostrarError()
+GestorFormulacion -> VistaError : 5:mostrarError()
 end
 
-GestorFormulacion -> CursoDeExtension : crearCurso(propuesta)
-CursoDeExtension -> CursoDeExtension : crearCurso(propuesta)
-CursoDeExtension --> GestorFormulacion : confirmarCreacion()
+GestorFormulacion -> CursoDeExtension : 5:crearCurso(propuesta)
+activate CursoDeExtension
+CursoDeExtension -> CursoDeExtension : 6:crearCurso(propuesta)
+deactivate CursoDeExtension
 deactivate GestorFormulacion
 
 @enduml

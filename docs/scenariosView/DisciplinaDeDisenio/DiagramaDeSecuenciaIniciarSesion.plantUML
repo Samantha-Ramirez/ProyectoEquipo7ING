@@ -2,11 +2,11 @@
 skinparam sequenceParticipant underline
 
 actor Usuario as user
-boundary VistaFormularioInicioSesion
-control GestorSesionUsuario
-entity SesionUsuario
-boundary VistaDashboard
-boundary VistaError
+participant ":VistaFormularioInicioSesion" as VistaFormularioInicioSesion
+participant ":GestorSesionUsuario" as GestorSesionUsuario
+participant ":SesionUsuario" as SesionUsuario
+participant ":VistaDashboard" as VistaDashboard
+participant ":VistaError" as VistaError
 
 
 user -> VistaFormularioInicioSesion : 1:iniciarSesion()
@@ -18,13 +18,12 @@ activate GestorSesionUsuario
 GestorSesionUsuario -> SesionUsuario : 4:verficarDatos()
 activate SesionUsuario
 SesionUsuario -> SesionUsuario : 5:esCorrecto()
-SesionUsuario -> SesionUsuario : 6:actualizarHoraDeInicio()
-SesionUsuario --> GestorSesionUsuario : 7:responderValidacion()
-deactivate SesionUsuario
 alt True
-GestorSesionUsuario -> VistaDashboard : 8:mostrarDashboard()
+SesionUsuario -> SesionUsuario : 6:actualizarHoraDeInicio()
+deactivate SesionUsuario
+GestorSesionUsuario -> VistaDashboard : 7:mostrarDashboard()
 else False
-GestorSesionUsuario -> VistaError : 8:mostrarError()
+GestorSesionUsuario -> VistaError : 7:mostrarError()
 end
 deactivate GestorSesionUsuario
 activate VistaDashboard

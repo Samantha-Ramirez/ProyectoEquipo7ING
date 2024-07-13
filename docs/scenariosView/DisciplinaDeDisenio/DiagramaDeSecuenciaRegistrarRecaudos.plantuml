@@ -1,11 +1,11 @@
 @startuml DiagramaDeSecuenciaRegistrarRecaudos
 
 actor Proponente
-boundary VistaFormularioRegistroRecaudos
-control GestorRecaudos
-entity SesionUsuario
-boundary VistaError
-boundary VistaFormularioCargaCurso
+participant ":VistaFormularioRegistroRecaudos" as VistaFormularioRegistroRecaudos
+participant ":GestorRecaudos" as GestorRecaudos
+participant ":SesionUsuario" as SesionUsuario
+participant ":VistaError" as VistaError
+participant ":VistaFormularioCargaCurso" as VistaFormularioCargaCurso
 
 Proponente -> VistaFormularioRegistroRecaudos : 1:registrarDatosRecaudos()
 activate VistaFormularioRegistroRecaudos
@@ -19,8 +19,8 @@ activate GestorRecaudos
 activate SesionUsuario
 GestorRecaudos -> SesionUsuario : 4:guardarDatos(datos, userId)
 SesionUsuario -> SesionUsuario : 5:actualizarDatos(datos, userId)
-SesionUsuario --> GestorRecaudos : 6:esExitoso()
 deactivate SesionUsuario
-deactivate GestorRecaudos
 GestorRecaudos -> VistaFormularioCargaCurso : 7:mostrarCargaFormulacion(datos)
+deactivate GestorRecaudos
+
 @enduml

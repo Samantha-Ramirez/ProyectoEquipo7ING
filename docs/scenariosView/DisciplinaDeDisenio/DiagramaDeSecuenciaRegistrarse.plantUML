@@ -2,11 +2,11 @@
 skinparam sequenceParticipant underline
 
 actor Usuario
-boundary VistaFormularioRegistro
-control GestorSesionUsuario
-entity SesionUsuario
-boundary VistaDashboard
-boundary VistaError
+participant ":VistaFormularioRegistro" as VistaFormularioRegistro
+participant ":GestorSesionUsuario" as GestorSesionUsuario
+participant ":SesionUsuario" as SesionUsuario
+participant ":VistaDashboard" as VistaDashboard
+participant ":VistaError" as VistaError
 
 
 Usuario -> VistaFormularioRegistro : 1:registrarse()
@@ -23,9 +23,8 @@ GestorSesionUsuario -> SesionUsuario : 5:registrarUsuario(datos)
 activate SesionUsuario
 SesionUsuario -> SesionUsuario : 6:crearUsuario(datos)
 SesionUsuario -> SesionUsuario : 7:actualizarHoraDeInicio()
-SesionUsuario --> GestorSesionUsuario : 8:esExitosa()
 deactivate SesionUsuario
-GestorSesionUsuario -> VistaDashboard : 9:mostrarDashboard()
+GestorSesionUsuario -> VistaDashboard : 8:mostrarDashboard()
 deactivate GestorSesionUsuario
 activate VistaDashboard
 deactivate VistaDashboard
