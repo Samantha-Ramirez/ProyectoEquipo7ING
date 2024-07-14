@@ -14,7 +14,7 @@ activate VistaFormularioRegistro
 Usuario -> VistaFormularioRegistro : 2:ingresarDatos()
 VistaFormularioRegistro -> VistaFormularioRegistro : 3:esDatosCompletos()
 alt False
-VistaFormularioRegistro --> VistaError: 4:mostrarError()
+VistaFormularioRegistro -> VistaError: 4:mostrarError()
 end
 VistaFormularioRegistro -> GestorSesionUsuario : 4:registrarse(datos)
 deactivate VistaFormularioRegistro

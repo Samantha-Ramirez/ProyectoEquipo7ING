@@ -1,0 +1,51 @@
+@startuml DiagramaDeClasesResponderEvaluacion
+class Administrador {
+  - id: int
+  - nombre: string
+  + verPropuesta(propuesta: Propuesta): void
+  + evaluarAval(propuesta: Propuesta, evaluacion: Evaluacion): void
+}
+
+class Propuesta {
+  - id: int
+  - estado: string
+  - titulo: string
+  - fechaCreacion: Date
+  + obtenerInfoPropuesta(): string
+  + devolverInfoPropuesta(): string
+  + evaluar(evaluacion: Evaluacion): void
+  + cambiarEstado(nuevoEstado: string): void
+}
+
+class Aval {
+  - id: int
+  - resultado: string
+  - comentarios: string
+  + guardar(): void
+}
+
+class VistaEvaluacion {
+  + mostrarInfoPropuesta(propuesta: Propuesta): void
+  + enviarEvaluacion(evaluacion: Evaluacion): void
+}
+
+class VistaInfoConsignada {
+  + obtenerInfoPropuesta(): string
+  + devolverInfoPropuesta(): string
+}
+
+class VistaObservaciones {
+}
+
+class GestorEvaluacion {
+  + enviarEvaluacion(evaluacion: Evaluacion): void
+  + guardarAval(aval: Aval): void
+}
+
+Administrador --> VistaEvaluacion
+VistaEvaluacion --> VistaInfoConsignada
+VistaEvaluacion --> VistaObservaciones
+VistaInfoConsignada --> Propuesta
+VistaEvaluacion --> GestorEvaluacion
+GestorEvaluacion --> Aval
+@enduml

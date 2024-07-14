@@ -1,0 +1,56 @@
+@startuml DiagramaDeTraza
+
+package "front" {
+  boundary "IniciarSesion" 
+  boundary "Registrarse" 
+  boundary "VerDashboard"
+  control "GestorSesionUsuario"
+  control "DashboardOpciones"
+  entity "Usuario" 
+
+  IniciarSesion --> Registrarse
+  IniciarSesion---> VerDashboard
+  IniciarSesion --> GestorSesionUsuario
+  Registrarse --> GestorSesionUsuario
+  GestorSesionUsuario --> Usuario
+  VerDashboard --> DashboardOpciones
+}
+
+package "backend" {
+  control "GestorDeInformacionDelExpediente"
+  Control "GestorDeInformacionDeCursos"
+  control "GestorDeDatosRecaudos"
+  entity "SistemaDeDatos" 
+
+  GestorDeDatosRecaudos --> SistemaDeDatos
+  GestorDeInformacionDeCursos --> SistemaDeDatos
+  GestorDeInformacionDelExpediente --> SistemaDeDatos
+
+
+}
+
+package "analysis" {
+ boundary "Vista" 
+ control "Procesamiento"
+ entity "BaseDeDatos"
+
+ Vista --> Procesamiento
+ Procesamiento--> BaseDeDatos
+}
+
+IniciarSesion -.-> Vista : "trace"
+Registrarse -.-> Vista : "trace"
+VerDashboard -.-> Vista : "trace"
+
+
+DashboardOpciones -.-> GestorDeDatosRecaudos : "trace"
+DashboardOpciones -.-> GestorDeInformacionDeCursos : "trace"
+DashboardOpciones -.-> GestorDeInformacionDelExpediente : "trace"
+Usuario -.-> SistemaDeDatos : "trace"
+
+GestorSesionUsuario -.-> Procesamiento : "trace"
+DashboardOpciones -.-> Procesamiento : "trace"
+Usuario -.-> BaseDeDatos : "trace"
+SistemaDeDatos -.-> BaseDeDatos : "Trace"
+
+@enduml

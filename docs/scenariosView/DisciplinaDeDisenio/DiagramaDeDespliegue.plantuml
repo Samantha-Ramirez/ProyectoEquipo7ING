@@ -1,49 +1,57 @@
 @startuml DiagramaDeDespliegue
 
-node "Usuario" {
-  [Navegador Web Usuario]
+node "Cliente" {
+  node "Usuario" {
+  }
+  node "Administrador" {
+  }
 }
 
-node "Administrador" {
-  [Navegador Web Administrador]
+node "Servidor Web" {
+  
 }
 
 node "Servidor de Aplicaciones" {
   node "gestionDeCartasDePropuesta" {
-    [GenerarCartaDeCompromiso]
-    [FirmarCartaDeIntencion]
+    ' [GenerarCartaDeCompromiso]
+    ' [FirmarCartaDeIntencion]
   }
   
   node "gestionDeProcesoPropuesta" {
-    [RegistrarRecaudos]
-    [CargarFormulacionDelCursoDeExtension]
+    ' [RegistrarRecaudos]
+    ' [CargarFormulacionDelCursoDeExtension]
   }
 
   node "gestionDeAval" {
-    [EvaluarInformacionConsignada]
-    [ResponderEvaluacionDeAval]
+    ' [EvaluarInformacionConsignada]
+    ' [ResponderEvaluacionDeAval]
   }
 
   node "gestionDeSesionUsuario" {
-    [IniciarSesion]
-    [Registrarse]
-    [VerDashboard]
-    [CerrarSesion]
+    ' [IniciarSesion]
+    ' [Registrarse]
+    ' [VerDashboard]
+    ' [CerrarSesion]
   }
 
   node "gestionDePresentacionesDeCurso" {
-    [PresentarCronogramaDeEjecucion]
-    [PresentarEstructuraDeCostosEIngreso]
+    ' [PresentarCronogramaDeEjecucion]
+    ' [PresentarEstructuraDeCostosEIngreso]
   }
 
   node "gestionDeCursosPropuestos" {
-    [VerEstadoDeAval]
-    [VerCursosPropuestos]
-    [VerExpediente]
+    ' [VerEstadoDeAval]
+    ' [VerCursosPropuestos]
+    ' [VerExpediente]
   }
 }
 
-[Navegador Web Usuario] --> [Servidor de Aplicaciones] : HTTP
-[Navegador Web Administrador] --> [Servidor de Aplicaciones] : HTTP
+node "Base de Datos" {
+  node "CourseManagerUCV" {
+  }
+}
+[Cliente] -- [Servidor Web]
+[Servidor Web] -d-- [Servidor de Aplicaciones] : HTTP
+[Servidor de Aplicaciones] -d-- [Base de Datos]
 
 @enduml

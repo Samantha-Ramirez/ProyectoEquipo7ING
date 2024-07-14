@@ -1,35 +1,89 @@
 @startuml DiagramaDeClasesRegistrarRecaudos
-left to right direction
-
 class Proponente{
-    
+    -String nombre
+    -String tipoPersona
+    -String CI
+    -String RIF
+    -String certificadosDeclaracionISLR
+    -String resumenCurricular
+    -String tituloUniversitario
+    -String registroMercantil
+    -boolean esComunidadUniversitaria
 }
 class Propuesta{
-    +crearPropuesta()
-    confirmarCreacion()
+    -enum estado
+    '-String unidadResponsableDeTramite
+    ' -String denominacion
+    ' -String objetivos
+    ' -String fundamentacion 
+    ' -String perfilParticipantes
+    ' -String perfilDocente
+    ' -String curriculoPorCompetencias
+    ' -String estrategiasDeEvaluacion
+    ' -String exigenciasMaterialesYServicios
+    ' -String duracion
+    +void actualizarDatos(Hashtable datos, userId)
+    +Propuesta crearPropuesta(Hashtable datos, userId, int estado=0)
+    +void setEstado(int estado)
 }
 class SesionUsuario{
-    guardarDatos
+    +void actualizarDatos(Hashtable datos)
 }
-class FormularioRegistroRecaudos{
-    +void mostrarVista()
-    +void mostrarDatosPersonales()
-    +void mostrarRecaudos()
-    registrarRecaudos()
-    ingresarDatosYRecaudos()
+class VistaFormularioRegistroRecaudos{
+    -jButton botonEnviar
+    -jTextArea textoDatos
+    -jPanel panelDatos
+    -jPanel panelRecaudos
+    +void mostrarFormularioRegistroRecaudos()
+    +void registrarDatosRecaudos()
+    +void mostrarError()
+    +Boolean esDatosRecaudosCompletos()
 }
-class FormularioCargaFormulacion{
-    mostrarCargaFormulacion()
+class VistaFormularioCargaCurso{
+    -jButton botonEnviar
+    -jTextArea textoDatos
+    +void mostrarCargaFormulacion(Hashtable datos)
 }
-class GestorDatosRecaudos{
-    +void esDatosCompletos()
-    confirmarCreacion()
+class GestorRecaudos{
+    +void guardarDatos(Hashtable datos, int userId)
+    +void mostrarCargaFormulacion(Hashtable datos)
 }
+class GestorFormulacion{
+    +Propuesta crearPropuesta(Hashtable datos, int userId)
+    +CursoDeExtension crearCurso(Propuesta propuesta)
+    +Boolean validarReformulacionPropuesta(Propuesta propuesta)
+    +void mostrarError() 
+}
+note right of (GestorFormulacion)
+    Validar reenvío no 
+    es mayor a 3 veces 
+    al año
+end note
+class CursoDeExtension{
+    -String areaConocimiento 
+    -String modalidad
+    -enum tipoCurso
+    -int ingresosNetos
+    +CursoDeExtension crearCurso(Propuesta propuesta)
+}
+class VistaError{
+    
+}
+Proponente -d-> VistaFormularioRegistroRecaudos
+VistaFormularioRegistroRecaudos -d-> GestorRecaudos
+GestorRecaudos -d-> Propuesta
+GestorRecaudos -d-> SesionUsuario
+GestorRecaudos --> VistaFormularioCargaCurso
+VistaFormularioRegistroRecaudos -> VistaFormularioCargaCurso
+CursoDeExtension "1..*" -- "1" Proponente
+(CursoDeExtension , Proponente) -r.. Propuesta
 
-Proponente -> FormularioRegistroRecaudos
-FormularioRegistroRecaudos -> GestorDatosRecaudos
-GestorDatosRecaudos -> Propuesta
-GestorDatosRecaudos -> SesionUsuario
-FormularioRegistroRecaudos -> FormularioCargaFormulacion
+Proponente -d-> VistaFormularioCargaCurso
+VistaFormularioCargaCurso -d-> GestorFormulacion
+GestorFormulacion -> Propuesta
+CursoDeExtension <- GestorFormulacion
+
+VistaFormularioRegistroRecaudos -> VistaError
+'VistaFormularioCargaCurso -> VistaError
 
 @enduml
