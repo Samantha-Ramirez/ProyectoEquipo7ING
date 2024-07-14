@@ -22,8 +22,8 @@ class Propuesta{
     ' -String estrategiasDeEvaluacion
     ' -String exigenciasMaterialesYServicios
     ' -String duracion
-    +void actualizarDatos(Hashtable datos, userId)
-    +Propuesta crearPropuesta(Hashtable datos, userId, int estado=0)
+    +void actualizarDatos(Hashtable datos, int userId)
+    +Propuesta crearPropuesta(Hashtable datos, int userId, int estado=0)
     +void setEstado(int estado)
 }
 class SesionUsuario{
@@ -74,7 +74,7 @@ VistaFormularioRegistroRecaudos -d-> GestorRecaudos
 GestorRecaudos -d-> Propuesta
 GestorRecaudos -d-> SesionUsuario
 GestorRecaudos --> VistaFormularioCargaCurso
-VistaFormularioRegistroRecaudos -> VistaFormularioCargaCurso
+'VistaFormularioRegistroRecaudos -> VistaFormularioCargaCurso
 CursoDeExtension "1..*" -- "1" Proponente
 (CursoDeExtension , Proponente) -r.. Propuesta
 
