@@ -1,5 +1,5 @@
 package main.View.gestionDeSesionUsuario;
 
-public class VistaFormularioDeInicioSesion {
+public class VistaInicioSesion {
     
 }
