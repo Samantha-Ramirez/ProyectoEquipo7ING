@@ -1,17 +1,21 @@
 @startuml DiagramaDeDespliegue
 
-node "Cliente" {
+node "Cliente" as client {
   node "Usuario" {
   }
   node "Administrador" {
   }
 }
 
-node "Servidor Web" {
+node "Cliente Web" as webClient {
   
 }
 
-node "Servidor de Aplicaciones" {
+node "Cliente Movil" as mobileClient {
+  
+}
+
+node "Servidor de Aplicaciones" as appServer {
   node "gestionDeCartasDePropuesta" {
     ' [GenerarCartaDeCompromiso]
     ' [FirmarCartaDeIntencion]
@@ -46,12 +50,13 @@ node "Servidor de Aplicaciones" {
   }
 }
 
-node "Base de Datos" {
-  node "CourseManagerUCV" {
-  }
+node "Base de Datos" as db {
+  ' node "CourseManagerUCV" {
+  ' }
 }
-[Cliente] -- [Servidor Web]
-[Servidor Web] -d-- [Servidor de Aplicaciones] : HTTP
-[Servidor de Aplicaciones] -d-- [Base de Datos]
+webClient --|> client
+mobileClient --|> client
+client -d-- appServer : HTTP
+appServer -d-- db
 
 @enduml

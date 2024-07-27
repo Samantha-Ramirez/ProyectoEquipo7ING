@@ -1,9 +1,9 @@
 @startuml DiagramaDePaquetes
 left to right direction
 
-package "gestionDeCursos" as G_cursos{
-    'object CursoDeExtension
-} 
+' package "gestionDeCursos" as G_cursos{
+'     object CursoDeExtension
+' } 
 
 package "gestionDeCursosPropuestos" as G_cursosPropuestos{
     object VerCursosPropuestos
@@ -39,14 +39,16 @@ package "gestionDeSesionUsuario" as G_user {
     object VerDashboard
 }
 
-G_cursos --> G_user #Black;line.dashed;
-G_aval --> G_cursos #Black;line.dashed;
-G_cursosPropuestos --> G_cursos #Black;line.dashed;
-G_propuesta --> G_cursosPropuestos #Black;line.dashed;
-G_cartas --> G_propuesta #Black;line.dashed;
-G_presentaciones --> G_cursosPropuestos #Black;line.dashed;
-'G_aval --> G_user #Black;line.dashed;
-'G_cursosPropuestos ----> G_user #Black;line.dashed;
-'G_propuesta ------> G_user #Black;line.dashed;
+G_cursosPropuestos -d-> G_user #Black;line.dashed;
+' G_cursosPropuestos --> G_cursos #Black;line.dashed;
+
+
+G_presentaciones -d-> G_cursosPropuestos #Black;line.dashed;
+G_aval -d-> G_cursosPropuestos #Black;line.dashed;
+G_propuesta -d-> G_cursosPropuestos #Black;line.dashed;
+G_cartas -d-> G_propuesta #Black;line.dashed;
+' G_aval --> G_user #Black;line.dashed;
+' G_cursosPropuestos ----> G_user #Black;line.dashed;
+' G_propuesta ------> G_user #Black;line.dashed;
 
 @enduml
