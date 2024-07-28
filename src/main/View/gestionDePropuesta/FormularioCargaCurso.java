@@ -12,26 +12,21 @@ public class FormularioCargaCurso extends VentanaPrincipal {
 
         JPanel panelCentral = crearPanel(false, 0, 0);
 
-        JPanel panelDatos = crearPanel(true, 3, 2);
-        agregarLabel(panelCentral, "Datos personales", true);
-        agregarRecuadroTexto(panelDatos, "Nombre", "Ingrese su nombre");
-        agregarRecuadroTexto(panelDatos, "Persona", "Natural/Juridica");
-        agregarRecuadroTexto(panelDatos, "Es de la comunidad", "Sí/No");
-        agregarRecuadroTexto(panelDatos, "RIF", "Ingrese su RIF");
-        agregarRecuadroTexto(panelDatos, "CI", "Ingrese su CI");
-        
-        JPanel panelRecaudos = crearPanel(true, 2, 2);
-        agregarLabel(panelCentral, "Recaudos", true);
-        agregarRecuadroTexto(panelRecaudos, "Certificado de ISLR", "Adjuntar archivo");
-        agregarRecuadroTexto(panelRecaudos, "Curriculum", "Adjuntar archivo");
-        agregarRecuadroTexto(panelRecaudos, "Título universitario", "Adjuntar archivo");
-        agregarRecuadroTexto(panelRecaudos, "Registro mercantil", "Adjuntar archivo");
+        JPanel panelAdjuntos = crearPanel(true, 9, 1);
+        agregarRecuadroTexto(panelAdjuntos, "Unidad responsable", "Ingrese unidad");
+        agregarRecuadroTexto(panelAdjuntos, "Denominación", "Ingrese denominación");
+        agregarRecuadroTexto(panelAdjuntos, "Fundamentación", "Ingrese fundamentación");
+        agregarRecuadroTexto(panelAdjuntos, "Duración", "Ingrese duración");
+        agregarBotonAdjunto(panelAdjuntos, "Perfiles de participantes", "Adjuntar archivo");
+        agregarBotonAdjunto(panelAdjuntos, "Perfil de docente", "Adjuntar archivo");
+        agregarBotonAdjunto(panelAdjuntos, "Estructura curricular", "Adjuntar archivo");
+        agregarBotonAdjunto(panelAdjuntos, "Estrategias de evaluación", "Adjuntar archivo");
+        agregarBotonAdjunto(panelAdjuntos, "Exigencias", "Adjuntar archivo");
 
         JPanel panelBoton = crearPanel(false, 0 , 0);
-        agregarBoton(panelBoton, "Continuar");
+        agregarBoton(panelBoton, "Enviar");
 
-        panelCentral.add(panelDatos, BorderLayout.NORTH);
-        panelCentral.add(panelRecaudos, BorderLayout.CENTER);
+        panelCentral.add(panelAdjuntos, BorderLayout.CENTER);
         panelCentral.add(panelBoton, BorderLayout.SOUTH);
 
         agregarPanel(panelCentral, BorderLayout.CENTER);

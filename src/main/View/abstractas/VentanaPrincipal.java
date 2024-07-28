@@ -50,7 +50,7 @@ public class VentanaPrincipal extends Ventana {
         boton.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));  
         boton.setBackground(Color.WHITE);  
         boton.setForeground(Color.BLACK);  
-        boton.setFont(new Font("Arial", Font.PLAIN, 16));  
+        boton.setFont(new Font("Arial", Font.PLAIN, 10));  
 
         // Agregar boton al panel  
         panel.add(boton);
@@ -92,6 +92,14 @@ public class VentanaPrincipal extends Ventana {
         });  
         // Agregar recuadro de texto al panel
         panel.add(textField);
+    }
+
+    public JButton agregarBotonAdjunto(JPanel panel, String title, String placeholder){
+        // Crear label
+        agregarLabel(panel, title, false);
+        // Crear boton 
+        JButton boton = agregarBoton(panel, placeholder);
+        return boton;
     }
 
     public void botonAbrirVentana(JButton boton, Ventana ventana){

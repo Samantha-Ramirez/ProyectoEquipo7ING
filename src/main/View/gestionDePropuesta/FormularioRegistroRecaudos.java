@@ -22,14 +22,14 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
         
         JPanel panelRecaudos = crearPanel(true, 2, 2);
         agregarLabel(panelCentral, "Recaudos", true);
-        agregarRecuadroTexto(panelRecaudos, "Certificado de ISLR", "Adjuntar archivo");
-        agregarRecuadroTexto(panelRecaudos, "Curriculum", "Adjuntar archivo");
-        agregarRecuadroTexto(panelRecaudos, "Título universitario", "Adjuntar archivo");
-        agregarRecuadroTexto(panelRecaudos, "Registro mercantil", "Adjuntar archivo");
+        agregarBotonAdjunto(panelRecaudos, "Certificado de ISLR", "Adjuntar archivo");
+        agregarBotonAdjunto(panelRecaudos, "Curriculum", "Adjuntar archivo");
+        agregarBotonAdjunto(panelRecaudos, "Título universitario", "Adjuntar archivo");
+        agregarBotonAdjunto(panelRecaudos, "Registro mercantil", "Adjuntar archivo");
 
         JPanel panelBoton = crearPanel(false, 0 , 0);
         JButton boton = agregarBoton(panelBoton, "Continuar");
-        FormularioCargaCurso form = new FormularioCargaCurso("Proponente | Cargar formulacion");
+        FormularioCargaCurso form = new FormularioCargaCurso("Proponente | Cargar formulación del curso");
         botonAbrirVentana(boton, form);
 
         panelCentral.add(panelDatos, BorderLayout.NORTH);
