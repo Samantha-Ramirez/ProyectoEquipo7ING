@@ -1,11 +1,8 @@
 package main.Controller.gestionDeSesionUsuario;
 
-import main.View.gestionDeSesionUsuario.VistaError;
-import main.View.gestionDeSesionUsuario.VistaInicioSesion;
-import main.View.gestionDeSesionUsuario.VistaRegistro;
-import main.View.gestionDeSesionUsuario.VistaDashboard;
+import main.View.gestionDeSesionUsuario.*;
+import main.Model.gestionDeSesionUsuario.*;
 import javax.swing.*;
-import main.Model.gestionDeSesionUsuario.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

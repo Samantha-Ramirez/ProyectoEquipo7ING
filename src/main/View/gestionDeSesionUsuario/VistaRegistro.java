@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import main.Controller.gestionDeSesionUsuario.GestorDeSesion;
 
-
 public class VistaRegistro extends JFrame {
     private JTextField campoUsuario;
     private JPasswordField campoClave;

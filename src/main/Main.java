@@ -1,11 +1,7 @@
 package main;
 
-
-import main.Controller.gestionDeSesionUsuario.GestorDeSesion;
-import main.Model.gestionDeSesionUsuario.Usuario;
-import main.View.gestionDeSesionUsuario.VistaInicioSesion;
-import main.View.gestionDeSesionUsuario.VistaRegistro;
-import main.View.gestionDeSesionUsuario.VistaDashboard;
+import main.Controller.gestionDeSesionUsuario.*;
+import main.View.gestionDeSesionUsuario.*;
 
 import javax.swing.*;
 
