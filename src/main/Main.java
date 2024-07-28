@@ -1,6 +1,5 @@
 package main;
 
-
 import main.Controller.gestionDeSesionUsuario.GestorDeSesion;
 import main.Model.gestionDeSesionUsuario.Usuario;
 import main.View.gestionDeSesionUsuario.VistaInicioSesion;
