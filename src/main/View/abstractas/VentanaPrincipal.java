@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class VentanaPrincipal extends Ventana {  
+    protected JPanel panelCentral;
 
     public VentanaPrincipal(String title) {  
         // Configuración de la ventana principal
@@ -38,8 +39,9 @@ public class VentanaPrincipal extends Ventana {
         return panel;
     }
     
-    public void agregarPanel(JPanel panel, String pos){
+    public void agregarPanelCentral(JPanel panel, String pos){
         add(panel, pos);
+        this.panelCentral = panel;
     }
 
     public JButton agregarBoton(JPanel panel, String title){
@@ -66,32 +68,34 @@ public class VentanaPrincipal extends Ventana {
         panel.add(label); 
     }
     
-    public void agregarRecuadroTexto(JPanel panel, String title, String placeholder){
+    public JText agregarRecuadroTexto(JPanel panel, String title, String placeholder){
         // Crear label
         agregarLabel(panel, title, false);
 
         // Configurar recuadro de texto  
-        JTextField textField = new JTextField(16);  
-        textField.setText(placeholder);  
+        JText textField = new JText(16);  
+        textField.setPlaceholder(placeholder); 
         textField.setForeground(Color.GRAY); // Color placeholder
 
         // Agregar una accion para limpiar el placeholder
         textField.addFocusListener(new java.awt.event.FocusAdapter() {  
             public void focusGained(java.awt.event.FocusEvent evt) {  
                 if (textField.getText().equals(placeholder)) {  
-                    textField.setText("");  
+                    textField.setText(""); 
                     textField.setForeground(Color.BLACK);  
                 }  
             }  
             public void focusLost(java.awt.event.FocusEvent evt) {  
                 if (textField.getText().isEmpty()) {  
                     textField.setForeground(Color.GRAY);  
-                    textField.setText(placeholder);  
+                    textField.setText(placeholder); 
                 }  
             }  
         });  
+        
         // Agregar recuadro de texto al panel
         panel.add(textField);
+        return textField;
     }
 
     public JButton agregarBotonAdjunto(JPanel panel, String title, String placeholder){
@@ -102,15 +106,25 @@ public class VentanaPrincipal extends Ventana {
         return boton;
     }
 
-    public void botonAbrirVentana(JButton boton, Ventana ventana){
-        // Acción para el botón "Responder evaluación de aval"
-        boton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    // Abrir ventana
-                    // Ventana ventana = new Ventana(title);
-                    ventana.setVisible(true);
-                }
-            });
+    public void mostrarError(JPanel panel, String msg){
+        JOptionPane.showMessageDialog(panel, msg, "Warning", JOptionPane.WARNING_MESSAGE);  
     }
+
+    public Boolean esDatosCompletos(JText[] recuadrosTexto){
+        for(int i = 0; i<recuadrosTexto.length; i++){
+            if (recuadrosTexto[i].getText().equals(recuadrosTexto[i].placeholder) || recuadrosTexto[i].getText().trim().isEmpty()) 
+                return false;
+            
+        }
+        return true;
+    }
+
+    public void botonAbrirVentana(JButton boton, Ventana ventana){
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana.setVisible(true);
+            }
+        });
+    }  
 }  

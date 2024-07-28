@@ -29,7 +29,7 @@ public class FormularioCargaCurso extends VentanaPrincipal {
         panelCentral.add(panelAdjuntos, BorderLayout.CENTER);
         panelCentral.add(panelBoton, BorderLayout.SOUTH);
 
-        agregarPanel(panelCentral, BorderLayout.CENTER);
+        agregarPanelCentral(panelCentral, BorderLayout.CENTER);
     }
 
     public static void main(String[] args) {  
