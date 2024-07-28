@@ -119,10 +119,3 @@ public class VistaRegistro extends JFrame {
     }
 
 }
-
-
-
-
-
-
-

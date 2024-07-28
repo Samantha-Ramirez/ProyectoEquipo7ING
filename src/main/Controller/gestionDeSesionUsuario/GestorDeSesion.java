@@ -1,14 +1,16 @@
 package main.Controller.gestionDeSesionUsuario;
 
-import main.View.gestionDeSesionUsuario.*;
 import main.View.abstractas.VistaError;
-import main.View.gestionDePropuesta.*;
+import main.View.gestionDeSesionUsuario.*;
+import main.Controller.gestionDePropuesta.GestorFormulacion;
+import main.Controller.gestionDePropuesta.GestorRecaudos;
 import main.Model.gestionDeSesionUsuario.*;
-import javax.swing.*;
+import main.View.gestionDePropuesta.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GestorDeSesion implements ActionListener{
+public class GestorDeSesion implements ActionListener {
 
         // instancias de las clases que vista y modelo
         private VistaRegistro vistaRegistro;
@@ -65,6 +67,7 @@ public class GestorDeSesion implements ActionListener{
                     // Crea una instancia de Usuario y registra los datos
                     usuario1 = new Usuario(usuario, clave);
                     usuario1.setTipoUsuario(tipoUsuario);
+                    
                     if(usuario1.datosCompletos()){ // Evalua si los datos de usuario y clave estan cmpletos
                         if(usuario1.registrarDatos()){ // si el registro se realiza de forma correcta entonces retorna true
                             seleccionarDashboard(usuario1.getTipoUsuario()); // llama a la funcion que despliega el dashboard que le corresponde al usuario
@@ -123,8 +126,7 @@ public class GestorDeSesion implements ActionListener{
                     break;
                 case "CARGAR_FORMULACION":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                        FormularioCargaCurso formCargaCurso = new FormularioCargaCurso();
-                        formCargaCurso.setVisible(true);
+                    new GestorFormulacion(usuario1);
                     break;
 
                 case "VER_CURSOS":
@@ -138,8 +140,7 @@ public class GestorDeSesion implements ActionListener{
                     break;
                 case "REGISTRAR_RECUADOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    FormularioRegistroRecaudos formRegistroRecaudos = new FormularioRegistroRecaudos();
-                    formRegistroRecaudos.setVisible(true);
+                    new GestorRecaudos(usuario1);
                     
                     break;
 

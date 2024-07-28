@@ -125,4 +125,7 @@ public class Usuario {
         }
     }
 
+    public void actualizarDatos(String nombre, String persona, String RIF, String CI, String esComunidad){
+
+    }
 }

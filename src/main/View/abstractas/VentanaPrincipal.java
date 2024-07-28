@@ -106,15 +106,10 @@ public class VentanaPrincipal extends Ventana {
         return boton;
     }
 
-    public void mostrarError(JPanel panel, String msg){
-        JOptionPane.showMessageDialog(panel, msg, "Warning", JOptionPane.WARNING_MESSAGE);  
-    }
-
     public Boolean esDatosCompletos(JText[] recuadrosTexto){
         for(int i = 0; i<recuadrosTexto.length; i++){
             if (recuadrosTexto[i].getText().equals(recuadrosTexto[i].placeholder) || recuadrosTexto[i].getText().trim().isEmpty()) 
                 return false;
-            
         }
         return true;
     }
@@ -126,5 +121,16 @@ public class VentanaPrincipal extends Ventana {
                 ventana.setVisible(true);
             }
         });
-    }  
+    } 
+
+    public JComboBox<String> agregarCombo(JPanel panel, String title, String op1, String op2){
+        // Crear label
+        agregarLabel(panel, title, false);
+
+        JComboBox<String> combo = new JComboBox<>(new String[]{op1, op2});
+        // gbc.gridx = 1;
+        // gbc.gridy = 3;
+        panel.add(combo);
+        return combo;
+    }
 }  
