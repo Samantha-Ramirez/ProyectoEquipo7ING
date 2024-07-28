@@ -5,9 +5,9 @@ import javax.swing.*;
 
 import main.View.abstractas.*;
 
-public class FormularioRegistroRecaudos extends VentanaPrincipal {  
+public class FormularioCargaCurso extends VentanaPrincipal {  
 
-    public FormularioRegistroRecaudos(String title) {  
+    public FormularioCargaCurso(String title) {  
         super(title);
 
         JPanel panelCentral = crearPanel(false, 0, 0);
@@ -28,9 +28,7 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
         agregarRecuadroTexto(panelRecaudos, "Registro mercantil", "Adjuntar archivo");
 
         JPanel panelBoton = crearPanel(false, 0 , 0);
-        JButton boton = agregarBoton(panelBoton, "Continuar");
-        FormularioCargaCurso form = new FormularioCargaCurso("Proponente | Cargar formulacion");
-        botonAbrirVentana(boton, form);
+        agregarBoton(panelBoton, "Continuar");
 
         panelCentral.add(panelDatos, BorderLayout.NORTH);
         panelCentral.add(panelRecaudos, BorderLayout.CENTER);
@@ -40,7 +38,7 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
     }
 
     public static void main(String[] args) {  
-        FormularioRegistroRecaudos form = new FormularioRegistroRecaudos("Proponente | Registrar recaudos");  
+        FormularioCargaCurso form = new FormularioCargaCurso("Proponente | Cargar formulacion");  
         form.setVisible(true);  
     }  
 }  
