@@ -7,8 +7,8 @@ import main.View.abstractas.*;
 
 public class FormularioCargaCurso extends VentanaPrincipal {  
 
-    public FormularioCargaCurso(String title) {  
-        super(title);
+    public FormularioCargaCurso() {  
+        super("Proponente | Cargar formulacion");
 
         JPanel panelCentral = crearPanel(false, 0, 0);
 
@@ -32,8 +32,8 @@ public class FormularioCargaCurso extends VentanaPrincipal {
         agregarPanelCentral(panelCentral, BorderLayout.CENTER);
     }
 
-    public static void main(String[] args) {  
-        FormularioCargaCurso form = new FormularioCargaCurso("Proponente | Cargar formulacion");  
+    public static void main(String[] args) { 
+        FormularioCargaCurso form = new FormularioCargaCurso();  
         form.setVisible(true);  
     }  
 }  

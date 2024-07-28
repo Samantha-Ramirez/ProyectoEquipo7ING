@@ -1,6 +1,8 @@
 package main.Controller.gestionDeSesionUsuario;
 
 import main.View.gestionDeSesionUsuario.*;
+import main.View.abstractas.VistaError;
+import main.View.gestionDePropuesta.*;
 import main.Model.gestionDeSesionUsuario.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -46,7 +48,6 @@ public class GestorDeSesion implements ActionListener{
                     break;
             }
         }
-
 
         @Override
         public void actionPerformed( ActionEvent e) {
@@ -122,7 +123,8 @@ public class GestorDeSesion implements ActionListener{
                     break;
                 case "CARGAR_FORMULACION":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Cargar Formulacion"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+                        FormularioCargaCurso formCargaCurso = new FormularioCargaCurso();
+                        formCargaCurso.setVisible(true);
                     break;
 
                 case "VER_CURSOS":
@@ -136,7 +138,9 @@ public class GestorDeSesion implements ActionListener{
                     break;
                 case "REGISTRAR_RECUADOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Registrar Recaudos"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+                    FormularioRegistroRecaudos formRegistroRecaudos = new FormularioRegistroRecaudos();
+                    formRegistroRecaudos.setVisible(true);
+                    
                     break;
 
                 case "VER_PROPUESTAS":
@@ -147,9 +151,4 @@ public class GestorDeSesion implements ActionListener{
                     break;
             }
         }
-
-
 }
-
-
-

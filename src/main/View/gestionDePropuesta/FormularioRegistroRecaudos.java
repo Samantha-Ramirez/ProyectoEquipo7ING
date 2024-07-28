@@ -13,9 +13,10 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
     JText esComunidad;
     JText RIF;
     JText CI;
+    VistaError error;
 
-    public FormularioRegistroRecaudos(String title) {  
-        super(title);
+    public FormularioRegistroRecaudos() {  
+        super("Proponente | Registrar recaudos");
 
         JPanel panelCentral = crearPanel(false, 0, 0);
         
@@ -42,7 +43,7 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
         JPanel panelBoton = crearPanel(false, 0 , 0);
         JButton boton = agregarBoton(panelBoton, "Continuar");
         // abrir ventana de Cargar formulacion de curso
-        FormularioCargaCurso form = new FormularioCargaCurso("Proponente | Cargar formulación del curso");
+        FormularioCargaCurso form = new FormularioCargaCurso();
         // listener
         botonAbrirVentana(boton, form);
 
@@ -56,7 +57,7 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
     public void esDatosRecaudosCompletos(Ventana ventana){
         JText[] recuadrosTexto = {this.nombre, this.persona, this.esComunidad, this.RIF, this.CI};
         if(!esDatosCompletos(recuadrosTexto)){
-            mostrarError(this.panelCentral, "Debe completar");
+            error = new VistaError("Debe completar");
         }else{
             ventana.setVisible(true);
         }
@@ -72,7 +73,7 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
     }
 
     public static void main(String[] args) {  
-        FormularioRegistroRecaudos form = new FormularioRegistroRecaudos("Proponente | Registrar recaudos");  
+        FormularioRegistroRecaudos form = new FormularioRegistroRecaudos();  
         form.setVisible(true);  
     }  
 }  

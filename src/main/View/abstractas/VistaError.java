@@ -1,4 +1,4 @@
-package main.View.gestionDeSesionUsuario;
+package main.View.abstractas;
 
 import javax.swing.*;
 import java.awt.*;
