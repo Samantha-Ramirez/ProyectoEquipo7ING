@@ -1,3 +1,0 @@
-Proponente
-123
-src/main/Data/ivanys_registroHora.txt

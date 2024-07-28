@@ -1,3 +1,0 @@
-Administrador
-123
-src/main/Data/carlos_registroHora.txt
