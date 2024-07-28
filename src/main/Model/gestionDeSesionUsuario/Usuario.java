@@ -17,6 +17,10 @@ public class Usuario {
     private String clave;
     private String tipoUsuario;
     private String archivoRegistroDeHora;
+    private String persona;
+    private String RIF;
+    private String CI;
+    private String esComunidad;
 
     // Constructor de la clase Usuario, inicializa nombreUsuario y clave
     public Usuario (String nombreUsuario, String clave){
@@ -89,8 +93,6 @@ public class Usuario {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     // revisa si los datos ingresados en el inicio de sesion son correctos
@@ -125,7 +127,30 @@ public class Usuario {
         }
     }
 
-    public void actualizarDatos(String nombre, String persona, String RIF, String CI, String esComunidad){
+    public void actualizarDatos(String nombreUsuario, String persona, String RIF, String CI, String esComunidad){
+        this.persona = persona;
+        this.RIF = RIF;
+        this.CI = CI;
+        this.esComunidad = esComunidad;
+        
+        String nombreArch = "src/main/Data/" + this.nombreUsuario + ".txt";
+        String[] datos = {
+            this.persona,
+            this.RIF, 
+            this.CI, 
+            this.esComunidad};
 
+        // verifica que exista el archivo antes de abrir el el archivo
+        if (Files.exists(Paths.get(nombreArch))) {
+            // toma hora actual
+            // abre el archivo en modo escritura y actualiza la fecha
+            try (FileWriter usuarioWriter = new FileWriter(nombreArch, true)) { // 'true' habilita el modo de append
+                for(int i = 0; i<datos.length; i++){
+                    usuarioWriter.write(datos[i] + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

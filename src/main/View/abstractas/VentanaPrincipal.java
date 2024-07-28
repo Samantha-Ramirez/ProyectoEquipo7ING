@@ -3,6 +3,13 @@ package main.View.abstractas;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javax.swing.*;
 
 public class VentanaPrincipal extends Ventana {  
@@ -57,7 +64,7 @@ public class VentanaPrincipal extends Ventana {
         // Agregar boton al panel  
         panel.add(boton);
         return boton;
-    }        
+    }
     
     public void agregarLabel(JPanel panel, String title, Boolean fuente){
         JLabel label = new JLabel(title);
@@ -102,8 +109,24 @@ public class VentanaPrincipal extends Ventana {
         // Crear label
         agregarLabel(panel, title, false);
         // Crear boton 
-        JButton boton = agregarBoton(panel, placeholder);
-        return boton;
+        JButton botonElegirArch = agregarBoton(panel, placeholder);
+        JTextField pathArch = new JTextField(20);
+
+        botonElegirArch.addActionListener(new ActionListener() {  
+            @Override  
+            public void actionPerformed(ActionEvent e) {  
+                JFileChooser fileChooser = new JFileChooser();  
+                int returnValue = fileChooser.showOpenDialog(null);  
+                if (returnValue == JFileChooser.APPROVE_OPTION) {  
+                    File selectedFile = fileChooser.getSelectedFile();  
+                    pathArch.setText(selectedFile.getAbsolutePath());  
+                }  
+            }  
+        });
+
+        panel.add(pathArch);  
+
+        return botonElegirArch;
     }
 
     public Boolean esDatosCompletos(JText[] recuadrosTexto){

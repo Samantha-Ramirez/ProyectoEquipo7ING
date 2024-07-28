@@ -32,11 +32,30 @@ public class Propuesta {
         this.denominacion = denominacion;
         this.duracion = duracion;
         this.fundamentacion = fundamentacion;
-        guardarPropuesta();
+        if (esCreacionValida())
+            guardarPropuesta();
     }
 
     public Boolean esCreacionValida(){
-        //guardar en txt
+        int creaciones = 0;
+        // Direccion exacta donde debe estar el txt(data) del usuario solicitado
+        String nombreArch = "src/main/Data/Propuesta.txt";
+        // si el archivo no existe entonces retorna falso, ya que aun no se ha registrado
+        // abre el archivo en modo lectura
+        try (BufferedReader br = new BufferedReader(new FileReader(nombreArch))) {  
+            String line;  
+            while ((line = br.readLine()) != null) {  
+                
+                String[] data = line.split("[,]", 0);
+                if (data[0]==this.nombre)
+                    creaciones++;
+
+            }  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        }  
+        if(creaciones >= 3)
+            return false;
         return true;
     }
     public void guardarPropuesta(){
