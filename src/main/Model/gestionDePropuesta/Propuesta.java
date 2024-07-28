@@ -1,4 +1,4 @@
-package main.Model.gestionDeProcesoPropuesta;
+package main.Model.gestionDePropuesta;
 
 public class Propuesta {
     

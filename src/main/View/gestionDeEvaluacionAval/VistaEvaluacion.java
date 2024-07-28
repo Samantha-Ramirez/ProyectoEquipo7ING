@@ -1,4 +1,4 @@
-package main.View.gestionDeAval;
+package main.View.gestionDeEvaluacionAval;
 
 import java.awt.*;
 import javax.swing.*;

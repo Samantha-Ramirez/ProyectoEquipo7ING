@@ -1,4 +1,4 @@
-package main.Controller.gestionDeProcesoPropuesta;
+package main.Controller.gestionDePropuesta;
 
 public class GestorRecaudos {
     

@@ -1,4 +1,4 @@
-package main.View.gestionDeProcesoPropuesta;
+package main.View.gestionDePropuesta;
 import java.awt.*;
 import javax.swing.*;
 import main.View.abstractas.*;

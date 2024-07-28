@@ -1,4 +1,4 @@
-package main.View.gestionDeProcesoPropuesta;
+package main.View.gestionDePropuesta;
 
 public class VistaFormularioCargaCurso {
     
