@@ -1,11 +1,9 @@
-package main.View.gestionDeEvaluacionAval;
-
 import java.awt.*;
 import javax.swing.*;
 
-public class VistaEvaluacion extends JFrame {
+public class EvaluacionAval extends JFrame {
 
-    public VistaEvaluacion() {
+    public EvaluacionAval() {
         // Configuración de la ventana principal
         setTitle("Administrador | Evaluación de aval");
         setSize(600, 400);
@@ -119,7 +117,7 @@ public class VistaEvaluacion extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            VistaEvaluacion evaluacionAval = new VistaEvaluacion();
+            EvaluacionAval evaluacionAval = new EvaluacionAval();
             evaluacionAval.setVisible(true);
         });
     }
