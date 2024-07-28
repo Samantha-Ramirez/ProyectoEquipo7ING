@@ -19,7 +19,5 @@ public class Main {
         VistaInicioSesion vistaInicioSesion = new VistaInicioSesion();
         new GestorDeSesion(vistaInicioSesion, vistaRegistro, vistaDashboard);
         //new GestorDeSesion(vistaInicioSesion, vistaRegistro);
-
-
     }
 }

@@ -21,7 +21,8 @@ public class Propuesta {
 
     }
     public Propuesta crearPropuesta(int userId, int estado){
-        return Propuesta;
+        Propuesta propuesta = new Propuesta();
+        return propuesta;
     }
     public void setEstado(int estado){
 

@@ -7,6 +7,7 @@ public class CursoExtension {
     private float ingresosNetos;
 
     public CursoExtension crearCurso(Propuesta propuesta){
-        return CursoExtension;
+        CursoExtension curso = new CursoExtension();
+        return curso;
     }
 }
