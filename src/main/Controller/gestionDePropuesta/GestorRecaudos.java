@@ -42,8 +42,7 @@ public class GestorRecaudos implements ActionListener {
             }else{
                 guardarDatosRecaudos();
                 formRegistroRecaudos.setVisible(false);
-                FormularioCargaCurso formCargaCurso = new FormularioCargaCurso();
-                formCargaCurso.setVisible(true);
+                new GestorFormulacion(usuario);
             }
         }
 }

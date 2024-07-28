@@ -35,7 +35,7 @@ public class GestorFormulacion implements ActionListener {
             String denominacion = formCargaCurso.getDenominacion();
             String duracion = formCargaCurso.getDuracion();
             String fundamentacion = formCargaCurso.getFundamentacion();
-            this.propuesta = new Propuesta(nombre, unidadResponsableDeTramite, denominacion, duracion, fundamentacion);
+            this.propuesta = new Propuesta(this.usuario.nombreUsuario, nombre, unidadResponsableDeTramite, denominacion, duracion, fundamentacion);
             CursoExtension cursoExtension = new CursoExtension(this.propuesta);
         }
 
@@ -47,8 +47,6 @@ public class GestorFormulacion implements ActionListener {
             }else{
                 guardarFormulacion();
                 formCargaCurso.setVisible(false);
-                FormularioCargaCurso formCargaCurso = new FormularioCargaCurso();
-                formCargaCurso.setVisible(true);
             }
         }
 }

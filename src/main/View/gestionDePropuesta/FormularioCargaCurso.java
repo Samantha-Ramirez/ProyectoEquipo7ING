@@ -17,14 +17,15 @@ public class FormularioCargaCurso extends VentanaPrincipal {
     private JButton archivoCurriculoCompetencias;
     private JButton archivoEstrategiasEvaluacion;
     private JButton archivoExigenciasMaterialesYServicios;
-    JButton botonEnviar;
+    private JButton botonEnviar;
     
     public FormularioCargaCurso() {  
         super("Proponente | Cargar formulación");
 
         JPanel panelCentral = crearPanel(false, 0, 0);
 
-        JPanel panelAdjuntos = crearPanel(true, 9, 1);
+        JPanel panelAdjuntos = crearPanel(true, 10, 1);
+        this.nombre = agregarRecuadroTexto(panelAdjuntos, "Nombre", "Ingrese nombre");
         this.unidadResponsableDeTramite = agregarRecuadroTexto(panelAdjuntos, "Unidad responsable", "Ingrese unidad");
         this.denominacion = agregarRecuadroTexto(panelAdjuntos, "Denominación", "Ingrese denominación");
         this.fundamentacion = agregarRecuadroTexto(panelAdjuntos, "Fundamentación", "Ingrese fundamentación");
@@ -69,7 +70,7 @@ public class FormularioCargaCurso extends VentanaPrincipal {
     }
 
     public Boolean esDatosRecaudosCompletos(){
-        JText[] recuadrosTexto = {this.unidadResponsableDeTramite, this.denominacion, this.duracion, this.fundamentacion};
+        JText[] recuadrosTexto = {this.nombre, this.unidadResponsableDeTramite, this.denominacion, this.duracion, this.fundamentacion};
         if(esDatosCompletos(recuadrosTexto))
            return true;
         return false;

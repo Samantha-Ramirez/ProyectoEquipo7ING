@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Usuario {
     // Atributos
-    private String nombreUsuario;
+    public String nombreUsuario;
     private String clave;
     private String tipoUsuario;
     private String archivoRegistroDeHora;
