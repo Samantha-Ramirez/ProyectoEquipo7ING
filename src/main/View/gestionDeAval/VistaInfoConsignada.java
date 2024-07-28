@@ -1,4 +1,4 @@
-package main.View.gestionDeEvaluacionAval;
+package main.View.gestionDeAval;
 
 public class VistaInfoConsignada {
     
