@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import main.View.abstractas.JText;
+
 public class Propuesta {
     private String usuario;
 
@@ -19,19 +21,31 @@ public class Propuesta {
     private String denominacion;
     private String fundamentacion;
     private String duracion;
-    private String archivofundamentacion;
-    private String archivoperfilParticipantes;
-    private String archivoperfilDocente;
-    private String archivocurriculoCompetencias;
-    private String archivoestrategiasEvaluacion;
-    private String archivoexigenciasMaterialesYServicios;
+    private String pathFundamentacion;
+    private String pathPerfilParticipantes;
+    private String pathPerfilDocente;
+    private String pathCurriculoCompetencias;
+    private String pathEstrategiasEvaluacion;
+    private String pathExigenciasMaterialesYServicios;
     
-    public Propuesta (String usuario, String nombre, String unidadResponsableDeTramite, String denominacion, String duracion, String fundamentacion){
+    public Propuesta (
+        String usuario, String nombre, String unidadResponsableDeTramite, 
+        String denominacion, String duracion, String fundamentacion,
+        String pathPerfilParticipantes, String pathPerfilDocente, 
+        String pathCurriculoCompetencias, String pathEstrategiasEvaluacion, 
+        String pathExigenciasMaterialesYServicios
+        ){
         this.usuario = usuario;
         this.unidadResponsableDeTramite = unidadResponsableDeTramite;
         this.denominacion = denominacion;
         this.duracion = duracion;
         this.fundamentacion = fundamentacion;
+        this.pathPerfilParticipantes = pathPerfilParticipantes;
+        this.pathPerfilDocente = pathPerfilDocente;
+        this.pathCurriculoCompetencias = pathCurriculoCompetencias;
+        this.pathEstrategiasEvaluacion = pathEstrategiasEvaluacion;
+        this.pathExigenciasMaterialesYServicios = pathExigenciasMaterialesYServicios;
+        
         if (esCreacionValida())
             guardarPropuesta();
     }
@@ -68,12 +82,11 @@ public class Propuesta {
             this.denominacion, 
             this.fundamentacion, 
             this.duracion, 
-            this.archivofundamentacion, 
-            this.archivoperfilParticipantes, 
-            this.archivoperfilDocente, 
-            this.archivocurriculoCompetencias, 
-            this.archivoestrategiasEvaluacion, 
-            this.archivoexigenciasMaterialesYServicios};
+            this.pathPerfilParticipantes, 
+            this.pathPerfilDocente, 
+            this.pathCurriculoCompetencias, 
+            this.pathEstrategiasEvaluacion, 
+            this.pathExigenciasMaterialesYServicios};
         // verifica que exista el archivo antes de abrir el el archivo
         if (Files.exists(Paths.get(nombreArch))) {
 

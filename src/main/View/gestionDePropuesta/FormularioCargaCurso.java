@@ -12,11 +12,11 @@ public class FormularioCargaCurso extends VentanaPrincipal {
     private JText denominacion;
     private JText duracion;
     private JText fundamentacion;
-    private JButton archivoPerfilParticipantes;
-    private JButton archivoPerfilDocente;
-    private JButton archivoCurriculoCompetencias;
-    private JButton archivoEstrategiasEvaluacion;
-    private JButton archivoExigenciasMaterialesYServicios;
+    private JText pathPerfilParticipantes;
+    private JText pathPerfilDocente;
+    private JText pathCurriculoCompetencias;
+    private JText pathEstrategiasEvaluacion;
+    private JText pathExigenciasMaterialesYServicios;
     private JButton botonEnviar;
     
     public FormularioCargaCurso() {  
@@ -30,11 +30,11 @@ public class FormularioCargaCurso extends VentanaPrincipal {
         this.denominacion = agregarRecuadroTexto(panelAdjuntos, "Denominación", "Ingrese denominación");
         this.fundamentacion = agregarRecuadroTexto(panelAdjuntos, "Fundamentación", "Ingrese fundamentación");
         this.duracion = agregarRecuadroTexto(panelAdjuntos, "Duración", "Ingrese duración");
-        this.archivoPerfilParticipantes = agregarBotonAdjunto(panelAdjuntos, "Perfiles de participantes", "Adjuntar archivo");
-        this.archivoPerfilDocente = agregarBotonAdjunto(panelAdjuntos, "Perfil de docente", "Adjuntar archivo");
-        this.archivoCurriculoCompetencias = agregarBotonAdjunto(panelAdjuntos, "Estructura curricular", "Adjuntar archivo");
-        this.archivoEstrategiasEvaluacion = agregarBotonAdjunto(panelAdjuntos, "Estrategias de evaluación", "Adjuntar archivo");
-        this.archivoExigenciasMaterialesYServicios = agregarBotonAdjunto(panelAdjuntos, "Exigencias", "Adjuntar archivo");
+        this.pathPerfilParticipantes = agregarBotonAdjunto(panelAdjuntos, "Perfiles de participantes", "Adjuntar archivo");
+        this.pathPerfilDocente = agregarBotonAdjunto(panelAdjuntos, "Perfil de docente", "Adjuntar archivo");
+        this.pathCurriculoCompetencias = agregarBotonAdjunto(panelAdjuntos, "Estructura curricular", "Adjuntar archivo");
+        this.pathEstrategiasEvaluacion = agregarBotonAdjunto(panelAdjuntos, "Estrategias de evaluación", "Adjuntar archivo");
+        this.pathExigenciasMaterialesYServicios = agregarBotonAdjunto(panelAdjuntos, "Exigencias", "Adjuntar archivo");
 
         JPanel panelBoton = crearPanel(false, 0 , 0);
         this.botonEnviar = agregarBoton(panelBoton, "Enviar");
@@ -59,6 +59,26 @@ public class FormularioCargaCurso extends VentanaPrincipal {
 
     public String getDuracion() {
         return duracion.getText();
+    }
+
+    public String getPathPerfilParticipantes() {
+        return pathPerfilParticipantes.getText();
+    }
+
+    public String getPathPerfilDocente() {
+        return pathPerfilDocente.getText();
+    }
+
+    public String getPathCurriculoCompetencias() {
+        return pathCurriculoCompetencias.getText();
+    }
+
+    public String getPathEstrategiasEvaluacion() {
+        return pathEstrategiasEvaluacion.getText();
+    }
+
+    public String getPathExigenciasMaterialesYServicios() {
+        return pathExigenciasMaterialesYServicios.getText();
     }
 
     public String getFundamentacion() {

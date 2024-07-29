@@ -12,11 +12,11 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
     private JComboBox<String> esComunidad;
     private JText RIF;
     private JText CI;
-    private JButton archivoISLR;
-    private JButton archivoCurriculum;
-    private JButton archivoTitulo;
-    private JButton archivoRegistroMercantil;
     private JButton botonContinuar;
+    private JText pathISLR;
+    private JText pathCurriculum;
+    private JText pathTitulo;
+    private JText pathRegistroMercantil;
     private VistaError error;
 
     public FormularioRegistroRecaudos() {  
@@ -38,10 +38,10 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
         JPanel panelRecaudos = crearPanel(true, 2, 2);
         agregarLabel(panelCentral, "Recaudos", true);
         // botones de adjuntar
-        this.archivoISLR = agregarBotonAdjunto(panelRecaudos, "Certificado de ISLR", "Adjuntar archivo");
-        this.archivoCurriculum = agregarBotonAdjunto(panelRecaudos, "Curriculum", "Adjuntar archivo");
-        this.archivoTitulo = agregarBotonAdjunto(panelRecaudos, "Título universitario", "Adjuntar archivo");
-        this.archivoRegistroMercantil = agregarBotonAdjunto(panelRecaudos, "Registro mercantil", "Adjuntar archivo");
+        this.pathISLR = agregarBotonAdjunto(panelRecaudos, "Certificado de ISLR", "Adjuntar archivo");
+        this.pathCurriculum = agregarBotonAdjunto(panelRecaudos, "Curriculum", "Adjuntar archivo");
+        this.pathTitulo = agregarBotonAdjunto(panelRecaudos, "Título universitario", "Adjuntar archivo");
+        this.pathRegistroMercantil = agregarBotonAdjunto(panelRecaudos, "Registro mercantil", "Adjuntar archivo");
 
         // panel de boton continuar
         JPanel panelBoton = crearPanel(false, 0 , 0);
@@ -72,6 +72,22 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
 
     public String getEsComunidad() {
         return (String) esComunidad.getSelectedItem();
+    }
+
+    public String getPathISLR() {
+        return pathISLR.getText();
+    }
+
+    public String getPathCurriculum() {
+        return pathCurriculum.getText();
+    }
+
+    public String getPathTitulo() {
+        return pathTitulo.getText();
+    }
+
+    public String getPathRegistroMercantil() {
+        return pathRegistroMercantil.getText();
     }
 
     public void setControlador(ActionListener controlador) {

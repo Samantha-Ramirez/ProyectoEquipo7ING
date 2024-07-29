@@ -11,6 +11,8 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import main.View.abstractas.JText;
+
 public class Usuario {
     // Atributos
     public String nombreUsuario;
@@ -21,6 +23,10 @@ public class Usuario {
     private String RIF;
     private String CI;
     private String esComunidad;
+    private String pathISLR;
+    private String pathCurriculum;
+    private String pathTitulo;
+    private String pathRegistroMercantil;
 
     // Constructor de la clase Usuario, inicializa nombreUsuario y clave
     public Usuario (String nombreUsuario, String clave){
@@ -127,18 +133,31 @@ public class Usuario {
         }
     }
 
-    public void actualizarDatos(String nombreUsuario, String persona, String RIF, String CI, String esComunidad){
+    public void actualizarDatos(
+        String nombreUsuario, String persona, String RIF, 
+        String CI, String esComunidad,
+        String pathISLR, String pathCurriculum,
+        String pathTitulo, String pathRegistroMercantil){
         this.persona = persona;
         this.RIF = RIF;
         this.CI = CI;
         this.esComunidad = esComunidad;
+        this.pathISLR = pathISLR;
+        this.pathCurriculum = pathCurriculum;
+        this.pathTitulo = pathTitulo;
+        this.pathRegistroMercantil = pathRegistroMercantil;
         
         String nombreArch = "src/main/Data/" + this.nombreUsuario + ".txt";
         String[] datos = {
             this.persona,
             this.RIF, 
             this.CI, 
-            this.esComunidad};
+            this.esComunidad,
+            this.pathISLR,
+            this.pathCurriculum,
+            this.pathTitulo,
+            this.pathRegistroMercantil,
+        };
 
         // verifica que exista el archivo antes de abrir el el archivo
         if (Files.exists(Paths.get(nombreArch))) {

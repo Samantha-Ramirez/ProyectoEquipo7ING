@@ -4,11 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import javax.swing.*;
 
@@ -57,8 +52,8 @@ public class VentanaPrincipal extends Ventana {
         boton.setPreferredSize(new Dimension(100, 40));  
         boton.setFocusPainted(false);  
         boton.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2));  
-        boton.setBackground(Color.WHITE);  
-        boton.setForeground(Color.BLACK);  
+        boton.setBackground(Color.WHITE);
+        boton.setForeground(Color.BLACK);
         boton.setFont(new Font("Arial", Font.PLAIN, 10));  
 
         // Agregar boton al panel  
@@ -105,12 +100,12 @@ public class VentanaPrincipal extends Ventana {
         return textField;
     }
 
-    public JButton agregarBotonAdjunto(JPanel panel, String title, String placeholder){
+    public JText agregarBotonAdjunto(JPanel panel, String title, String placeholder){
         // Crear label
         agregarLabel(panel, title, false);
         // Crear boton 
         JButton botonElegirArch = agregarBoton(panel, placeholder);
-        JTextField pathArch = new JTextField(20);
+        JText pathArch = new JText(0);
 
         botonElegirArch.addActionListener(new ActionListener() {  
             @Override  
@@ -123,10 +118,7 @@ public class VentanaPrincipal extends Ventana {
                 }  
             }  
         });
-
-        panel.add(pathArch);  
-
-        return botonElegirArch;
+        return pathArch;
     }
 
     public Boolean esDatosCompletos(JText[] recuadrosTexto){
