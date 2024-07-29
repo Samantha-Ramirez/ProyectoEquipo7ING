@@ -69,6 +69,7 @@ public class GestorDeSesion implements ActionListener {
                     usuario1 = new Usuario(usuario, clave);
                     usuario1.setTipoUsuario(tipoUsuario);
                     
+                    
                     if(usuario1.datosCompletos()){ // Evalua si los datos de usuario y clave estan cmpletos
                         if(usuario1.registrarDatos()){ // si el registro se realiza de forma correcta entonces retorna true
                             seleccionarDashboard(usuario1.getTipoUsuario()); // llama a la funcion que despliega el dashboard que le corresponde al usuario
@@ -127,7 +128,7 @@ public class GestorDeSesion implements ActionListener {
                     break;
                 case "CARGAR_FORMULACION":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-
+                    new GestorFormulacion(usuario1);
                     break;
 
                 case "VER_CURSOS":

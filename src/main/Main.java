@@ -12,6 +12,7 @@ public class Main {
         VistaDashboard vistaDashboard = new VistaDashboard();
         VistaInicioSesion vistaInicioSesion = new VistaInicioSesion();
         
+        
         new GestorDeSesion(vistaInicioSesion, vistaRegistro, vistaDashboard);
 
 
