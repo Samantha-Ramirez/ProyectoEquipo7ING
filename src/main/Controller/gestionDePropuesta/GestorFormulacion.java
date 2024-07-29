@@ -69,22 +69,22 @@ public class GestorFormulacion implements ActionListener {
                 formCargaCurso.getPathEstrategiasEvaluacion(),
                 formCargaCurso.getPathExigenciasMaterialesYServicios()
             };
-            guardarUploads(uploads);
-            this.propuesta = new Propuesta(
-                this.usuario.nombreUsuario, 
-                formCargaCurso.getNombre(), 
-                formCargaCurso.getUnidadResponsableDeTramite(), 
-                formCargaCurso.getDenominacion(), 
-                formCargaCurso.getDuracion(), 
-                formCargaCurso.getFundamentacion(),
-                formCargaCurso.getPathPerfilParticipantes(), 
-                formCargaCurso.getPathPerfilDocente(),
-                formCargaCurso.getPathCurriculoCompetencias(),
-                formCargaCurso.getPathEstrategiasEvaluacion(),
-                formCargaCurso.getPathExigenciasMaterialesYServicios()
-                );
 
-            CursoExtension cursoExtension = new CursoExtension(this.propuesta);
+            guardarUploads(uploads);
+
+            this.propuesta = new Propuesta(
+            this.usuario, 
+            formCargaCurso.getNombre(), 
+            formCargaCurso.getUnidadResponsableDeTramite(), 
+            formCargaCurso.getDenominacion(), 
+            formCargaCurso.getDuracion(), 
+            formCargaCurso.getFundamentacion(),
+            formCargaCurso.getPathPerfilParticipantes(), 
+            formCargaCurso.getPathPerfilDocente(),
+            formCargaCurso.getPathCurriculoCompetencias(),
+            formCargaCurso.getPathEstrategiasEvaluacion(),
+            formCargaCurso.getPathExigenciasMaterialesYServicios()
+            );
         }
 
         @Override

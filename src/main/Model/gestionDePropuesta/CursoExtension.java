@@ -5,23 +5,34 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import main.Model.gestionDeSesionUsuario.*;
+
 public class CursoExtension {
+    private Usuario usuario;
     private Propuesta propuesta;
     private String areaConocimiento;
     private String modalidad;
     private String tipoCurso;
     private float ingresosNetos;
 
-    public CursoExtension (Propuesta propuesta){
+    public CursoExtension (Usuario usuario, Propuesta propuesta){
         this.propuesta = propuesta;
+        this.usuario = usuario;
+        this.areaConocimiento = "";
+        this.modalidad = "online";
+        this.tipoCurso = "curso";
+        this.ingresosNetos = 0;
+        guardarCurso();
     }
 
-    public void guardarPropuesta(){
-        String nombreArch = "src/main/Data/Propuesta.txt";
+    public void guardarCurso(){
+        String nombreArch = "src/main/Data/CursoExtension.txt";
         String[] datos = {
-            this.areaConocimiento, 
+            this.usuario.nombreUsuario, 
+            this.propuesta.nombre, 
+            this.areaConocimiento,
             this.modalidad,
-            this.tipoCurso, 
+            this.tipoCurso,
             String.valueOf(this.ingresosNetos)};
         // verifica que exista el archivo antes de abrir el el archivo
         if (Files.exists(Paths.get(nombreArch))) {

@@ -11,31 +11,33 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import main.View.abstractas.JText;
+import main.Model.gestionDeSesionUsuario.*;
 
 public class Propuesta {
-    private String usuario;
-
-    private String estado; //aprobado, rechazado, enProceso
-    private String nombre;
+    private Usuario usuario;
+    private String estado; //aprobado, rechazado, enEvaluacion
+    public String nombre;
     private String unidadResponsableDeTramite;
     private String denominacion;
     private String fundamentacion;
     private String duracion;
-    private String pathFundamentacion;
     private String pathPerfilParticipantes;
     private String pathPerfilDocente;
     private String pathCurriculoCompetencias;
     private String pathEstrategiasEvaluacion;
     private String pathExigenciasMaterialesYServicios;
+    private CursoExtension cursoExtension;
     
     public Propuesta (
-        String usuario, String nombre, String unidadResponsableDeTramite, 
+        Usuario usuario, String nombre, String unidadResponsableDeTramite, 
         String denominacion, String duracion, String fundamentacion,
         String pathPerfilParticipantes, String pathPerfilDocente, 
         String pathCurriculoCompetencias, String pathEstrategiasEvaluacion, 
         String pathExigenciasMaterialesYServicios
         ){
         this.usuario = usuario;
+        this.estado = "enEvaluacion";
+        this.nombre = nombre;
         this.unidadResponsableDeTramite = unidadResponsableDeTramite;
         this.denominacion = denominacion;
         this.duracion = duracion;
@@ -46,8 +48,10 @@ public class Propuesta {
         this.pathEstrategiasEvaluacion = pathEstrategiasEvaluacion;
         this.pathExigenciasMaterialesYServicios = pathExigenciasMaterialesYServicios;
         
-        if (esCreacionValida())
+        if (esCreacionValida()){
             guardarPropuesta();
+            this.cursoExtension = new CursoExtension(this.usuario, this);
+        }
     }
 
     public Boolean esCreacionValida(){
@@ -75,7 +79,7 @@ public class Propuesta {
     public void guardarPropuesta(){
         String nombreArch = "src/main/Data/Propuesta.txt";
         String[] datos = {
-            this.usuario, 
+            this.usuario.nombreUsuario, 
             this.estado,
             this.nombre, 
             this.unidadResponsableDeTramite, 

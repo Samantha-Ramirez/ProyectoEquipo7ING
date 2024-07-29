@@ -1,1 +1,1 @@
-propuesta,areaConocimiento,modalidad,tipoCurso,ingresosNetos;
+usuario,propuesta,areaConocimiento,modalidad,tipoCurso,ingresosNetos
