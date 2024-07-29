@@ -1,6 +1,6 @@
 package main.Controller.gestionDeCartasDePropuesta;
 
-import main.Model.gestionDeCartasDePropuesta.CartaIntencion;
+import main.Model.gestionDeCartasDePropuesta.*;
 
 public class GestorCartaIntencion {
     private CartaIntencion cartaIntencion;

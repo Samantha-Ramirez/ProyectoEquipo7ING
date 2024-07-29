@@ -1,6 +1,6 @@
 package main.Controller.gestionDeCartasDePropuesta;
 
-import main.Model.gestionDeCartasDePropuesta.CartaCompromiso;
+import main.Model.gestionDeCartasDePropuesta.*;
 
 public class GestorCartaCompromiso {
     private CartaCompromiso cartaCompromiso;

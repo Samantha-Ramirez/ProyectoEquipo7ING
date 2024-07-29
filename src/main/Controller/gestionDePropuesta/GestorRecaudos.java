@@ -1,6 +1,5 @@
 package main.Controller.gestionDePropuesta;
 
-import main.View.abstractas.JText;
 import main.View.abstractas.VistaError;
 import main.View.gestionDePropuesta.*;
 import main.Model.gestionDeSesionUsuario.Usuario;
@@ -13,8 +12,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import javax.swing.JOptionPane;
 
 public class GestorRecaudos implements ActionListener {
 

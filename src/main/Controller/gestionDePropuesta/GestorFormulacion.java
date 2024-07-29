@@ -1,9 +1,8 @@
 package main.Controller.gestionDePropuesta;
 
 import main.View.abstractas.VistaError;
-import main.Model.gestionDePropuesta.CursoExtension;
-import main.Model.gestionDePropuesta.Propuesta;
-import main.View.gestionDePropuesta.FormularioCargaCurso;
+import main.Model.gestionDePropuesta.*;
+import main.View.gestionDePropuesta.*;
 import main.Model.gestionDeSesionUsuario.Usuario;
 
 import java.awt.event.ActionEvent;

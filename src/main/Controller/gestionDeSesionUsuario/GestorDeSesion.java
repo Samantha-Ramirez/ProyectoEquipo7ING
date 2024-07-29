@@ -1,13 +1,10 @@
 package main.Controller.gestionDeSesionUsuario;
 
 import main.View.abstractas.VistaError;
-import main.View.gestionDeCursosPropuestos.VistaCursosEvaluar;
-import main.View.gestionDeSesionUsuario.*;
-import main.Controller.gestionDePropuesta.GestorFormulacion;
-import main.Controller.gestionDePropuesta.GestorRecaudos;
 import main.Model.gestionDeSesionUsuario.*;
-import main.View.gestionDePropuesta.*;
 import main.View.gestionDeCursosPropuestos.*;
+import main.View.gestionDeSesionUsuario.*;
+import main.Controller.gestionDePropuesta.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
