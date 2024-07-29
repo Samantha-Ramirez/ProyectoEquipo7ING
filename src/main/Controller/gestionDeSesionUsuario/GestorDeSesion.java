@@ -146,9 +146,9 @@ public class GestorDeSesion implements ActionListener {
 
                 case "VER_PROPUESTAS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Ver Propustas"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
-                    break;
-                default:
+                        EvaluacionesDashboard.setVisible(false);
+                        EvaluacionesDashboard.limpiarCampos();
+                        vistaPropuestas.setVisible(true);
                     break;
             }
         }
