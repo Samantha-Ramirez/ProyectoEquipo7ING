@@ -13,10 +13,18 @@ import java.time.format.DateTimeFormatter;
 
 public class Usuario {
     // Atributos
-    private String nombreUsuario;
+    public String nombreUsuario;
     private String clave;
     private String tipoUsuario;
     private String archivoRegistroDeHora;
+    private String persona;
+    private String RIF;
+    private String CI;
+    private String esComunidad;
+    private String pathISLR;
+    private String pathCurriculum;
+    private String pathTitulo;
+    private String pathRegistroMercantil;
 
     // Constructor de la clase Usuario, inicializa nombreUsuario y clave
     public Usuario (String nombreUsuario, String clave){
@@ -89,8 +97,6 @@ public class Usuario {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     // revisa si los datos ingresados en el inicio de sesion son correctos
@@ -125,7 +131,43 @@ public class Usuario {
         }
     }
 
+    public void actualizarDatos(
+        String nombreUsuario, String persona, String RIF, 
+        String CI, String esComunidad,
+        String pathISLR, String pathCurriculum,
+        String pathTitulo, String pathRegistroMercantil){
+        this.persona = persona;
+        this.RIF = RIF;
+        this.CI = CI;
+        this.esComunidad = esComunidad;
+        this.pathISLR = pathISLR;
+        this.pathCurriculum = pathCurriculum;
+        this.pathTitulo = pathTitulo;
+        this.pathRegistroMercantil = pathRegistroMercantil;
+        
+        String nombreArch = "src/main/Data/" + this.nombreUsuario + ".txt";
+        String[] datos = {
+            this.persona,
+            this.RIF, 
+            this.CI, 
+            this.esComunidad,
+            this.pathISLR,
+            this.pathCurriculum,
+            this.pathTitulo,
+            this.pathRegistroMercantil,
+        };
+
+        // verifica que exista el archivo antes de abrir el el archivo
+        if (Files.exists(Paths.get(nombreArch))) {
+            // toma hora actual
+            // abre el archivo en modo escritura y actualiza la fecha
+            try (FileWriter usuarioWriter = new FileWriter(nombreArch, true)) { // 'true' habilita el modo de append
+                for(int i = 0; i<datos.length; i++){
+                    usuarioWriter.write(datos[i] + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
-
-
-

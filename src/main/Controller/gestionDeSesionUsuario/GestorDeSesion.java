@@ -1,15 +1,17 @@
 package main.Controller.gestionDeSesionUsuario;
 
-import main.View.gestionDeSesionUsuario.VistaError;
-import main.View.gestionDeSesionUsuario.VistaInicioSesion;
-import main.View.gestionDeSesionUsuario.VistaRegistro;
-import main.View.gestionDeSesionUsuario.VistaDashboard;
-import javax.swing.*;
-import main.Model.gestionDeSesionUsuario.Usuario;
+import main.Model.gestionDeCursosPropuestos.CursoExtension;
+import main.View.abstractas.VistaError;
+import main.Model.gestionDeSesionUsuario.*;
+import main.View.gestionDeCursosPropuestos.*;
+import main.View.gestionDeSesionUsuario.*;
+import main.Controller.gestionDePropuesta.*;
+import main.Controller.gestionDeCursosPropuestos.GestorInfoCursos;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GestorDeSesion implements ActionListener{
+public class GestorDeSesion implements ActionListener {
 
         // instancias de las clases que vista y modelo
         private VistaRegistro vistaRegistro;
@@ -50,7 +52,6 @@ public class GestorDeSesion implements ActionListener{
             }
         }
 
-
         @Override
         public void actionPerformed( ActionEvent e) {
             String comando = e.getActionCommand();
@@ -67,6 +68,7 @@ public class GestorDeSesion implements ActionListener{
                     // Crea una instancia de Usuario y registra los datos
                     usuario1 = new Usuario(usuario, clave);
                     usuario1.setTipoUsuario(tipoUsuario);
+                    
                     if(usuario1.datosCompletos()){ // Evalua si los datos de usuario y clave estan cmpletos
                         if(usuario1.registrarDatos()){ // si el registro se realiza de forma correcta entonces retorna true
                             seleccionarDashboard(usuario1.getTipoUsuario()); // llama a la funcion que despliega el dashboard que le corresponde al usuario
@@ -125,12 +127,13 @@ public class GestorDeSesion implements ActionListener{
                     break;
                 case "CARGAR_FORMULACION":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Cargar Formulacion"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+
                     break;
 
                 case "VER_CURSOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Ver Cursos"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+                    new GestorInfoCursos(usuario1).mostrarCursosPropuestos();
+
                     break;
 
                 case "VER_EXPEDIENTE":
@@ -139,20 +142,16 @@ public class GestorDeSesion implements ActionListener{
                     break;
                 case "REGISTRAR_RECUADOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Registrar Recaudos"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+                    new GestorRecaudos(usuario1);
+                    
                     break;
 
                 case "VER_PROPUESTAS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Ver Propustas"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
-                    break;
-                default:
+                        VistaCursosEvaluar cursosEvaluar = new VistaCursosEvaluar();
+                        cursosEvaluar.setVisible(false);
+                        cursosEvaluar.setVisible(true);
                     break;
             }
         }
-
-
 }
-
-
-
