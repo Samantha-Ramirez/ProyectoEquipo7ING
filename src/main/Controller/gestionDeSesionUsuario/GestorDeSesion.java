@@ -1,10 +1,12 @@
 package main.Controller.gestionDeSesionUsuario;
 
+import main.Model.gestionDeCursosPropuestos.CursoExtension;
 import main.View.abstractas.VistaError;
 import main.Model.gestionDeSesionUsuario.*;
 import main.View.gestionDeCursosPropuestos.*;
 import main.View.gestionDeSesionUsuario.*;
 import main.Controller.gestionDePropuesta.*;
+import main.Controller.gestionDeCursosPropuestos.GestorInfoCursos;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -66,6 +68,7 @@ public class GestorDeSesion implements ActionListener {
                     // Crea una instancia de Usuario y registra los datos
                     usuario1 = new Usuario(usuario, clave);
                     usuario1.setTipoUsuario(tipoUsuario);
+                    
                     
                     if(usuario1.datosCompletos()){ // Evalua si los datos de usuario y clave estan cmpletos
                         if(usuario1.registrarDatos()){ // si el registro se realiza de forma correcta entonces retorna true
@@ -130,7 +133,8 @@ public class GestorDeSesion implements ActionListener {
 
                 case "VER_CURSOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Ver Cursos"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+                    new GestorInfoCursos(usuario1).mostrarCursosPropuestos();
+
                     break;
 
                 case "VER_EXPEDIENTE":
