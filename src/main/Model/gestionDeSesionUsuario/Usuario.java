@@ -11,8 +11,6 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import main.View.abstractas.JText;
-
 public class Usuario {
     // Atributos
     public String nombreUsuario;

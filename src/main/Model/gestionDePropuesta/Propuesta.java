@@ -7,10 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-import main.View.abstractas.JText;
 import main.Model.gestionDeSesionUsuario.*;
 
 public class Propuesta {
