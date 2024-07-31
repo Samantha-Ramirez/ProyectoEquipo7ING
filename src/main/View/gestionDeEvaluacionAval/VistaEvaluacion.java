@@ -1,5 +1,3 @@
-package main.View.gestionDeEvaluacionAval;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,14 +6,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.swing.*;
 
-public class VistaEvaluacion extends JFrame {
+public class EvaluacionAval extends JFrame {
 
     private JTextField recuadroTexto;
     private JTextField numeroPropuestaField;
     private static final String archivoAvalTecnico = "avalTecnico.txt";
     private static final String archivoUsuario = "usuario.txt";
 
-    public VistaEvaluacion() {
+    public EvaluacionAval() {
         // Configuración de la ventana principal
         setTitle("Administrador | Evaluación de aval");
         setSize(600, 400);
@@ -55,7 +53,7 @@ public class VistaEvaluacion extends JFrame {
             }
         });
 
-        numeroPropuestaField = new JTextField("Número de Propuesta (1-4)");
+        numeroPropuestaField = new JTextField("Número de Propuesta");
         numeroPropuestaField.setForeground(Color.GRAY);
         numeroPropuestaField.setPreferredSize(new Dimension(150, 30)); // Ajusta el tamaño
         numeroPropuestaField.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -156,13 +154,13 @@ public class VistaEvaluacion extends JFrame {
                 String numeroPropuestaText = numeroPropuestaField.getText();
                 try {
                     int numeroPropuesta = Integer.parseInt(numeroPropuestaText);
-                    if (numeroPropuesta >= 1 && numeroPropuesta <= 4) {
+                    if (numeroPropuesta >= 1 && numeroPropuesta <= 20) {
                         actualizarArchivo(numeroPropuesta, "true", informacion);
                     } else {
-                        JOptionPane.showMessageDialog(VistaEvaluacion.this, "Número de propuesta debe estar entre 1 y 4", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(EvaluacionAval.this, "Número de propuesta debe estar entre 1 y 20", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(VistaEvaluacion.this, "Número de propuesta inválido", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(EvaluacionAval.this, "Número de propuesta inválido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -240,6 +238,6 @@ public class VistaEvaluacion extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new VistaEvaluacion().setVisible(true));
+        SwingUtilities.invokeLater(() -> new EvaluacionAval().setVisible(true));
     }
 }
