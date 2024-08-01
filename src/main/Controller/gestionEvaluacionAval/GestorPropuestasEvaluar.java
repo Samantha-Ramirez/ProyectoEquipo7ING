@@ -2,12 +2,10 @@ package main.Controller.gestionEvaluacionAval;
 
 import main.View.gestionEvaluacionAval.VistaPropuestasEvaluar;
 import main.Model.gestionPropuesta.Propuesta;
-// importar base
-import main.Controller.gestionBases.GestorBase;
 
 import java.util.Vector;
 
-public class GestorPropuestasEvaluar extends GestorBase {
+public class GestorPropuestasEvaluar {
     //Atributos
     private Vector<String> propuestas;
     // Constructor
@@ -17,9 +15,9 @@ public class GestorPropuestasEvaluar extends GestorBase {
 
     public void mostrarPropuestas(){
         // Busca la informacion de los cursos
-        Propuesta propuesta = new Propuesta();
+        Propuesta propuesta = new Propuesta("");
         // guarda la informacion de los cursos
-        propuestas = propuesta.getPropuestas();
+        propuestas = propuesta.getPropuestas(false, true);
         // muestra la interfaz con la informacion extraida
         VistaPropuestasEvaluar vistaPropuestasEvaluar = new VistaPropuestasEvaluar(propuestas);
         vistaPropuestasEvaluar.setVisible(true);

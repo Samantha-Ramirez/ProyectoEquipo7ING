@@ -56,6 +56,7 @@ public class GestorFormulacion extends GestorBase {
             getPathNombre(formCargaCurso.getPathExigenciasMaterialesYServicios())
             );
             // guardar nueva propuesta en txt
+            this.propuesta.getAval().guardarAval();
             this.propuesta.guardarPropuesta();
         }
 

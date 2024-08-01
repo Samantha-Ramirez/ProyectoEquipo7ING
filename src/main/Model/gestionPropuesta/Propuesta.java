@@ -27,7 +27,9 @@ public class Propuesta extends Base {
     private String pathExigenciasMaterialesYServicios;
     private AvalTecnico aval;
     
-    public Propuesta (){}
+    public Propuesta (String nombre){
+        this.nombre = nombre;
+    }
 
     public Propuesta (
         Usuario usuario, String nombre, String unidadResponsableDeTramite, 
@@ -66,6 +68,10 @@ public class Propuesta extends Base {
 
     public Usuario getUsuario(){
         return usuario;
+    }
+
+    public AvalTecnico getAval(){
+        return aval;
     }
 
     // verificar si la propuesta ya ha sido hecha +3 veces
@@ -116,7 +122,7 @@ public class Propuesta extends Base {
     }
 
     // obtener propuestas correspondientes a un usuario
-    public Vector<String> getPropuestas(){
+    public Vector<String> getPropuestas(Boolean filtroUsuario, Boolean filtroEstado){
         List<String> datos = leerDatos("Propuesta.txt");
         Vector<String> propuestas = new Vector<>();
         if(datos.size() != 0){
@@ -126,7 +132,7 @@ public class Propuesta extends Base {
                 // dato[2], dato[3], dato[4], dato[5], dato[6], dato[7],
                 // dato[8], dato[9], dato[10])
                 // getPropuesta(Nombre);
-                if (dato[0].equals(this.usuario.getNombreUsuario())) {
+                if ((!filtroUsuario || dato[0].equals(this.usuario.getNombreUsuario())) && (!filtroEstado || dato[1].equals("enEvaluacion"))) {
                     propuestas.add(datos.get(i));
                 }
             }

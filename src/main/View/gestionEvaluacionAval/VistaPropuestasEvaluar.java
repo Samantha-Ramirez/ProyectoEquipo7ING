@@ -27,7 +27,7 @@ public class VistaPropuestasEvaluar extends VistaBase {
             JPanel lineaPanel = new JPanel();
             lineaPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Centra los componentes dentro de la línea
 
-            JLabel cursoLabel = new JLabel(partes[0] + " - "); // Reemplazar "Curso #1" con la propuesta del archivo
+            JLabel cursoLabel = new JLabel(partes[2] + " - "); // Reemplazar "Curso #1" con la propuesta del archivo
 
             JButton btnResponderEvaluacion = new JButton("Responder evaluación de aval");
             btnResponderEvaluacion.setActionCommand(propuesta); // Establece un comando de acción con la propuesta

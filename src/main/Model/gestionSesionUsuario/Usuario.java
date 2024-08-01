@@ -96,9 +96,8 @@ public class Usuario extends Base {
     
     public String[] getDatos (){
         String[] datos = {
-            this.nombreUsuario,
-            this.clave,
             this.tipoUsuario, //Aliado, Proponente, Administrador//DEU, CEF --comision, consejo--
+            this.clave,
             this.archivoRegistroDeHora,
             this.persona,
             this.RIF, 
