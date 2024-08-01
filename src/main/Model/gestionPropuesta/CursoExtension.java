@@ -28,7 +28,7 @@ public class CursoExtension {
     public void guardarCurso(){
         String nombreArch = "src/main/Data/CursoExtension.txt";
         String[] datos = {
-            this.usuario.nombreUsuario, 
+            this.usuario.getNombreUsuario(), 
             this.propuesta.nombre, 
             this.areaConocimiento,
             this.modalidad,

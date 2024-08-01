@@ -76,7 +76,7 @@ public class Propuesta {
     public void guardarPropuesta(){
         String nombreArch = "src/main/Data/Propuesta.txt";
         String[] datos = {
-            this.usuario.nombreUsuario, 
+            this.usuario.getNombreUsuario(), 
             this.estado,
             this.nombre, 
             this.unidadResponsableDeTramite, 

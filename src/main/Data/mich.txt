@@ -1,0 +1,3 @@
+Administrador
+123
+mich_registroHora.txt

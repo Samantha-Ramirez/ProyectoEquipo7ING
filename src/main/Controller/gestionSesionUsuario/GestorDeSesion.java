@@ -1,8 +1,6 @@
 package main.Controller.gestionSesionUsuario;
 
 import main.View.abstractas.VistaError;
-import main.View.gestionCursosPropuestos.*;
-import main.Model.gestionCursosPropuestos.CursoExtension;
 import main.Model.gestionSesionUsuario.*;
 import main.View.gestionEvaluacionAval.VistaPropuestasEvaluar;
 import main.View.gestionSesionUsuario.*;
