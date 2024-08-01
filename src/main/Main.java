@@ -1,8 +1,9 @@
 package main;
 
-import main.Controller.gestionDeSesionUsuario.*;
-import main.Model.gestionDeCursosPropuestos.CursoExtension;
-import main.View.gestionDeSesionUsuario.*;
+import main.Controller.gestionSesionUsuario.*;
+import main.Model.gestionCursosPropuestos.CursoExtension;
+import main.View.gestionSesionUsuario.*;
+
 import javax.swing.*;
 
 public class Main {
