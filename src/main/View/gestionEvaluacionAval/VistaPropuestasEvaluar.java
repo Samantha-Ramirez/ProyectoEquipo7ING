@@ -40,13 +40,7 @@ public class VistaPropuestasEvaluar extends VistaBase {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String propuestaString = e.getActionCommand();
-                    String[] partes = propuestaString.split(",");
-                    // Abre la ventana de Evaluación de Aval
-                    Usuario usuario = new Usuario(partes[0]);
-                    Propuesta propuesta = new Propuesta(
-                        usuario, partes[1], partes[2], partes[3], 
-                        partes[4], partes[5], partes[6], partes[7], 
-                        partes[8], partes[9], partes[10]);
+                    Propuesta propuesta = transformarAPropuesta(propuestaString);
                     new GestorEvaluacionAval(propuesta);
                 }
             });
@@ -60,5 +54,15 @@ public class VistaPropuestasEvaluar extends VistaBase {
         }
 
         add(panelCentral, BorderLayout.CENTER);
+    }
+    public Propuesta transformarAPropuesta(String propuestaString){
+        String[] partes = propuestaString.split(",", -1);
+        // Abre la ventana de Evaluación de Aval
+        Usuario usuario = new Usuario(partes[0]);
+        Propuesta propuesta = new Propuesta(
+            usuario, partes[1], partes[2], partes[3], 
+            partes[4], partes[5], partes[6], (partes[7]), 
+            partes[8], partes[9], partes[10]);
+        return propuesta;
     }
 }

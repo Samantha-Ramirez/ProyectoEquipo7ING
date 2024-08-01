@@ -38,7 +38,7 @@ public class Propuesta extends Base {
         String pathCurriculoCompetencias, String pathEstrategiasEvaluacion, 
         String pathExigenciasMaterialesYServicios
         ){
-        this.aval = new AvalTecnico();
+        this.aval = new AvalTecnico(this);
         this.usuario = usuario;
         this.estado = this.aval.getEstado();
         this.nombre = nombre;

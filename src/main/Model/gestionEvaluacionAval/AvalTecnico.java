@@ -8,8 +8,10 @@ public class AvalTecnico extends Base {
     private String estado; //aprobado, rechazado, enEvaluacion
     private String observaciones;
 
-    public AvalTecnico(){
+    public AvalTecnico(Propuesta propuesta){
         this.estado = "enEvaluacion";
+        this.propuesta = propuesta;
+        this.observaciones = "";
     }
     public String getEstado(){
         return estado;

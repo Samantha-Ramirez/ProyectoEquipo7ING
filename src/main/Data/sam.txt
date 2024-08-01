@@ -1,0 +1,10 @@
+Proponente
+123
+sam_registroHora.txt
+Natural
+111111
+111111
+Sí
+
+
+

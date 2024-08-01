@@ -1,1 +1,2 @@
 usuario,estado,nombre,unidadResponsableDeTramite,denominacion,fundamentacion,duracion,pathFundamentacion,pathPerfilParticipantes,pathPerfilDocente,pathCurriculoCompetencias,pathEstrategiasEvaluacion,pathExigenciasMaterialesYServicios
+sam,enEvaluacion,Curso1,DEU,denominacion,duracion,fundamentacion,,,,,,
