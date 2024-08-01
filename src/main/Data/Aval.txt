@@ -1,4 +1,4 @@
 propuesta,estado,observaciones
 Curso1,aprobado,
 Curso2,rechazado por mala redaccion,mala redaccion
-Curso3,enEvaluacion,,
+Curso3,aprobado,

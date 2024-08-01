@@ -12,7 +12,8 @@ public class Usuario extends Base {
     protected String nombreUsuario;
     protected String clave;
     protected String tipoUsuario; //Aliado, Proponente, Administrador//DEU, CEF --comision, consejo--
-    protected String archivoRegistroDeHora;
+    protected String pathRegistroHora;
+
     protected String persona; //Normal, Juridica
     protected String RIF;
     protected String CI;
@@ -21,6 +22,7 @@ public class Usuario extends Base {
     protected String pathCurriculum;
     protected String pathTitulo;
     protected String pathRegistroMercantil;
+    protected String pathExpediente;
 
     // Constructor de la clase Usuario, inicializa nombreUsuario y clave
     public Usuario (String nombreUsuario, String clave){
@@ -54,7 +56,7 @@ public class Usuario extends Base {
         String currentTime = LocalDateTime.now().format(dtf);
         String registroHoraFileName = nombreUsuario + "_registroHora.txt";//concatenacion del nombre del archivo de registro de Inicio y fin de sesion
         String[] datosHora = {"Fecha de Inicio: " + currentTime};
-        archivoRegistroDeHora = registroHoraFileName; // asignando nombre de archivo donde estara el registro de entrada, para usar cuando se vaya a cerrar sesion
+        pathRegistroHora = registroHoraFileName; // asignando nombre de archivo donde estara el registro de entrada, para usar cuando se vaya a cerrar sesion
         guardarDatos(registroHoraFileName, datosHora, "\n", false);
 
         String usuarioFileName = nombreUsuario + ".txt";//
@@ -63,13 +65,23 @@ public class Usuario extends Base {
         return true;
 
     }
+    public void crearExpediente(){
+        String[] datos = {};
+        this.pathExpediente = nombreUsuario + "_expediente.txt";
+        guardarDatos(pathExpediente, datos, "\n", false);
+    }
+    public void agregarAExpediente() {
+        // verifica que exista el archivo antes de abrir el el archivo
+        String[] datos = {};
+        guardarDatos(pathExpediente, datos, "\n", true);
+    }
     // Actualiza las fechas de inicio y fin de sesion
     public void agregarDatosRegistroDeHora(String fin_inicio) {
         // verifica que exista el archivo antes de abrir el el archivo
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
         String currentTime = LocalDateTime.now().format(dtf);
         String[] datos = {"Fecha de " + fin_inicio + ": " + currentTime};
-        guardarDatos(archivoRegistroDeHora, datos, "\n", true);
+        guardarDatos(pathRegistroHora, datos, "\n", true);
     }
 
     // revisa si los datos ingresados en el inicio de sesion son correctos
@@ -80,7 +92,7 @@ public class Usuario extends Base {
         if(datos.size() != 0){
             tipoUsuario = datos.get(0);
             String storedClave = datos.get(1);
-            archivoRegistroDeHora = datos.get(2);
+            pathRegistroHora = datos.get(2);
             if(this.clave.equals(storedClave)){
                 // si la clave es correcta entonces va a permtir actualizar el registro de fehca
                 agregarDatosRegistroDeHora("Inicio");
@@ -94,7 +106,7 @@ public class Usuario extends Base {
         String[] datos = {
             this.tipoUsuario, //Aliado, Proponente, Administrador//DEU, CEF --comision, consejo--
             this.clave,
-            this.archivoRegistroDeHora,
+            this.pathRegistroHora,
             this.persona,
             this.RIF, 
             this.CI, 
@@ -102,7 +114,8 @@ public class Usuario extends Base {
             this.pathISLR,
             this.pathCurriculum,
             this.pathTitulo,
-            this.pathRegistroMercantil};
+            this.pathRegistroMercantil,
+            this.pathExpediente,};
         return datos;
     }
 
@@ -125,11 +138,12 @@ public class Usuario extends Base {
     }
 
     public void setDatosDesdeTxt(){
-        List<String> datos = leerDatos(this.nombreUsuario+".txt", 11);
+        List<String> datos = leerDatos(this.nombreUsuario+".txt", 12);
         this.tipoUsuario = datos.get(0);
         this.clave = datos.get(1);
-        this.archivoRegistroDeHora = datos.get(2);
+        this.pathRegistroHora = datos.get(2);
         setDatos(datos.get(3), datos.get(4), datos.get(5), 
         datos.get(6), datos.get(7), datos.get(8), datos.get(9), datos.get(10));
+        this.pathExpediente = datos.get(11);
     }
 }

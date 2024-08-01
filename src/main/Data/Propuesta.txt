@@ -1,4 +1,4 @@
 usuario,estado,nombre,unidadResponsableDeTramite,denominacion,fundamentacion,duracion,pathFundamentacion,pathPerfilParticipantes,pathPerfilDocente,pathCurriculoCompetencias,pathEstrategiasEvaluacion,pathExigenciasMaterialesYServicios
 sam,aprobado,Curso1,DEU,denominacion,duracion,fundamentacion,,,,,
 ivanys,rechazado por mala redaccion,Curso2,DEU,denominacion,duracion,fundamentacion,,,,,Guia de Estructuras algebraicas.pdf
-sam,enEvaluacion,Curso3,DEU,denominacion,duracion,fundamentacion,,,,,,
+sam,aprobado,Curso3,DEU,denominacion,duracion,fundamentacion,,,,,

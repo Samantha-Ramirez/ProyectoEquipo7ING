@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -55,6 +57,19 @@ public class GestorBase implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+    }
+
+    public void openPDF(String fileName){
+        File pdfFile = new File("src/main/Data/" + fileName + ".pdf");  
+        if (pdfFile.exists()) {  
+            try {  
+                Desktop.getDesktop().open(pdfFile);  
+            } catch (IOException ex) {  
+                VistaError error = new VistaError("Error abriendo PDF"); 
+            }  
+        } else {  
+            VistaError error = new VistaError("No existe PDF"); 
+        }  
     }
     
 }

@@ -30,7 +30,7 @@ public class VistaEvaluacionAval extends VistaBase {
         JLabel labelCursoDenominacion = new JLabel("Denominacion: " + infoConsignadaPropuesta.get(2));
         labelCursoDenominacion.setFont(new Font("Arial", Font.PLAIN, 16));
         panelCentral.add(labelCursoDenominacion);
-        JLabel labelCursoDuracion = new JLabel("Duracion" + infoConsignadaPropuesta.get(3));
+        JLabel labelCursoDuracion = new JLabel("Duracion: " + infoConsignadaPropuesta.get(3));
         labelCursoDuracion.setFont(new Font("Arial", Font.PLAIN, 16));
         panelCentral.add(labelCursoDuracion);
 

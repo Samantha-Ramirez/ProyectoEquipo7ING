@@ -126,6 +126,7 @@ public class Propuesta extends Base {
     public void aprobarAvalPropuesta(){
         this.setEstado("aprobado");
         this.usuario.setTipoUsuario("Aliado");
+        this.usuario.crearExpediente();
         // FIX:crear curso al aprobar
         // new CursoExtension(this);
         // new CursoExtension(this).guardarCurso();

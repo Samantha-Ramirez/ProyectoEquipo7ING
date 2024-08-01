@@ -153,4 +153,6 @@ public class VistaBase extends Ventana {
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
+
+    
 }  
