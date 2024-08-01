@@ -24,8 +24,9 @@ public class FormularioRegistroRecaudos extends VistaBase {
         JPanel panelCentral = crearPanel(false, 0, 0);
         
         // panel de datos
-        JPanel panelDatos = crearPanel(true, 3, 2);
+        
         agregarLabel(panelCentral, "Datos personales", true);
+        JPanel panelDatos = crearPanel(true, 3, 2);
         // recuadros de texto
         this.nombre = agregarRecuadroTexto(panelDatos, "Nombre", "Ingrese su nombre");
         this.persona = agregarRecuadroTexto(panelDatos, "Persona", "Natural/Juridica");
@@ -34,8 +35,8 @@ public class FormularioRegistroRecaudos extends VistaBase {
         this.CI = agregarRecuadroTexto(panelDatos, "CI", "Ingrese su CI");
         
         // panel de recaudos
-        JPanel panelRecaudos = crearPanel(true, 2, 2);
         agregarLabel(panelCentral, "Recaudos", true);
+        JPanel panelRecaudos = crearPanel(true, 2, 2);
         // botones de adjuntar
         this.pathISLR = agregarBotonAdjunto(panelRecaudos, "Certificado de ISLR", "Adjuntar archivo");
         this.pathCurriculum = agregarBotonAdjunto(panelRecaudos, "Curriculum", "Adjuntar archivo");

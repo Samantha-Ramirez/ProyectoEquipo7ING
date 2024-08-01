@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Propuesta extends Base {
     private Usuario usuario; //proponente
+    private String estado;
     private String nombre;
     private String unidadResponsableDeTramite; //DEU, CEF --consejo,comision--
     private String denominacion;
@@ -43,6 +44,7 @@ public class Propuesta extends Base {
         if (esCreacionValida()){
             guardarPropuesta();
             new CursoExtension(this);
+            //FIX:crear curso al aprobar
         }
     }
 
@@ -82,5 +84,6 @@ public class Propuesta extends Base {
 
     public void setEstado(String estado){//aprobado, rechazado, enEvaluacion
         this.aval.setEstado(estado);
+        this.estado = estado;
     }
 }

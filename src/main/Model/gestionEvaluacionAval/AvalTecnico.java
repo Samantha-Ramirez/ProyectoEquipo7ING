@@ -10,6 +10,6 @@ public class AvalTecnico {
     }
     public void setEstado(String estado){
         this.estado = estado;
-        //guardar en txt
+        //FIX:guardar en txt
     }
 }

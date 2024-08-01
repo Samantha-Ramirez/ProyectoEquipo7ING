@@ -90,6 +90,7 @@ public class Usuario extends Base {
         return false;
     }
 
+    //FIX:actualizar todos los datos NO APPEND SINO REPLACE
     public void actualizarDatos(
         String nombreUsuario, String persona, String RIF, 
         String CI, String esComunidad,
