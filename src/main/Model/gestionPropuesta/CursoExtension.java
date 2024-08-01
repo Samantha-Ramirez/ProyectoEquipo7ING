@@ -1,24 +1,24 @@
 package main.Model.gestionPropuesta;
 
+import main.Model.gestionSesionUsuario.*;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import main.Model.gestionSesionUsuario.*;
-
-public class CursoExtension {
-    private Usuario usuario;
+public class CursoExtension extends Abstracta {
+    // private Usuario usuario; se decide ligar al proponente con la propuesta 
+    // y no con el curso como se habia pensado inicialmente en el diagrama de clases del modelo de dominio
     private Propuesta propuesta;
     private String areaConocimiento;
     private String modalidad;
     private String tipoCurso;
     private float ingresosNetos;
 
-    public CursoExtension (Usuario usuario, Propuesta propuesta){
+    public CursoExtension (Propuesta propuesta){
         this.propuesta = propuesta;
-        this.usuario = usuario;
-        this.areaConocimiento = "";
+        this.areaConocimiento = "Ciencias";
         this.modalidad = "online";
         this.tipoCurso = "curso";
         this.ingresosNetos = 0;
@@ -26,26 +26,13 @@ public class CursoExtension {
     }
 
     public void guardarCurso(){
-        String nombreArch = "src/main/Data/CursoExtension.txt";
         String[] datos = {
             this.usuario.getNombreUsuario(), 
-            this.propuesta.nombre, 
+            this.propuesta.getNombre(), 
             this.areaConocimiento,
             this.modalidad,
             this.tipoCurso,
             String.valueOf(this.ingresosNetos)};
-        // verifica que exista el archivo antes de abrir el el archivo
-        if (Files.exists(Paths.get(nombreArch))) {
-
-            // abre el archivo en modo escritura
-            try (FileWriter usuarioWriter = new FileWriter(nombreArch, true)) { // 'true' habilita el modo de append
-                for(int i = 0; i<datos.length; i++){
-                    usuarioWriter.write(datos[i] + ",");
-                }
-                usuarioWriter.write("\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        guardarDatos("CursoExtension.txt", datos, ",", true);
     }
 }

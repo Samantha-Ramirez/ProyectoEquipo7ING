@@ -1,20 +1,14 @@
 package main.Model.gestionPropuesta;
 
-// Importaciones necesarias para el manejo de archivos
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import main.Model.gestionSesionUsuario.*;
+import main.Model.gestionEvaluacionAval.AvalTecnico;
 
-public class Propuesta {
-    private Usuario usuario;
-    private String estado; //aprobado, rechazado, enEvaluacion
-    public String nombre;
-    private String unidadResponsableDeTramite;
+import java.util.List;
+
+public class Propuesta extends Abstracta {
+    private Usuario usuario; //proponente
+    private String nombre;
+    private String unidadResponsableDeTramite; //DEU, CEF --consejo,comision--
     private String denominacion;
     private String fundamentacion;
     private String duracion;
@@ -23,7 +17,7 @@ public class Propuesta {
     private String pathCurriculoCompetencias;
     private String pathEstrategiasEvaluacion;
     private String pathExigenciasMaterialesYServicios;
-    private CursoExtension cursoExtension;
+    private AvalTecnico aval;
     
     public Propuesta (
         Usuario usuario, String nombre, String unidadResponsableDeTramite, 
@@ -33,7 +27,6 @@ public class Propuesta {
         String pathExigenciasMaterialesYServicios
         ){
         this.usuario = usuario;
-        this.estado = "enEvaluacion";
         this.nombre = nombre;
         this.unidadResponsableDeTramite = unidadResponsableDeTramite;
         this.denominacion = denominacion;
@@ -44,40 +37,35 @@ public class Propuesta {
         this.pathCurriculoCompetencias = pathCurriculoCompetencias;
         this.pathEstrategiasEvaluacion = pathEstrategiasEvaluacion;
         this.pathExigenciasMaterialesYServicios = pathExigenciasMaterialesYServicios;
+        this.aval = new AvalTecnico();
         
         if (esCreacionValida()){
             guardarPropuesta();
-            this.cursoExtension = new CursoExtension(this.usuario, this);
+            new CursoExtension(this);
         }
     }
 
-    public Boolean esCreacionValida(){
-        int creaciones = 0;
-        // Direccion exacta donde debe estar el txt(data) del usuario solicitado
-        String nombreArch = "src/main/Data/Propuesta.txt";
-        // si el archivo no existe entonces retorna falso, ya que aun no se ha registrado
-        // abre el archivo en modo lectura
-        try (BufferedReader br = new BufferedReader(new FileReader(nombreArch))) {  
-            String line;  
-            while ((line = br.readLine()) != null) {  
-                
-                String[] data = line.split("[,]", 0);
-                if (data[0]==this.nombre)
-                    creaciones++;
+    public String getNombre(){
+        return nombre;
+    }
 
-            }  
-        } catch (IOException e) {  
-            e.printStackTrace();  
-        }  
+    public Boolean esCreacionValida(){
+        List<String> datos = leerDatos("Propuesta.txt");
+        int creaciones = 0;
+        for(int i = 0; i<datos.size(); i++){
+            String[] nombres = datos.get(i).split("[,]", 0);
+            if (nombres[0]==this.nombre)
+                creaciones++;
+        }
         if(creaciones >= 3)
             return false;
         return true;
     }
+    
     public void guardarPropuesta(){
-        String nombreArch = "src/main/Data/Propuesta.txt";
         String[] datos = {
             this.usuario.getNombreUsuario(), 
-            this.estado,
+            this.aval.getEstado(),
             this.nombre, 
             this.unidadResponsableDeTramite, 
             this.denominacion, 
@@ -88,22 +76,10 @@ public class Propuesta {
             this.pathCurriculoCompetencias, 
             this.pathEstrategiasEvaluacion, 
             this.pathExigenciasMaterialesYServicios};
-        // verifica que exista el archivo antes de abrir el el archivo
-        if (Files.exists(Paths.get(nombreArch))) {
-
-            // abre el archivo en modo escritura
-            try (FileWriter usuarioWriter = new FileWriter(nombreArch, true)) { // 'true' habilita el modo de append
-                for(int i = 0; i<datos.length; i++){
-                    usuarioWriter.write(datos[i] + ",");
-                }
-                usuarioWriter.write("\n");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        guardarDatos("Propuesta.txt", datos, ",", true);
     }
 
-    public void setestado(int estado){
-
+    public void setEstado(String estado){//aprobado, rechazado, enEvaluacion
+        this.aval.setEstado(estado);
     }
 }

@@ -1,6 +1,5 @@
 package main.View.abstractas;
 
-import java.awt.*;
 import javax.swing.JTextField;
 
 public class JText extends JTextField {

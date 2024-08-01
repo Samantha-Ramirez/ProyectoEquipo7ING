@@ -1,14 +1,14 @@
 package main.View.gestionPropuesta;
 
+import main.View.abstractas.*;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-import main.View.abstractas.*;
-
 public class FormularioCargaCurso extends VentanaPrincipal {  
     private JText nombre;
-    private JText unidadResponsableDeTramite;
+    private JComboBox<String> unidadResponsableDeTramite;
     private JText denominacion;
     private JText duracion;
     private JText fundamentacion;
@@ -26,7 +26,7 @@ public class FormularioCargaCurso extends VentanaPrincipal {
 
         JPanel panelAdjuntos = crearPanel(true, 10, 1);
         this.nombre = agregarRecuadroTexto(panelAdjuntos, "Nombre", "Ingrese nombre");
-        this.unidadResponsableDeTramite = agregarRecuadroTexto(panelAdjuntos, "Unidad responsable", "Ingrese unidad");
+        this.unidadResponsableDeTramite = agregarCombo(panelAdjuntos, "Unidad responsable", "DEU", "CEF");
         this.denominacion = agregarRecuadroTexto(panelAdjuntos, "Denominación", "Ingrese denominación");
         this.fundamentacion = agregarRecuadroTexto(panelAdjuntos, "Fundamentación", "Ingrese fundamentación");
         this.duracion = agregarRecuadroTexto(panelAdjuntos, "Duración", "Ingrese duración");
@@ -50,7 +50,7 @@ public class FormularioCargaCurso extends VentanaPrincipal {
     }
 
     public String getUnidadResponsableDeTramite() {
-        return unidadResponsableDeTramite.getText();
+        return (String) unidadResponsableDeTramite.getSelectedItem();
     }
 
     public String getDenominacion() {

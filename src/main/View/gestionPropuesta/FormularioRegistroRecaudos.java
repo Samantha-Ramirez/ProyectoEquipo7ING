@@ -1,10 +1,10 @@
 package main.View.gestionPropuesta;
 
+import main.View.abstractas.*;
+
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
-import main.View.abstractas.*;
 
 public class FormularioRegistroRecaudos extends VentanaPrincipal {
     private JText nombre;

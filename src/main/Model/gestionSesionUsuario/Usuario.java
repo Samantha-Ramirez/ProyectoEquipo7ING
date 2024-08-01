@@ -1,23 +1,15 @@
 package main.Model.gestionSesionUsuario;
 
-// Importaciones necesarias para el manejo de archivos
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 // Importaciones necesarias para el manejo de fechas
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+public class Usuario extends Abstracta {
     // Atributos
     protected String nombreUsuario;
     protected String clave;
-    protected String tipoUsuario; //Aliado, Proponente, Administrador
+    protected String tipoUsuario; //Aliado, Proponente, Administrador//DEU, CEF --comision, consejo--
     protected String archivoRegistroDeHora;
     protected String persona; //normal, juridica
     protected String RIF;
@@ -54,20 +46,6 @@ public class Usuario {
     public boolean datosCompletos(){
         return !nombreUsuario.isEmpty() && !clave.isEmpty();
     }
-    // Método para registrar los datos del usuario en archivos
-    public void guardarDatos(String fileName, String[] datos, String sep, Boolean type){
-        String basePath = "src/main/Data/";// direccion donde se guardara el txt(data)
-        fileName = basePath + fileName;
-        if ((!type && !Files.exists(Paths.get(fileName)) || type && Files.exists(Paths.get(fileName)))) {// verifica si el archivo de usuario existe, en caso de que exista retorna falso, pues ese usuario ya esta registrado
-            try (FileWriter writer = new FileWriter(fileName, type)) { // abre el arcihivo en modo lectura // 'true' habilita el modo de append
-                for(int i = 0; i<datos.length; i++){
-                    writer.write(datos[i] + sep);
-                }
-            } catch (IOException e) {
-                e.printStackTrace(); // manejo de excepciones con respecto a las entradas
-            }
-        }
-    }
     
     public boolean registrarDatos() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
@@ -92,25 +70,6 @@ public class Usuario {
         guardarDatos(archivoRegistroDeHora, datos, "\n", true);
     }
 
-    public List<String> leerDatos(String fileName, int n){
-        String basePath = "src/main/Data/";// direccion donde se guardara el txt(data)
-        fileName = basePath + fileName;
-        List<String> datos = new ArrayList<String>();
-        if (!Files.exists(Paths.get(fileName))) {
-            return datos; // Retorna false si el archivo no existe
-        }
-        // abre el archivo en modo lectura
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            for(int i = 0; i<n; i++){
-                datos.add(reader.readLine());
-            }
-            return datos;
-
-        } catch (IOException e) {// manejo de excepcion
-            e.printStackTrace();
-            return datos;
-        }
-    }
     // revisa si los datos ingresados en el inicio de sesion son correctos
     public boolean verificarDatos() {
         // Direccion exacta donde debe estar el txt(data) del usuario solicitado
