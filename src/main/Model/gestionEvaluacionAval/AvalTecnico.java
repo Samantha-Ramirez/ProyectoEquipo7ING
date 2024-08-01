@@ -4,7 +4,7 @@ import main.Model.gestionBases.Base;
 import main.Model.gestionPropuesta.*;
 
 public class AvalTecnico extends Base {
-    private Propuesta propuesta; //FIX:smellcode
+    private Propuesta propuesta; //smellcode
     private String estado; //aprobado, rechazado, enEvaluacion
     private String observaciones;
 
