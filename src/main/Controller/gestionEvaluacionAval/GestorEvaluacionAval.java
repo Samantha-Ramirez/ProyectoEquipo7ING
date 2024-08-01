@@ -3,7 +3,6 @@ package main.Controller.gestionEvaluacionAval;
 import main.View.gestionEvaluacionAval.VistaEvaluacionAval;
 import main.Controller.gestionBases.*;
 
-import main.Model.gestionSesionUsuario.Usuario;
 import main.Model.gestionPropuesta.*;
 
 import java.awt.event.ActionEvent;
@@ -12,11 +11,9 @@ import java.awt.event.ActionListener;
 public class GestorEvaluacionAval extends GestorBase {
     private VistaEvaluacionAval vistaEvaluacionAval;
     private VistaError error;
-    private Usuario usuario;
     private Propuesta propuesta;
 
-    public GestorEvaluacionAval(Usuario usuario){
-        this.usuario = usuario;
+    public GestorEvaluacionAval(){
         this.vistaEvaluacionAval = new VistaEvaluacionAval();
         this.vistaEvaluacionAval.setVisible(true);
         
@@ -29,8 +26,9 @@ public class GestorEvaluacionAval extends GestorBase {
 
         switch (comando) {
             case "APROBAR":
-                propuesta.setEstado("aprobado");
-                usuario.setTipoUsuario("Aliado");
+                propuesta.aprobarAvalPropuesta();
+                //crear curso al aprobar
+                new CursoExtension(propuesta);
                 // String informacion = ;
                 // actualizarArchivo(numeroPropuesta, "true", informacion);
                 // String numeroPropuestaText = numeroPropuestaField.getText();
@@ -50,7 +48,7 @@ public class GestorEvaluacionAval extends GestorBase {
                 break;
             case "ENVIAR":
                 propuesta.actualizarDatos();
-                usuario.actualizarDatos();
+                propuesta.getUsuario().actualizarDatos();
                 break;
         }
     }

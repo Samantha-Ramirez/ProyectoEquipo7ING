@@ -42,11 +42,8 @@ public class Propuesta extends Base {
         this.pathEstrategiasEvaluacion = pathEstrategiasEvaluacion;
         this.pathExigenciasMaterialesYServicios = pathExigenciasMaterialesYServicios;
         
-        if (esCreacionValida()){
+        if (esCreacionValida())
             guardarPropuesta();
-            new CursoExtension(this);
-            //FIX:crear curso al aprobar
-        }
     }
     
     public String[] getDatos (){
@@ -59,6 +56,10 @@ public class Propuesta extends Base {
 
     public String getNombre(){
         return nombre;
+    }
+
+    public Usuario getUsuario(){
+        return usuario;
     }
 
     public Boolean esCreacionValida(){
@@ -83,12 +84,18 @@ public class Propuesta extends Base {
     }
 
     public void setEstado(String estado){//aprobado, rechazado, enEvaluacion
-        this.aval.setEstado(estado);
         this.estado = estado;
+        this.aval.setEstado(estado);
+        this.aval.actualizarDatos();
     }
     
     public void setEstado(String estado, String observaciones){//aprobado, rechazado, enEvaluacion
-        setEstado(estado);
         this.aval.setObservaciones(observaciones);
+        setEstado(estado);
+    }
+
+    public void aprobarAvalPropuesta(){
+        this.setEstado("aprobado");
+        this.usuario.setTipoUsuario("Aliado");
     }
 }

@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class VistaPropuestasEvaluar extends VistaBase {
+    private ArrayList<String[]> cursosData;
 
     public VistaPropuestasEvaluar() {
         super("Administrador | Ver propuestas a evaluar", 600, 400);
 
         // Leer datos del archivo
-        ArrayList<String[]> cursosData = leerDatosCurso("CursoExtension.txt");
+        this.cursosData = leerDatosCurso("CursoExtension.txt");
 
         // Panel central con los componentes
         JPanel panelCentral = new JPanel();
@@ -38,8 +39,7 @@ public class VistaPropuestasEvaluar extends VistaBase {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // Abre la ventana de Evaluación de Aval
-                    VistaEvaluacionAval evaluacionAvalFrame = new VistaEvaluacionAval();
-                    evaluacionAvalFrame.setVisible(true);
+                    new VistaEvaluacionAval();
                 }
             });
             

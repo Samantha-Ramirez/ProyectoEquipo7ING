@@ -1,5 +1,7 @@
 package main.Model.gestionPropuesta;
 
+import java.util.List;
+
 import main.Model.gestionBases.Base;
 
 public class CursoExtension extends Base {
@@ -31,4 +33,5 @@ public class CursoExtension extends Base {
             String.valueOf(this.ingresosNetos)};
         guardarDatos("CursoExtension.txt", datos, ",", true);
     }
+
 }
