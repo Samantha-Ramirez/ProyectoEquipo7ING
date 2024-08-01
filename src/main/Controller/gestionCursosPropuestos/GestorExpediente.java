@@ -20,9 +20,15 @@ public class GestorExpediente extends GestorBase {
         public GestorExpediente(Usuario usuario) {
            // Inicializacion de las instancias
             this.usuario = usuario;
-            this.vistaExpediente = new VistaExpediente(expediente.getCartasCompromiso(), expediente.getCartasIntencion());
-            this.vistaExpediente.setVisible(true);
+
             
+            this.vistaExpediente = new VistaExpediente();
+            // if(expediente.getCartasCompromiso().size()>0 && expediente.getCartasIntencion().size()>0){
+                vistaExpediente.setVisible(true);
+            // }else{
+            //    vistaExpediente.mostrarMensaje("No hay cursos");
+            // }
+                        
             this.vistaExpediente.setControlador((ActionListener) this); // Asigna el controlador a la vista de registro
         }
 
