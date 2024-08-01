@@ -15,18 +15,18 @@ import java.util.List;
 
 public class Usuario {
     // Atributos
-    private String nombreUsuario;
-    private String clave;
-    private String tipoUsuario; //Aliado, Proponente, Administrador
-    private String archivoRegistroDeHora;
-    private String persona; //normal, juridica
-    private String RIF;
-    private String CI;
-    private String esComunidad;
-    private String pathISLR;
-    private String pathCurriculum;
-    private String pathTitulo;
-    private String pathRegistroMercantil;
+    protected String nombreUsuario;
+    protected String clave;
+    protected String tipoUsuario; //Aliado, Proponente, Administrador
+    protected String archivoRegistroDeHora;
+    protected String persona; //normal, juridica
+    protected String RIF;
+    protected String CI;
+    protected String esComunidad;
+    protected String pathISLR;
+    protected String pathCurriculum;
+    protected String pathTitulo;
+    protected String pathRegistroMercantil;
 
     // Constructor de la clase Usuario, inicializa nombreUsuario y clave
     public Usuario (String nombreUsuario, String clave){
@@ -143,7 +143,7 @@ public class Usuario {
         this.pathTitulo = pathTitulo;
         this.pathRegistroMercantil = pathRegistroMercantil;
         
-        String nombreArch = this.nombreUsuario + ".txt";
+        String nombreArch = this.getNombreUsuario() + ".txt";
         String[] datos = {
             this.persona,
             this.RIF, 
