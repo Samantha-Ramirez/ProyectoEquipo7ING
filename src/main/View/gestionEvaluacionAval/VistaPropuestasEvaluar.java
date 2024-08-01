@@ -1,5 +1,6 @@
 package main.View.gestionEvaluacionAval;
 
+import main.View.gestionBases.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,24 +10,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class VistaPropuestasEvaluar extends JFrame {
+public class VistaPropuestasEvaluar extends VistaBase {
 
     public VistaPropuestasEvaluar() {
-        // Configuración de la ventana principal
-        setTitle("Evaluaciones | Dashboard");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-
-        // Panel superior con el título
-        JPanel panelSuperior = new JPanel();
-        panelSuperior.setBackground(Color.BLACK);
-        panelSuperior.setLayout(new FlowLayout(FlowLayout.CENTER)); // Centra el contenido
-        JLabel titulo = new JLabel("Evaluaciones | Dashboard");
-        titulo.setForeground(Color.WHITE);
-        panelSuperior.add(titulo);
-        add(panelSuperior, BorderLayout.NORTH);
+        super("Administrador | Ver propuestas a evaluar", 600, 400);
 
         // Leer datos del archivo
         ArrayList<String[]> cursosData = leerDatosCurso("CursoExtension.txt");
@@ -82,9 +69,11 @@ public class VistaPropuestasEvaluar extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            VistaPropuestasEvaluar dashboard = new VistaPropuestasEvaluar();
-            dashboard.setVisible(true);
-        });
+        // SwingUtilities.invokeLater(() -> {
+        //     VistaPropuestasEvaluar dashboard = new VistaPropuestasEvaluar();
+        //     dashboard.setVisible(true);
+        // });
+        VistaPropuestasEvaluar vistaPropuestasEvaluar = new VistaPropuestasEvaluar();  
+        vistaPropuestasEvaluar.setVisible(true);  
     }
 }

@@ -10,6 +10,7 @@ public class CursoExtension extends Base {
     private String modalidad;
     private String tipoCurso;
     private float ingresosNetos;
+    //FIX:atributos
 
     public CursoExtension (Propuesta propuesta){
         this.propuesta = propuesta;

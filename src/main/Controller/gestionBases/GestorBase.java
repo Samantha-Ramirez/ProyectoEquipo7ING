@@ -21,6 +21,7 @@ public class GestorBase implements ActionListener {
         }
         return nombre;
 }
+    
     public void guardarUploads(String[] uploads){
         String basePath = "src/main/Data/";
         for(int i = 0; i<uploads.length; i++){
@@ -46,9 +47,9 @@ public class GestorBase implements ActionListener {
             }
         }
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
     

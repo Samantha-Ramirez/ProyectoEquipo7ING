@@ -1,81 +1,67 @@
 package main.View.gestionEvaluacionAval;
+
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import javax.swing.*;
 
-public class VistaEvaluacionAval extends JFrame {
+import main.View.gestionBases.VistaBase;
 
-    private JTextField recuadroTexto;
-    private JTextField numeroPropuestaField;
-    private static final String archivoAvalTecnico = "avalTecnico.txt";
-    private static final String archivoUsuario = "usuario.txt";
+public class VistaEvaluacionAval extends VistaBase {
+    private JTextField recuadroTextoInfoConsignada;
+    private JTextField recuadroTextoObservaciones;
+    private JButton botonAprobar;
+    private JButton botonRechazar;
+    private JButton botonEnviar;
 
     public VistaEvaluacionAval() {
-        // Configuración de la ventana principal
-        setTitle("Administrador | Evaluación de aval");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-
-        // Panel superior con el título
-        JPanel panelSuperior = new JPanel(new BorderLayout());
-        panelSuperior.setBackground(Color.BLACK);
-        JLabel titulo = new JLabel("Administrador | Evaluación de aval", SwingConstants.CENTER);
-        titulo.setForeground(Color.WHITE);
-        panelSuperior.add(titulo, BorderLayout.CENTER);
-        add(panelSuperior, BorderLayout.NORTH);
+        super("Administrador | Evaluación de aval", 600, 400);
 
         // Panel central con el recuadro de texto y número de propuesta
-        JPanel panelCentral = new JPanel();
+        JPanel panelCentral = crearPanel(false, 0, 0);
         panelCentral.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20)); // Añadido espacio entre componentes
 
-        recuadroTexto = new JTextField("Información consignada de la propuesta");
-        recuadroTexto.setForeground(Color.GRAY);
-        recuadroTexto.setPreferredSize(new Dimension(400, 100)); // Ajusta el tamaño para que sea cuadrado
-        recuadroTexto.addFocusListener(new java.awt.event.FocusAdapter() {
+        recuadroTextoInfoConsignada = new JTextField("Información consignada de la propuesta");
+        recuadroTextoInfoConsignada.setForeground(Color.GRAY);
+        recuadroTextoInfoConsignada.setPreferredSize(new Dimension(400, 100)); // Ajusta el tamaño para que sea cuadrado
+        recuadroTextoInfoConsignada.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (recuadroTexto.getText().equals("Información consignada de la propuesta")) {
-                    recuadroTexto.setText("");
-                    recuadroTexto.setForeground(Color.BLACK);
+                if (recuadroTextoInfoConsignada.getText().equals("Información consignada de la propuesta")) {
+                    recuadroTextoInfoConsignada.setText("");
+                    recuadroTextoInfoConsignada.setForeground(Color.BLACK);
                 }
             }
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (recuadroTexto.getText().isEmpty()) {
-                    recuadroTexto.setForeground(Color.GRAY);
-                    recuadroTexto.setText("Información consignada de la propuesta");
+                if (recuadroTextoInfoConsignada.getText().isEmpty()) {
+                    recuadroTextoInfoConsignada.setForeground(Color.GRAY);
+                    recuadroTextoInfoConsignada.setText("Información consignada de la propuesta");
                 }
             }
         });
 
-        numeroPropuestaField = new JTextField("Número de Propuesta");
-        numeroPropuestaField.setForeground(Color.GRAY);
-        numeroPropuestaField.setPreferredSize(new Dimension(150, 30)); // Ajusta el tamaño
-        numeroPropuestaField.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (numeroPropuestaField.getText().equals("Número de Propuesta (1-4)")) {
-                    numeroPropuestaField.setText("");
-                    numeroPropuestaField.setForeground(Color.BLACK);
-                }
-            }
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (numeroPropuestaField.getText().isEmpty()) {
-                    numeroPropuestaField.setForeground(Color.GRAY);
-                    numeroPropuestaField.setText("Número de Propuesta (1-4)");
-                }
-            }
-        });
+        // recuadroTextoObservaciones = new JTextField("Número de Propuesta");
+        // recuadroTextoObservaciones.setForeground(Color.GRAY);
+        // recuadroTextoObservaciones.setPreferredSize(new Dimension(150, 30)); // Ajusta el tamaño
+        // recuadroTextoObservaciones.addFocusListener(new java.awt.event.FocusAdapter() {
+        //     @Override
+        //     public void focusGained(java.awt.event.FocusEvent evt) {
+        //         if (recuadroTextoObservaciones.getText().equals("Número de Propuesta (1-4)")) {
+        //             recuadroTextoObservaciones.setText("");
+        //             recuadroTextoObservaciones.setForeground(Color.BLACK);
+        //         }
+        //     }
+        //     @Override
+        //     public void focusLost(java.awt.event.FocusEvent evt) {
+        //         if (recuadroTextoObservaciones.getText().isEmpty()) {
+        //             recuadroTextoObservaciones.setForeground(Color.GRAY);
+        //             recuadroTextoObservaciones.setText("Número de Propuesta (1-4)");
+        //         }
+        //     }
+        // });
 
-        panelCentral.add(numeroPropuestaField);
-        panelCentral.add(recuadroTexto);
+        // panelCentral.add(recuadroTextoObservaciones);
+        panelCentral.add(recuadroTextoInfoConsignada);
         add(panelCentral, BorderLayout.CENTER);
 
         // Panel inferior con los botones y subtítulos
@@ -89,8 +75,10 @@ public class VistaEvaluacionAval extends JFrame {
         JPanel panelEvaluacion = new JPanel();
         panelEvaluacion.setLayout(new BoxLayout(panelEvaluacion, BoxLayout.Y_AXIS));
         JLabel subtituloEvaluacion = new JLabel("Evaluación");
-        JButton botonAprobar = new JButton("Aprobar");
-        JButton botonRechazar = new JButton("Rechazar");
+        this.botonAprobar = new JButton("Aprobar");
+        this.botonAprobar.setActionCommand("APROBAR"); // Establece un comando de acción
+        this.botonRechazar = new JButton("Rechazar");
+        this.botonRechazar.setActionCommand("RECHAZAR"); // Establece un comando de acción
         panelEvaluacion.add(subtituloEvaluacion);
         panelEvaluacion.add(Box.createRigidArea(new Dimension(0, 5)));
         panelEvaluacion.add(botonAprobar);
@@ -106,28 +94,28 @@ public class VistaEvaluacionAval extends JFrame {
         JPanel panelObservaciones = new JPanel();
         panelObservaciones.setLayout(new BoxLayout(panelObservaciones, BoxLayout.Y_AXIS));
         JLabel subtituloObservaciones = new JLabel("Observaciones");
-        JTextField cuadroTextoObservaciones = new JTextField("Escriba aca");
-        cuadroTextoObservaciones.setForeground(Color.GRAY);
-        cuadroTextoObservaciones.setPreferredSize(new Dimension(100, 60)); // Ajusta el tamaño para que sea cuadrado
-        cuadroTextoObservaciones.addFocusListener(new java.awt.event.FocusAdapter() {
+        recuadroTextoObservaciones = new JTextField("Escribir observaciones");
+        recuadroTextoObservaciones.setForeground(Color.GRAY);
+        recuadroTextoObservaciones.setPreferredSize(new Dimension(100, 60)); // Ajusta el tamaño para que sea cuadrado
+        recuadroTextoObservaciones.addFocusListener(new java.awt.event.FocusAdapter() {
             @Override
             public void focusGained(java.awt.event.FocusEvent evt) {
-                if (cuadroTextoObservaciones.getText().equals("Escriba aca")) {
-                    cuadroTextoObservaciones.setText("");
-                    cuadroTextoObservaciones.setForeground(Color.BLACK);
+                if (recuadroTextoObservaciones.getText().equals("Escribir observaciones")) {
+                    recuadroTextoObservaciones.setText("");
+                    recuadroTextoObservaciones.setForeground(Color.BLACK);
                 }
             }
             @Override
             public void focusLost(java.awt.event.FocusEvent evt) {
-                if (cuadroTextoObservaciones.getText().isEmpty()) {
-                    cuadroTextoObservaciones.setForeground(Color.GRAY);
-                    cuadroTextoObservaciones.setText("Escriba aca");
+                if (recuadroTextoObservaciones.getText().isEmpty()) {
+                    recuadroTextoObservaciones.setForeground(Color.GRAY);
+                    recuadroTextoObservaciones.setText("Escribir observaciones");
                 }
             }
         });
         panelObservaciones.add(subtituloObservaciones);
         panelObservaciones.add(Box.createRigidArea(new Dimension(0, 5)));
-        panelObservaciones.add(cuadroTextoObservaciones);
+        panelObservaciones.add(recuadroTextoObservaciones);
 
         gbc.gridx = 2;
         gbc.gridy = 0;
@@ -137,7 +125,8 @@ public class VistaEvaluacionAval extends JFrame {
         // Botón Enviar en el centro inferior
         JPanel panelBotonEnviar = new JPanel();
         panelBotonEnviar.setLayout(new FlowLayout(FlowLayout.CENTER));
-        JButton botonEnviar= new JButton("Enviar");
+        this.botonEnviar = new JButton("Enviar");
+        this.botonEnviar.setActionCommand("ENVIAR"); // Establece un comando de acción
         panelBotonEnviar.add(botonEnviar);
 
         gbc.gridx = 1;
@@ -146,99 +135,21 @@ public class VistaEvaluacionAval extends JFrame {
         panelInferior.add(panelBotonEnviar, gbc);
 
         add(panelInferior, BorderLayout.SOUTH);
-
-        // Añadir acción al botón Aprobar
-        botonAprobar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String informacion = recuadroTexto.getText();
-                String numeroPropuestaText = numeroPropuestaField.getText();
-                try {
-                    int numeroPropuesta = Integer.parseInt(numeroPropuestaText);
-                    if (numeroPropuesta >= 1 && numeroPropuesta <= 20) {
-                        actualizarArchivo(numeroPropuesta, "true", informacion);
-                    } else {
-                        JOptionPane.showMessageDialog(VistaEvaluacionAval.this, "Número de propuesta debe estar entre 1 y 20", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(VistaEvaluacionAval.this, "Número de propuesta inválido", "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        });
-
-        // Añadir acción al botón Enviar
-        botonEnviar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actualizararchivoUsuario();
-            }
-        });
     }
 
-    private void actualizarArchivo(int numeroPropuesta, String estado, String informacion) {
-        if (Files.exists(Paths.get(archivoAvalTecnico))) {
-            try {
-                // Leer el contenido del archivo
-                BufferedReader reader = new BufferedReader(new FileReader(archivoAvalTecnico));
-                StringBuilder contenido = new StringBuilder();
-                String linea;
-                while ((linea = reader.readLine()) != null) {
-                    // Modificar la línea correspondiente
-                    if (linea.startsWith("Propuesta nro " + numeroPropuesta + ":")) {
-                        String[] partes = linea.split(": ", 2);
-                        if (partes.length == 2) {
-                            String[] subPartes = partes[1].split(", ", 2);
-                            subPartes[0] = "Estado = " + estado;
-                            subPartes[1] = "Información = " + informacion;
-                            linea = partes[0] + ": " + String.join(", ", subPartes);
-                        }
-                    }
-                    contenido.append(linea).append(System.lineSeparator());
-                }
-                reader.close();
-
-                // Escribir el contenido modificado de nuevo al archivo
-                FileWriter writer = new FileWriter(archivoAvalTecnico);
-                writer.write(contenido.toString());
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public void setControlador(ActionListener controlador) {
+        botonAprobar.addActionListener(controlador);
+        botonRechazar.addActionListener(controlador);
+        botonEnviar.addActionListener(controlador);
     }
 
-    private void actualizararchivoUsuario() {
-        if (Files.exists(Paths.get(archivoUsuario))) {
-            try {
-                // Leer el contenido del archivo
-                BufferedReader reader = new BufferedReader(new FileReader(archivoUsuario));
-                StringBuilder contenido = new StringBuilder();
-                String linea = reader.readLine();
-
-                // Verificar y modificar la primera línea si es necesario
-                if (linea != null && linea.startsWith("Proponente")) {
-                    contenido.append("Aliado").append(System.lineSeparator());
-                } else if (linea != null) {
-                    contenido.append(linea).append(System.lineSeparator());
-                }
-
-                // Leer el resto del archivo
-                while ((linea = reader.readLine()) != null) {
-                    contenido.append(linea).append(System.lineSeparator());
-                }
-                reader.close();
-
-                // Escribir el contenido modificado de nuevo al archivo
-                FileWriter writer = new FileWriter(archivoUsuario);
-                writer.write(contenido.toString());
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public String getObservaciones(){
+        return recuadroTextoObservaciones.getText();
     }
-
+    
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new VistaEvaluacionAval().setVisible(true));
+        // SwingUtilities.invokeLater(() -> new VistaEvaluacionAval().setVisible(true));
+        VistaEvaluacionAval vistaEvaluacionAval = new VistaEvaluacionAval();  
+        vistaEvaluacionAval.setVisible(true);  
     }
 }

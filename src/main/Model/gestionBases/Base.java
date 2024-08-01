@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;  
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,63 @@ public class Base {
             }
         }
     }
+    
+    public void actualizarDatos(String fileName, String[] datos, String sep){
+        String basePath = "src/main/Data/";// direccion donde se guardara el txt(data)
+        fileName = basePath + fileName;  
+        // Define the new content you want to place in the file  
+        String newContent = String.join(sep, datos);
+        // for(int i = 0; i<datos.length; i++){
+        //     newContent += newContent + datos[i] + sep;
+        // }
+        try {  
+            // Set the path to the file  
+            Path path = Paths.get(fileName);  
+
+            // Write the new content to the file, replacing existing text  
+            Files.write(path, newContent.getBytes());  
+        } catch (IOException e) {  
+            e.printStackTrace();  
+        } 
+    }
+
+    public void actualizarDatos(String fileName, String[] datos, String sep, String match){
+        String basePath = "src/main/Data/";// direccion donde se guardara el txt(data)
+        fileName = basePath + fileName;  
+        // Define the new content you want to place in the file  
+        if (Files.exists(Paths.get(fileName))) {
+            try {
+                // Leer el contenido del archivo
+                BufferedReader reader = new BufferedReader(new FileReader(fileName));
+                StringBuilder contenido = new StringBuilder();
+                String linea;
+                while ((linea = reader.readLine()) != null) {
+                    // Modificar la línea correspondiente
+                    if (linea.contains(match)) {
+                        // String[] subPartes = linea.split(",");
+                        // String[] subPartes = partes[1].split(", ", 2);
+                        // subPartes[n] = "Estado = " + estado;
+                        // subPartes[1] = "Información = " + informacion;
+                        // linea = partes[0] + ": " + String.join(", ", subPartes);
+                        linea = String.join(sep, datos);
+                        // if(sep == ",")
+                        // writer.write("\n");
+                    }
+                    contenido.append(linea).append(System.lineSeparator());
+                    
+                }
+                reader.close();
+
+                // Escribir el contenido modificado de nuevo al archivo
+                FileWriter writer = new FileWriter(fileName);
+                writer.write(contenido.toString());
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<String> leerDatos(String fileName, int n){
         String basePath = "src/main/Data/";// direccion donde se guardara el txt(data)
         fileName = basePath + fileName;
@@ -49,6 +107,7 @@ public class Base {
             return datos;
         }
     }
+    
     public List<String> leerDatos(String fileName){
         String basePath = "src/main/Data/";// direccion donde se guardara el txt(data)
         fileName = basePath + fileName;

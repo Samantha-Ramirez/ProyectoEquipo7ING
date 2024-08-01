@@ -28,7 +28,9 @@ public class Propuesta extends Base {
         String pathCurriculoCompetencias, String pathEstrategiasEvaluacion, 
         String pathExigenciasMaterialesYServicios
         ){
+        this.aval = new AvalTecnico();
         this.usuario = usuario;
+        this.estado = this.aval.getEstado();
         this.nombre = nombre;
         this.unidadResponsableDeTramite = unidadResponsableDeTramite;
         this.denominacion = denominacion;
@@ -39,13 +41,20 @@ public class Propuesta extends Base {
         this.pathCurriculoCompetencias = pathCurriculoCompetencias;
         this.pathEstrategiasEvaluacion = pathEstrategiasEvaluacion;
         this.pathExigenciasMaterialesYServicios = pathExigenciasMaterialesYServicios;
-        this.aval = new AvalTecnico();
         
         if (esCreacionValida()){
             guardarPropuesta();
             new CursoExtension(this);
             //FIX:crear curso al aprobar
         }
+    }
+    
+    public String[] getDatos (){
+        String[] datos = {this.usuario.getNombreUsuario(), this.estado, this.nombre, this.unidadResponsableDeTramite, this.denominacion, this.duracion, this.fundamentacion, 
+            this.pathPerfilParticipantes, this.pathPerfilDocente, 
+            this.pathCurriculoCompetencias, this.pathEstrategiasEvaluacion,
+            this.pathExigenciasMaterialesYServicios};
+        return datos;
     }
 
     public String getNombre(){
@@ -66,24 +75,20 @@ public class Propuesta extends Base {
     }
     
     public void guardarPropuesta(){
-        String[] datos = {
-            this.usuario.getNombreUsuario(), 
-            this.aval.getEstado(),
-            this.nombre, 
-            this.unidadResponsableDeTramite, 
-            this.denominacion, 
-            this.fundamentacion, 
-            this.duracion, 
-            this.pathPerfilParticipantes, 
-            this.pathPerfilDocente, 
-            this.pathCurriculoCompetencias, 
-            this.pathEstrategiasEvaluacion, 
-            this.pathExigenciasMaterialesYServicios};
-        guardarDatos("Propuesta.txt", datos, ",", true);
+        guardarDatos("Propuesta.txt", getDatos(), ",", true);
+    }
+
+    public void actualizarDatos(){
+        actualizarDatos("Propuesta.txt", getDatos(), ",", this.nombre);
     }
 
     public void setEstado(String estado){//aprobado, rechazado, enEvaluacion
         this.aval.setEstado(estado);
         this.estado = estado;
+    }
+    
+    public void setEstado(String estado, String observaciones){//aprobado, rechazado, enEvaluacion
+        setEstado(estado);
+        this.aval.setObservaciones(observaciones);
     }
 }

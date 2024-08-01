@@ -9,13 +9,13 @@ import main.Model.gestionPropuesta.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GestorEvaluacionAval extends GestorBase {
+public class GestorPropuestasEvaluar extends GestorBase {
     private VistaEvaluacionAval vistaEvaluacionAval;
     private VistaError error;
     private Usuario usuario;
     private Propuesta propuesta;
 
-    public GestorEvaluacionAval(Usuario usuario){
+    public GestorPropuestasEvaluar(Usuario usuario){
         this.usuario = usuario;
         this.vistaEvaluacionAval = new VistaEvaluacionAval();
         this.vistaEvaluacionAval.setVisible(true);

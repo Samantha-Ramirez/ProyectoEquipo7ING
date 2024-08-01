@@ -1,11 +1,11 @@
 package main.Model.gestionSesionUsuario;
 
+import main.Model.gestionBases.Base;
+
 // Importaciones necesarias para el manejo de fechas
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-
-import main.Model.gestionBases.Base;
 
 public class Usuario extends Base {
     // Atributos
@@ -89,13 +89,27 @@ public class Usuario extends Base {
         }
         return false;
     }
+    
+    public String[] getDatos (){
+        String[] datos = {
+            this.nombreUsuario,
+            this.clave,
+            this.tipoUsuario, //Aliado, Proponente, Administrador//DEU, CEF --comision, consejo--
+            this.archivoRegistroDeHora,
+            this.persona,
+            this.RIF, 
+            this.CI, 
+            this.esComunidad,
+            this.pathISLR,
+            this.pathCurriculum,
+            this.pathTitulo,
+            this.pathRegistroMercantil};
+        return datos;
+    }
 
-    //FIX:actualizar todos los datos NO APPEND SINO REPLACE
-    public void actualizarDatos(
-        String nombreUsuario, String persona, String RIF, 
-        String CI, String esComunidad,
-        String pathISLR, String pathCurriculum,
-        String pathTitulo, String pathRegistroMercantil){
+    public void setDatos (
+        String persona, String RIF, String CI, String esComunidad, 
+        String pathISLR, String pathCurriculum, String pathTitulo, String pathRegistroMercantil){
         this.persona = persona;
         this.RIF = RIF;
         this.CI = CI;
@@ -104,18 +118,44 @@ public class Usuario extends Base {
         this.pathCurriculum = pathCurriculum;
         this.pathTitulo = pathTitulo;
         this.pathRegistroMercantil = pathRegistroMercantil;
-        
-        String nombreArch = this.getNombreUsuario() + ".txt";
-        String[] datos = {
-            this.persona,
-            this.RIF, 
-            this.CI, 
-            this.esComunidad,
-            this.pathISLR,
-            this.pathCurriculum,
-            this.pathTitulo,
-            this.pathRegistroMercantil,
-        };
-        guardarDatos(nombreArch, datos, "\n", true);
+        actualizarDatos();
     }
+
+    public void actualizarDatos(){
+        String nombreArch = this.getNombreUsuario() + ".txt";
+        actualizarDatos(nombreArch, getDatos(), "\n");
+    }
+
+    // private void actualizararchivoUsuario() {
+    //     String archivoUsuario = "usuario.txt";
+    //     if (Files.exists(Paths.get(archivoUsuario))) {
+    //         try {
+    //             // Leer el contenido del archivo
+    //             BufferedReader reader = new BufferedReader(new FileReader(archivoUsuario));
+    //             StringBuilder contenido = new StringBuilder();
+    //             String linea = reader.readLine();
+
+    //             // Verificar y modificar la primera línea si es necesario
+    //             if (linea != null && linea.startsWith("Proponente")) {
+    //                 contenido.append("Aliado").append(System.lineSeparator());
+    //             } else if (linea != null) {
+    //                 contenido.append(linea).append(System.lineSeparator());
+    //             }
+
+    //             // Leer el resto del archivo
+    //             while ((linea = reader.readLine()) != null) {
+    //                 contenido.append(linea).append(System.lineSeparator());
+    //             }
+    //             reader.close();
+
+    //             // Escribir el contenido modificado de nuevo al archivo
+    //             FileWriter writer = new FileWriter(archivoUsuario);
+    //             writer.write(contenido.toString());
+    //             writer.close();
+    //         } catch (IOException e) {
+    //             e.printStackTrace();
+    //         }
+    //     }
+    // }
+
 }

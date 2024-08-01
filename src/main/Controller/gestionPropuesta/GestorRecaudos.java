@@ -32,8 +32,7 @@ public class GestorRecaudos extends GestorBase {
             };
             guardarUploads(uploads);
 
-            this.usuario.actualizarDatos(
-                formRegistroRecaudos.getNombre(), 
+            this.usuario.setDatos(
                 formRegistroRecaudos.getPersona(), formRegistroRecaudos.getRIF(), 
                 formRegistroRecaudos.getCI(), formRegistroRecaudos.getEsComunidad(),
                 getPathNombre(formRegistroRecaudos.getPathISLR()), 

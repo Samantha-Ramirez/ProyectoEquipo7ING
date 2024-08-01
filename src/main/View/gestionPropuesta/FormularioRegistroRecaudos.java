@@ -19,7 +19,7 @@ public class FormularioRegistroRecaudos extends VistaBase {
     private JText pathRegistroMercantil;
 
     public FormularioRegistroRecaudos() {  
-        super("Proponente | Registrar recaudos");
+        super("Proponente | Registrar recaudos", 800, 800);
 
         JPanel panelCentral = crearPanel(false, 0, 0);
         

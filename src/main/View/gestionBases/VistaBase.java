@@ -10,10 +10,10 @@ import javax.swing.*;
 public class VistaBase extends Ventana {  
     protected JPanel panelCentral;
 
-    public VistaBase(String title) {  
+    public VistaBase(String title, int w, int h) {  
         // Configuración de la ventana principal
         super(title);
-        setSize(800, 800);
+        setSize(w, h);
         // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

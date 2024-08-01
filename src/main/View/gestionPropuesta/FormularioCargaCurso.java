@@ -20,7 +20,7 @@ public class FormularioCargaCurso extends VistaBase {
     private JButton botonEnviar;
     
     public FormularioCargaCurso() {  
-        super("Proponente | Cargar formulación");
+        super("Proponente | Cargar formulación", 800, 800);
 
         JPanel panelCentral = crearPanel(false, 0, 0);
 

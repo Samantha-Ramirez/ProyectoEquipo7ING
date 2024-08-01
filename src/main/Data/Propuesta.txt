@@ -4,3 +4,5 @@ usuario,enEvaluacion,nombre,unidadResponsableDeTramite,denominacion,fundamentaci
 ivanys,Propuesta evaluada,Curso #2,unidadResponsableDeTramite,denominacion,fundamentacion,duracion,pathFundamentacion,pathPerfilParticipantes,pathPerfilDocente,pathCurriculoCompetencias,pathEstrategiasEvaluacion,pathExigenciasMaterialesYServicios
 ivanys,Aprobado,Curso #3,unidadResponsableDeTramite,denominacion,fundamentacion,duracion,pathFundamentacion,pathPerfilParticipantes,pathPerfilDocente,pathCurriculoCompetencias,pathEstrategiasEvaluacion,pathExigenciasMaterialesYServicios
 sam,enEvaluacion,Curso 1,DEU,denominacion,fundamentacion,duracion,,,,,Guia de Relaciones.pdf,
+sam,enEvaluacion,Curso,DEU,d,d,f,,,,,,
+sam,enEvaluacion,Curso2,DEU,d,d,f,,,,,,
