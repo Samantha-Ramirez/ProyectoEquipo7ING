@@ -24,8 +24,7 @@ public class Base {
                 for(int i = 0; i<datos.length; i++){
                     writer.write(datos[i] + sep);
                 }
-                if(sep == ",")
-                    writer.write("\n");
+                writer.write("\n");
             } catch (IOException e) {
                 e.printStackTrace(); // manejo de excepciones con respecto a las entradas
             }

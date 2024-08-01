@@ -1,2 +1,3 @@
 propuesta,estado,observaciones
 Curso1,aprobado,
+Curso2,rechazado por mala redaccion,mala redaccion

@@ -116,7 +116,7 @@ public class Propuesta extends Base {
     }
     
     public void rechazarAvalPropuesta(String observaciones){
-        this.setEstado("rechazado", observaciones);
+        this.setEstado("rechazado por " + observaciones, observaciones);
     }
 
     // obtener propuestas correspondientes a un usuario
