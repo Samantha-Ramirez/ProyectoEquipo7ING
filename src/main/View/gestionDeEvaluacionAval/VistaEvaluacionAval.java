@@ -7,14 +7,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import javax.swing.*;
 
-public class VistaEvaluacion extends JFrame {
+public class VistaEvaluacionAval extends JFrame {
 
     private JTextField recuadroTexto;
     private JTextField numeroPropuestaField;
     private static final String archivoAvalTecnico = "avalTecnico.txt";
     private static final String archivoUsuario = "usuario.txt";
 
-    public VistaEvaluacion() {
+    public VistaEvaluacionAval() {
         // Configuración de la ventana principal
         setTitle("Administrador | Evaluación de aval");
         setSize(600, 400);
@@ -158,10 +158,10 @@ public class VistaEvaluacion extends JFrame {
                     if (numeroPropuesta >= 1 && numeroPropuesta <= 20) {
                         actualizarArchivo(numeroPropuesta, "true", informacion);
                     } else {
-                        JOptionPane.showMessageDialog(VistaEvaluacion.this, "Número de propuesta debe estar entre 1 y 20", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(VistaEvaluacionAval.this, "Número de propuesta debe estar entre 1 y 20", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(VistaEvaluacion.this, "Número de propuesta inválido", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(VistaEvaluacionAval.this, "Número de propuesta inválido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -239,6 +239,6 @@ public class VistaEvaluacion extends JFrame {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new VistaEvaluacion().setVisible(true));
+        SwingUtilities.invokeLater(() -> new VistaEvaluacionAval().setVisible(true));
     }
 }

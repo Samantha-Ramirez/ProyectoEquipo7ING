@@ -1,5 +1,5 @@
 package main.Controller.gestionDeEvaluacionAval;
 
-public class GestorEvaluacion {
+public class GestorEvaluacionAval {
     
 }

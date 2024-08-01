@@ -5,12 +5,12 @@ import main.Model.gestionDeSesionUsuario.Usuario;
 import main.View.gestionDeCursosPropuestos.VistaCursosPropuestos;
 import java.util.Vector;
 
-public class GestorInfoCursos {
+public class GestorCursosPropuestos {
     //Atributos
     private String nombreUsuario;
     private Vector<String> cursosPropuestos;
     // Constructor
-    public GestorInfoCursos(Usuario nombreUsuario){
+    public GestorCursosPropuestos(Usuario nombreUsuario){
         this.nombreUsuario = nombreUsuario.getNombreUsuario();
         this.cursosPropuestos = new Vector<>();
     }

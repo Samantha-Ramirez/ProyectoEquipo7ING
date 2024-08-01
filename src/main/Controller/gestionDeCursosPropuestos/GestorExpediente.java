@@ -1,5 +1,5 @@
 package main.Controller.gestionDeCursosPropuestos;
 
-public class GestorInfoExpediente {
+public class GestorExpediente {
     
 }
