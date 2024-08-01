@@ -24,6 +24,10 @@ public class GestorCursosPropuestos {
         cursosPropuestos = curso.getCursosPropuestos();
         // muestra la interfaz con la informacion extraida
         VistaCursosPropuestos vista = new VistaCursosPropuestos(cursosPropuestos);
-        vista.setVisible(true);
+        if(cursosPropuestos.size()>0){
+            vista.setVisible(true);
+        }else{
+            vista.mostrarMensaje("No hay cursos");
+        }
     }
 }

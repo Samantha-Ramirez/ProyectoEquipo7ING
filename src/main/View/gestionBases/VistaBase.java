@@ -149,4 +149,8 @@ public class VistaBase extends Ventana {
         panel.add(combo);
         return combo;
     }
+    // Mensaje de que se activo un boton
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
 }  

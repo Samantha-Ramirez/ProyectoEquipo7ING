@@ -81,5 +81,10 @@ public class VistaCursosPropuestos extends JFrame {
         // Añadir el panel principal al frame
         add(panelPrincipal);
     }
+    
+    // Mensaje de que se activo un boton
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
+    }
 
 }

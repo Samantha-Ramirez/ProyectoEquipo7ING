@@ -26,7 +26,11 @@ public class GestorPropuestasEvaluar extends GestorBase {
         propuestas = propuesta.getPropuestas(false, true);
         // muestra la interfaz con la informacion extraida
         this.vistaPropuestasEvaluar = new VistaPropuestasEvaluar(propuestas);
-        vistaPropuestasEvaluar.setVisible(true);
+        if(propuestas.size()>0){
+            vistaPropuestasEvaluar.setVisible(true);
+        }else{
+            vistaPropuestasEvaluar.mostrarMensaje("No hay propuestas");
+        }
         
         this.vistaPropuestasEvaluar.setControlador((ActionListener) this); // Asigna el controlador a la vista de registro
     }
