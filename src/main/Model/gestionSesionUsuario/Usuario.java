@@ -125,7 +125,7 @@ public class Usuario extends Base {
     }
 
     public void setDatosDesdeTxt(){
-        List<String> datos = leerDatos(this.nombreUsuario+".txt");
+        List<String> datos = leerDatos(this.nombreUsuario+".txt", 11);
         this.tipoUsuario = datos.get(0);
         this.clave = datos.get(1);
         this.archivoRegistroDeHora = datos.get(2);

@@ -147,6 +147,11 @@ public class VistaEvaluacionAval extends VistaBase {
         return recuadroTextoObservaciones.getText();
     }
     
+    public void limpiarCampos() {
+        recuadroTextoInfoConsignada.setText("");
+        recuadroTextoObservaciones.setText("");
+    }
+
     public static void main(String[] args) {
         // SwingUtilities.invokeLater(() -> new VistaEvaluacionAval().setVisible(true));
         VistaEvaluacionAval vistaEvaluacionAval = new VistaEvaluacionAval();  

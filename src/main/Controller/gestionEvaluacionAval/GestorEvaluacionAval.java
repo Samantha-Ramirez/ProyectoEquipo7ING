@@ -53,6 +53,8 @@ public class GestorEvaluacionAval extends GestorBase {
             case "ENVIAR":
                 propuesta.actualizarDatos();
                 propuesta.getUsuario().actualizarDatos();
+                //vistaEvaluacionAval.limpiarCampos();
+                vistaEvaluacionAval.setVisible(false);
                 break;
         }
     }

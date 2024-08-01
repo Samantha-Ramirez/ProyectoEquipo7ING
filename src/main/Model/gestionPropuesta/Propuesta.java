@@ -6,9 +6,6 @@ import main.Model.gestionEvaluacionAval.AvalTecnico;
 // importar base
 import main.Model.gestionBases.Base;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 import java.util.Vector;
 
@@ -117,6 +114,7 @@ public class Propuesta extends Base {
         //FIX:crear curso al aprobar
         //new CursoExtension(this);
     }
+    
     public void rechazarAvalPropuesta(String observaciones){
         this.setEstado("rechazado", observaciones);
     }

@@ -1,4 +1,4 @@
-Proponente
+Aliado
 123
 sam_registroHora.txt
 Natural
@@ -8,3 +8,4 @@ Sí
 
 
 
+null
