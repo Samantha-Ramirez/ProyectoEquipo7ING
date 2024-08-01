@@ -1,14 +1,13 @@
 package main.Controller.gestionEvaluacionAval;
 
 import main.View.gestionEvaluacionAval.VistaEvaluacionAval;
-
 import main.Model.gestionPropuesta.*;
-
 //importar base
 import main.Controller.gestionBases.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 public class GestorEvaluacionAval extends GestorBase {
     private VistaEvaluacionAval vistaEvaluacionAval;
@@ -18,7 +17,12 @@ public class GestorEvaluacionAval extends GestorBase {
     public GestorEvaluacionAval(Propuesta propuesta){
         // setear propuesta a evaluar
         this.propuesta = propuesta;
-        this.vistaEvaluacionAval = new VistaEvaluacionAval();
+        Vector<String> infoConsignadaPropuesta = new Vector<>();
+        infoConsignadaPropuesta.add(propuesta.getNombre());
+        infoConsignadaPropuesta.add(propuesta.getFundamentacion());
+        infoConsignadaPropuesta.add(propuesta.getDenominacion());
+        infoConsignadaPropuesta.add(propuesta.getDuracion());
+        this.vistaEvaluacionAval = new VistaEvaluacionAval(infoConsignadaPropuesta);
         this.vistaEvaluacionAval.setVisible(true);
         
         this.vistaEvaluacionAval.setControlador((ActionListener) this); // Asigna el controlador a la vista de registro

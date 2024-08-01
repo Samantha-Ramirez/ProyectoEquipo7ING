@@ -54,9 +54,9 @@ public class VistaCursosPropuestos extends JFrame {
         for (String cursoEstado : cursosPropuestos) {
             String[] partes = cursoEstado.split(",");
             //configuracion del nombre del curso y del estado cuando lo lee del vector
-            if (partes.length == 2) {
-                JLabel labelCursoNombre = new JLabel(partes[1]);
-                JLabel labelEstadoAval = new JLabel(partes[0]);
+            //if (partes.length == 2) {
+                JLabel labelCursoNombre = new JLabel(partes[2]);
+                JLabel labelEstadoAval = new JLabel(partes[1]);
                 labelCursoNombre.setFont(new Font("Arial", Font.PLAIN, 16));
                 labelEstadoAval.setFont(new Font("Arial", Font.PLAIN, 16));
 
@@ -71,7 +71,7 @@ public class VistaCursosPropuestos extends JFrame {
                 panelTabla.add(labelEstadoAval, gbc);
 
                 row++;
-            }
+            //}
         }
 
         // Añadir los paneles al panel principal

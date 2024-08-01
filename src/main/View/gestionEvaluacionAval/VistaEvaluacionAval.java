@@ -2,66 +2,39 @@ package main.View.gestionEvaluacionAval;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Vector;
+
 import javax.swing.*;
 
 import main.View.gestionBases.VistaBase;
 
 public class VistaEvaluacionAval extends VistaBase {
-    private JTextField recuadroTextoInfoConsignada;
     private JTextField recuadroTextoObservaciones;
     private JButton botonAprobar;
     private JButton botonRechazar;
     private JButton botonEnviar;
 
-    public VistaEvaluacionAval() {
+    public VistaEvaluacionAval(Vector<String> infoConsignadaPropuesta) {
         super("Administrador | Evaluación de aval", 600, 400);
 
         // Panel central con el recuadro de texto y número de propuesta
         JPanel panelCentral = crearPanel(false, 0, 0);
         panelCentral.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20)); // Añadido espacio entre componentes
 
-        recuadroTextoInfoConsignada = new JTextField("Información consignada de la propuesta");
-        recuadroTextoInfoConsignada.setForeground(Color.GRAY);
-        recuadroTextoInfoConsignada.setPreferredSize(new Dimension(400, 100)); // Ajusta el tamaño para que sea cuadrado
-        recuadroTextoInfoConsignada.addFocusListener(new java.awt.event.FocusAdapter() {
-            @Override
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                if (recuadroTextoInfoConsignada.getText().equals("Información consignada de la propuesta")) {
-                    recuadroTextoInfoConsignada.setText("");
-                    recuadroTextoInfoConsignada.setForeground(Color.BLACK);
-                }
-            }
-            @Override
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                if (recuadroTextoInfoConsignada.getText().isEmpty()) {
-                    recuadroTextoInfoConsignada.setForeground(Color.GRAY);
-                    recuadroTextoInfoConsignada.setText("Información consignada de la propuesta");
-                }
-            }
-        });
-
-        // recuadroTextoObservaciones = new JTextField("Número de Propuesta");
-        // recuadroTextoObservaciones.setForeground(Color.GRAY);
-        // recuadroTextoObservaciones.setPreferredSize(new Dimension(150, 30)); // Ajusta el tamaño
-        // recuadroTextoObservaciones.addFocusListener(new java.awt.event.FocusAdapter() {
-        //     @Override
-        //     public void focusGained(java.awt.event.FocusEvent evt) {
-        //         if (recuadroTextoObservaciones.getText().equals("Número de Propuesta (1-4)")) {
-        //             recuadroTextoObservaciones.setText("");
-        //             recuadroTextoObservaciones.setForeground(Color.BLACK);
-        //         }
-        //     }
-        //     @Override
-        //     public void focusLost(java.awt.event.FocusEvent evt) {
-        //         if (recuadroTextoObservaciones.getText().isEmpty()) {
-        //             recuadroTextoObservaciones.setForeground(Color.GRAY);
-        //             recuadroTextoObservaciones.setText("Número de Propuesta (1-4)");
-        //         }
-        //     }
-        // });
+        JLabel labelCursoNombre = new JLabel("Nombre: " + infoConsignadaPropuesta.get(0));
+        labelCursoNombre.setFont(new Font("Arial", Font.PLAIN, 16));
+        panelCentral.add(labelCursoNombre);
+        JLabel labelCursoFundamentacion = new JLabel("Fundamentacion: " + infoConsignadaPropuesta.get(1));
+        labelCursoFundamentacion.setFont(new Font("Arial", Font.PLAIN, 16));
+        panelCentral.add(labelCursoFundamentacion);
+        JLabel labelCursoDenominacion = new JLabel("Denominacion: " + infoConsignadaPropuesta.get(2));
+        labelCursoDenominacion.setFont(new Font("Arial", Font.PLAIN, 16));
+        panelCentral.add(labelCursoDenominacion);
+        JLabel labelCursoDuracion = new JLabel("Duracion" + infoConsignadaPropuesta.get(3));
+        labelCursoDuracion.setFont(new Font("Arial", Font.PLAIN, 16));
+        panelCentral.add(labelCursoDuracion);
 
         // panelCentral.add(recuadroTextoObservaciones);
-        panelCentral.add(recuadroTextoInfoConsignada);
         add(panelCentral, BorderLayout.CENTER);
 
         // Panel inferior con los botones y subtítulos
@@ -148,13 +121,12 @@ public class VistaEvaluacionAval extends VistaBase {
     }
     
     public void limpiarCampos() {
-        recuadroTextoInfoConsignada.setText("");
         recuadroTextoObservaciones.setText("");
     }
 
-    public static void main(String[] args) {
-        // SwingUtilities.invokeLater(() -> new VistaEvaluacionAval().setVisible(true));
-        VistaEvaluacionAval vistaEvaluacionAval = new VistaEvaluacionAval();  
-        vistaEvaluacionAval.setVisible(true);  
-    }
+    // public static void main(String[] args) {
+    //     // SwingUtilities.invokeLater(() -> new VistaEvaluacionAval().setVisible(true));
+    //     VistaEvaluacionAval vistaEvaluacionAval = new VistaEvaluacionAval();  
+    //     vistaEvaluacionAval.setVisible(true);  
+    // }
 }

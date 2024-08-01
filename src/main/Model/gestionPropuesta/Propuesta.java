@@ -1,7 +1,6 @@
 package main.Model.gestionPropuesta;
 
 import main.Model.gestionSesionUsuario.*;
-import main.Model.gestionCursosPropuestos.CursoExtension;
 import main.Model.gestionEvaluacionAval.AvalTecnico;
 // importar base
 import main.Model.gestionBases.Base;
@@ -26,6 +25,10 @@ public class Propuesta extends Base {
     
     public Propuesta (String nombre){
         this.nombre = nombre;
+    }
+
+    public Propuesta (Usuario usuario){
+        this.usuario = usuario;
     }
 
     public Propuesta (
@@ -57,6 +60,18 @@ public class Propuesta extends Base {
             this.pathCurriculoCompetencias, this.pathEstrategiasEvaluacion,
             this.pathExigenciasMaterialesYServicios};
         return datos;
+    }
+
+    public String getDenominacion(){
+        return denominacion;
+    }
+
+    public String getFundamentacion(){
+        return fundamentacion;
+    }
+
+    public String getDuracion(){
+        return duracion;
     }
 
     public String getNombre(){
@@ -111,8 +126,9 @@ public class Propuesta extends Base {
     public void aprobarAvalPropuesta(){
         this.setEstado("aprobado");
         this.usuario.setTipoUsuario("Aliado");
-        //FIX:crear curso al aprobar
-        //new CursoExtension(this);
+        // FIX:crear curso al aprobar
+        // new CursoExtension(this);
+        // new CursoExtension(this).guardarCurso();
     }
     
     public void rechazarAvalPropuesta(String observaciones){

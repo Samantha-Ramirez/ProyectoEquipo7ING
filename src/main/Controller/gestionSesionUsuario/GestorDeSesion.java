@@ -5,7 +5,7 @@ import main.View.gestionSesionUsuario.*;
 // importar base
 import main.Controller.gestionBases.VistaError;
 // controladores del resto de paquetes para llamarlos en el dashboard
-import main.Controller.gestionCursosPropuestos.GestorCursosPropuestos;
+import main.Controller.gestionCursosPropuestos.*;
 import main.Controller.gestionEvaluacionAval.GestorPropuestasEvaluar;
 import main.Controller.gestionPropuesta.*;
 
@@ -130,15 +130,13 @@ public class GestorDeSesion implements ActionListener {
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
                     new GestorFormulacion(usuario1);
                     break;
-
                 case "VER_CURSOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    new GestorCursosPropuestos(usuario1).mostrarCursosPropuestos();
+                    new GestorCursosPropuestos(usuario1);
                     break;
-
                 case "VER_EXPEDIENTE":
-                        // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                    vistaDashboard.mostrarMensaje("SELECCIONO Ver Expediente"); // SE PUEDE BORRAR CAUNDO SE AGREGE LA ACCION CORRESPONDIENTE
+                    // MOSTRAR LA PANTALLA CORRESPONDIENTE
+                    new GestorExpediente(usuario1);
                     break;
                 case "REGISTRAR_RECUADOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
