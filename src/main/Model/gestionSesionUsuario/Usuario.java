@@ -114,33 +114,19 @@ public class Usuario {
     // revisa si los datos ingresados en el inicio de sesion son correctos
     public boolean verificarDatos() {
         // Direccion exacta donde debe estar el txt(data) del usuario solicitado
-        String basePath = "src/main/Data/";
-        String usuarioFileName = basePath + nombreUsuario + ".txt";
-        // si el archivo no existe entonces retorna falso, ya que aun no se ha registrado
-        if (!Files.exists(Paths.get(usuarioFileName))) {
-            return false; // Retorna false si el archivo no existe
-        }
-        // abre el archivo en modo lectura
-        try (BufferedReader reader = new BufferedReader(new FileReader(usuarioFileName))) {
-            // Lee la primera línea (tipo de usuario)
-            tipoUsuario = reader.readLine();
-            // Lee la segunda línea (clave)
-            String storedClave = reader.readLine();
-
-            // Compara la clave leída con la clave del usuario
+        String usuarioFileName = nombreUsuario + ".txt";
+        List<String> datos = leerDatos(usuarioFileName, 3);
+        if(datos.size() != 0){
+            tipoUsuario = datos.get(0);
+            String storedClave = datos.get(1);
+            archivoRegistroDeHora = datos.get(2);
             if(this.clave.equals(storedClave)){
                 // si la clave es correcta entonces va a permtir actualizar el registro de fehca
-                archivoRegistroDeHora = reader.readLine();
                 agregarDatosRegistroDeHora("Inicio");
                 return true;
-            }else{
-                return false;
             }
-
-        } catch (IOException e) {// manejo de excepcion
-            e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     public void actualizarDatos(
@@ -157,7 +143,7 @@ public class Usuario {
         this.pathTitulo = pathTitulo;
         this.pathRegistroMercantil = pathRegistroMercantil;
         
-        String nombreArch = "src/main/Data/" + this.nombreUsuario + ".txt";
+        String nombreArch = this.nombreUsuario + ".txt";
         String[] datos = {
             this.persona,
             this.RIF, 
@@ -168,18 +154,6 @@ public class Usuario {
             this.pathTitulo,
             this.pathRegistroMercantil,
         };
-
-        // verifica que exista el archivo antes de abrir el el archivo
-        if (Files.exists(Paths.get(nombreArch))) {
-            // toma hora actual
-            // abre el archivo en modo escritura y actualiza la fecha
-            try (FileWriter usuarioWriter = new FileWriter(nombreArch, true)) { // 'true' habilita el modo de append
-                for(int i = 0; i<datos.length; i++){
-                    usuarioWriter.write(datos[i] + "\n");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        guardarDatos(nombreArch, datos, "\n", true);
     }
 }

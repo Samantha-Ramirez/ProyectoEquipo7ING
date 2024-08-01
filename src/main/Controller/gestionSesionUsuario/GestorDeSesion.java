@@ -2,8 +2,9 @@ package main.Controller.gestionSesionUsuario;
 
 import main.View.abstractas.VistaError;
 import main.Model.gestionSesionUsuario.*;
-import main.View.gestionEvaluacionAval.VistaPropuestasEvaluar;
 import main.View.gestionSesionUsuario.*;
+
+import main.View.gestionEvaluacionAval.VistaPropuestasEvaluar;
 import main.Controller.gestionCursosPropuestos.GestorCursosPropuestos;
 import main.Controller.gestionPropuesta.*;
 
@@ -32,7 +33,6 @@ public class GestorDeSesion implements ActionListener {
 
         // se encarga de desplegar el dashboard que corresponde segun el usuario
         public void seleccionarDashboard(String tipoUsuario) {
-
             switch (tipoUsuario) {
                 case "Administrador":// Despliega el dashboard del usuario Administrador
                     vistaDashboard.mostrarDashboardAdministrador(this);
@@ -133,7 +133,6 @@ public class GestorDeSesion implements ActionListener {
                 case "VER_CURSOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
                     new GestorCursosPropuestos(usuario1).mostrarCursosPropuestos();
-
                     break;
 
                 case "VER_EXPEDIENTE":
@@ -143,7 +142,6 @@ public class GestorDeSesion implements ActionListener {
                 case "REGISTRAR_RECUADOS":
                         // MOSTRAR LA PANTALLA CORRESPONDIENTE
                     new GestorRecaudos(usuario1);
-                    
                     break;
 
                 case "VER_PROPUESTAS":

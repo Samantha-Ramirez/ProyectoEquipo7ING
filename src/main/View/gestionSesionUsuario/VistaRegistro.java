@@ -1,9 +1,6 @@
 package main.View.gestionSesionUsuario;
 
 import javax.swing.*;
-
-import main.Controller.gestionSesionUsuario.GestorDeSesion;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

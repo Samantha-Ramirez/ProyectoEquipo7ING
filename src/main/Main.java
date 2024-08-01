@@ -1,10 +1,7 @@
 package main;
 
 import main.Controller.gestionSesionUsuario.*;
-import main.Model.gestionCursosPropuestos.CursoExtension;
 import main.View.gestionSesionUsuario.*;
-
-import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
