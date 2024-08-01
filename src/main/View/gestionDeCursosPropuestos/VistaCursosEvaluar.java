@@ -1,3 +1,5 @@
+package main.View.gestionDeCursosPropuestos;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,10 +8,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.*;
+import main.View.gestionDeEvaluacionAval.VistaEvaluacion;
 
-public class EvaluacionesDashboard extends JFrame {
+public class VistaCursosEvaluar extends JFrame {
 
-    public EvaluacionesDashboard() {
+    public VistaCursosEvaluar() {
         // Configuración de la ventana principal
         setTitle("Evaluaciones | Dashboard");
         setSize(600, 400);
@@ -49,7 +52,7 @@ public class EvaluacionesDashboard extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // Abre la ventana de Evaluación de Aval
-                    EvaluacionAval evaluacionAvalFrame = new EvaluacionAval();
+                    VistaEvaluacion evaluacionAvalFrame = new VistaEvaluacion();
                     evaluacionAvalFrame.setVisible(true);
                 }
             });
@@ -81,7 +84,7 @@ public class EvaluacionesDashboard extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            EvaluacionesDashboard dashboard = new EvaluacionesDashboard();
+            VistaCursosEvaluar dashboard = new VistaCursosEvaluar();
             dashboard.setVisible(true);
         });
     }

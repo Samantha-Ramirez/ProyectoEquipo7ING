@@ -21,7 +21,7 @@ node "Servidor de Aplicaciones" as appServer {
     ' [FirmarCartaDeIntencion]
   }
   
-  node "gestionDeProcesoPropuesta" {
+  node "gestionDePropuesta" {
     ' [RegistrarRecaudos]
     ' [CargarFormulacionDelCursoDeExtension]
   }

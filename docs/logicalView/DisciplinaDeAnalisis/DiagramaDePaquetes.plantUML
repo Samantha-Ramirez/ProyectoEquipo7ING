@@ -11,7 +11,7 @@ package "gestionDeCursosPropuestos" as G_cursosPropuestos{
     object VerExpediente
 }
 
-package "gestionDeProcesoPropuesta" as G_propuesta{
+package "gestionDePropuesta" as G_propuesta{
     object RegistrarRecaudos
     object CargarFormulacionDelCursoDeExtension
 }
@@ -39,14 +39,13 @@ package "gestionDeSesionUsuario" as G_user {
     object VerDashboard
 }
 
-G_cursosPropuestos -d-> G_user #Black;line.dashed;
+G_propuesta -d-> G_user #Black;line.dashed;
 ' G_cursosPropuestos --> G_cursos #Black;line.dashed;
 
-
-G_presentaciones -d-> G_cursosPropuestos #Black;line.dashed;
-G_aval -d-> G_cursosPropuestos #Black;line.dashed;
-G_propuesta -d-> G_cursosPropuestos #Black;line.dashed;
-G_cartas -d-> G_propuesta #Black;line.dashed;
+G_cursosPropuestos -> G_propuesta #Black;line.dashed;
+G_cursosPropuestos -> G_cartas #Black;line.dashed;
+G_cursosPropuestos -> G_presentaciones #Black;line.dashed;
+G_aval -d-> G_propuesta #Black;line.dashed;
 ' G_aval --> G_user #Black;line.dashed;
 ' G_cursosPropuestos ----> G_user #Black;line.dashed;
 ' G_propuesta ------> G_user #Black;line.dashed;
