@@ -43,6 +43,7 @@ public class GestorRecaudos extends GestorBase {
                 getPathNombre(formRegistroRecaudos.getPathTitulo()),
                 getPathNombre(formRegistroRecaudos.getPathRegistroMercantil())
             );
+            this.usuario.actualizarDatos();
         }
 
         @Override

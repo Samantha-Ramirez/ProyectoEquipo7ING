@@ -28,10 +28,6 @@ public class Usuario extends Base {
         this.clave = clave;
         //this.tipoUsuario = tipoUsuario;
     }
-    public Usuario (String nombreUsuario){
-        this.nombreUsuario = nombreUsuario;
-        //this.tipoUsuario = tipoUsuario;
-    }
     // Setter para el tipo de usuario
     public void setTipoUsuario(String tipoUsuario){
         this.tipoUsuario = tipoUsuario;
@@ -121,7 +117,6 @@ public class Usuario extends Base {
         this.pathCurriculum = pathCurriculum;
         this.pathTitulo = pathTitulo;
         this.pathRegistroMercantil = pathRegistroMercantil;
-        actualizarDatos();
     }
 
     public void actualizarDatos(){
@@ -129,4 +124,12 @@ public class Usuario extends Base {
         actualizarDatos(nombreArch, getDatos(), "\n");
     }
 
+    public void setDatosDesdeTxt(){
+        List<String> datos = leerDatos(this.nombreUsuario+".txt");
+        this.tipoUsuario = datos.get(0);
+        this.clave = datos.get(1);
+        this.archivoRegistroDeHora = datos.get(2);
+        setDatos(datos.get(3), datos.get(4), datos.get(5), 
+        datos.get(6), datos.get(7), datos.get(8), datos.get(9), datos.get(10));
+    }
 }

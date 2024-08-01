@@ -1,2 +1,2 @@
 propuesta,estado,observaciones
-Curso1,enEvaluacion,null,
+Curso1,enEvaluacion,,

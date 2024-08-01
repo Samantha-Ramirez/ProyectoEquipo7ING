@@ -150,7 +150,7 @@ public class GestorDeSesion implements ActionListener {
                     // VistaPropuestasEvaluar cursosEvaluar = new VistaPropuestasEvaluar();
                     // cursosEvaluar.setVisible(false);
                     // cursosEvaluar.setVisible(true);
-                    new GestorPropuestasEvaluar().mostrarPropuestas();
+                    new GestorPropuestasEvaluar(); //FIX:.mostrarPropuestas()
                     break;
             }
         }

@@ -37,6 +37,6 @@ public class AvalTecnico extends Base {
 
     public void actualizarDatos(){
         String nombreArch = "Aval.txt";
-        actualizarDatos(nombreArch, getDatos(), "\n", this.propuesta.getNombre());
+        actualizarDatos(nombreArch, getDatos(), ",", this.propuesta.getNombre());
     }
 }
