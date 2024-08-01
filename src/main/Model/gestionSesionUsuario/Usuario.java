@@ -5,7 +5,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class Usuario extends Abstracta {
+import main.Model.gestionBases.Base;
+
+public class Usuario extends Base {
     // Atributos
     protected String nombreUsuario;
     protected String clave;

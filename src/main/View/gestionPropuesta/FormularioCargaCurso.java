@@ -1,12 +1,12 @@
 package main.View.gestionPropuesta;
 
-import main.View.abstractas.*;
+import main.View.gestionBases.*;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class FormularioCargaCurso extends VentanaPrincipal {  
+public class FormularioCargaCurso extends VistaBase {  
     private JText nombre;
     private JComboBox<String> unidadResponsableDeTramite;
     private JText denominacion;
@@ -90,7 +90,7 @@ public class FormularioCargaCurso extends VentanaPrincipal {
     }
 
     public Boolean esDatosRecaudosCompletos(){
-        JText[] recuadrosTexto = {this.nombre, this.unidadResponsableDeTramite, this.denominacion, this.duracion, this.fundamentacion};
+        JText[] recuadrosTexto = {this.nombre, this.denominacion, this.duracion, this.fundamentacion};
         if(esDatosCompletos(recuadrosTexto))
            return true;
         return false;

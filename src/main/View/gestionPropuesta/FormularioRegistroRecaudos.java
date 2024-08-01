@@ -1,12 +1,12 @@
 package main.View.gestionPropuesta;
 
-import main.View.abstractas.*;
+import main.View.gestionBases.*;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class FormularioRegistroRecaudos extends VentanaPrincipal {
+public class FormularioRegistroRecaudos extends VistaBase {
     private JText nombre;
     private JText persona;
     private JComboBox<String> esComunidad;
@@ -17,7 +17,6 @@ public class FormularioRegistroRecaudos extends VentanaPrincipal {
     private JText pathCurriculum;
     private JText pathTitulo;
     private JText pathRegistroMercantil;
-    private VistaError error;
 
     public FormularioRegistroRecaudos() {  
         super("Proponente | Registrar recaudos");

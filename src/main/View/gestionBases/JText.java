@@ -1,4 +1,4 @@
-package main.View.abstractas;
+package main.View.gestionBases;
 
 import javax.swing.JTextField;
 

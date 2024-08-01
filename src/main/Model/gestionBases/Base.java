@@ -1,4 +1,4 @@
-package main.Model.gestionSesionUsuario;
+package main.Model.gestionBases;
 
 // Importaciones necesarias para el manejo de archivos
 import java.io.BufferedReader;
@@ -10,8 +10,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Abstracta {
-    public Abstracta(){
+public class Base {
+    public Base(){
 
     }
     // Método para registrar los datos del usuario en archivos

@@ -1,4 +1,4 @@
-package main.View.abstractas;
+package main.View.gestionBases;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,14 +7,15 @@ import java.io.File;
 
 import javax.swing.*;
 
-public class VentanaPrincipal extends Ventana {  
+public class VistaBase extends Ventana {  
     protected JPanel panelCentral;
 
-    public VentanaPrincipal(String title) {  
+    public VistaBase(String title) {  
         // Configuración de la ventana principal
         super(title);
         setSize(800, 800);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 

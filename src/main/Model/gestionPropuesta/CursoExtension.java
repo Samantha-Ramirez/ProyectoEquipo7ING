@@ -1,13 +1,8 @@
 package main.Model.gestionPropuesta;
 
-import main.Model.gestionSesionUsuario.*;
+import main.Model.gestionBases.Base;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class CursoExtension extends Abstracta {
+public class CursoExtension extends Base {
     // private Usuario usuario; se decide ligar al proponente con la propuesta 
     // y no con el curso como se habia pensado inicialmente en el diagrama de clases del modelo de dominio
     private Propuesta propuesta;
@@ -27,7 +22,7 @@ public class CursoExtension extends Abstracta {
 
     public void guardarCurso(){
         String[] datos = {
-            this.usuario.getNombreUsuario(), 
+            // this.usuario.getNombreUsuario(), 
             this.propuesta.getNombre(), 
             this.areaConocimiento,
             this.modalidad,

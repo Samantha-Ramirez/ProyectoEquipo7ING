@@ -1,8 +1,7 @@
 package main.Controller.gestionPropuesta;
 
 import main.View.gestionPropuesta.*;
-
-import main.View.abstractas.VistaError;
+import main.Controller.gestionBases.VistaError;
 import main.Model.gestionSesionUsuario.Usuario;
 
 import java.awt.event.ActionEvent;

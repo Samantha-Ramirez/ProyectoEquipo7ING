@@ -1,11 +1,12 @@
 package main.Model.gestionPropuesta;
 
 import main.Model.gestionSesionUsuario.*;
+import main.Model.gestionBases.Base;
 import main.Model.gestionEvaluacionAval.AvalTecnico;
 
 import java.util.List;
 
-public class Propuesta extends Abstracta {
+public class Propuesta extends Base {
     private Usuario usuario; //proponente
     private String nombre;
     private String unidadResponsableDeTramite; //DEU, CEF --consejo,comision--

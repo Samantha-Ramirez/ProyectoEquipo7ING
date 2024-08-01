@@ -1,4 +1,4 @@
-package main.View.abstractas;
+package main.Controller.gestionBases;
 
 import javax.swing.*;
 import java.awt.*;
