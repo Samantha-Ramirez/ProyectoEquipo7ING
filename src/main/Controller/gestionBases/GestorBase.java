@@ -9,10 +9,13 @@ import java.nio.file.Paths;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// CLASE BASE
 public class GestorBase implements ActionListener {
     public GestorBase(){
         
     }
+    
+    // GET NOMBRE DEL FILE
     public String getPathNombre(String filePath){
         String nombre = "";
         if (!filePath.isEmpty()) {  
@@ -20,8 +23,9 @@ public class GestorBase implements ActionListener {
             nombre = file.getName(); 
         }
         return nombre;
-}
+    }
     
+    // CLASE GUARDAR ARCHIVOS
     public void guardarUploads(String[] uploads){
         String basePath = "src/main/Data/";
         for(int i = 0; i<uploads.length; i++){

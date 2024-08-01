@@ -16,12 +16,11 @@ public class AvalTecnico extends Base {
     }
     public void setEstado(String estado){
         this.estado = estado;
-        //FIX:guardar en txt
     }
     public void setObservaciones(String observaciones){
         this.observaciones = observaciones;
-        //FIX:guardar en txt
     }
+    // obtener array con todos los datos que se deben actualizar en el txt
     public String[] getDatos (){
         String[] datos = {
             this.propuesta.getNombre(),

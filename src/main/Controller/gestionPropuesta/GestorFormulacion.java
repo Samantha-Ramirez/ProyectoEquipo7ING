@@ -2,9 +2,9 @@ package main.Controller.gestionPropuesta;
 
 import main.View.gestionPropuesta.*;
 import main.Model.gestionPropuesta.*;
-import main.Controller.gestionBases.GestorBase;
-import main.Controller.gestionBases.VistaError;
 import main.Model.gestionSesionUsuario.Usuario;
+// importar base
+import main.Controller.gestionBases.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +30,7 @@ public class GestorFormulacion extends GestorBase {
         }
 
         public void guardarFormulacion(){
-            
+            // guardar archivos
             String[] uploads = {
                 formCargaCurso.getPathPerfilParticipantes(), 
                 formCargaCurso.getPathPerfilDocente(),
@@ -41,6 +41,7 @@ public class GestorFormulacion extends GestorBase {
 
             guardarUploads(uploads);
 
+            // crear nueva propuesta
             this.propuesta = new Propuesta(
             this.usuario, 
             formCargaCurso.getNombre(), 
@@ -54,6 +55,8 @@ public class GestorFormulacion extends GestorBase {
             getPathNombre(formCargaCurso.getPathEstrategiasEvaluacion()),
             getPathNombre(formCargaCurso.getPathExigenciasMaterialesYServicios())
             );
+            // guardar nueva propuesta en txt
+            this.propuesta.guardarPropuesta();
         }
 
         @Override

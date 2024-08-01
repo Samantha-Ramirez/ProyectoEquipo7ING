@@ -2,9 +2,11 @@ package main.Controller.gestionSesionUsuario;
 
 import main.Model.gestionSesionUsuario.*;
 import main.View.gestionSesionUsuario.*;
-import main.View.gestionEvaluacionAval.VistaPropuestasEvaluar;
+// importar base
 import main.Controller.gestionBases.VistaError;
+// controladores del resto de paquetes para llamarlos en el dashboard
 import main.Controller.gestionCursosPropuestos.GestorCursosPropuestos;
+import main.Controller.gestionEvaluacionAval.GestorPropuestasEvaluar;
 import main.Controller.gestionPropuesta.*;
 
 import java.awt.event.ActionEvent;
@@ -144,10 +146,11 @@ public class GestorDeSesion implements ActionListener {
                     break;
 
                 case "VER_PROPUESTAS":
-                        // MOSTRAR LA PANTALLA CORRESPONDIENTE
-                        VistaPropuestasEvaluar cursosEvaluar = new VistaPropuestasEvaluar();
-                        cursosEvaluar.setVisible(false);
-                        cursosEvaluar.setVisible(true);
+                    // MOSTRAR LA PANTALLA CORRESPONDIENTE
+                    // VistaPropuestasEvaluar cursosEvaluar = new VistaPropuestasEvaluar();
+                    // cursosEvaluar.setVisible(false);
+                    // cursosEvaluar.setVisible(true);
+                    new GestorPropuestasEvaluar().mostrarPropuestas();
                     break;
             }
         }

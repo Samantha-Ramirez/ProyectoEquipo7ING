@@ -1,8 +1,9 @@
 package main.Controller.gestionPropuesta;
 
 import main.View.gestionPropuesta.*;
-import main.Controller.gestionBases.*;
 import main.Model.gestionSesionUsuario.Usuario;
+// importar base
+import main.Controller.gestionBases.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,6 +25,7 @@ public class GestorRecaudos extends GestorBase {
         }
 
         public void guardarDatosRecaudos(){
+            // guardar archivos
             String[] uploads = {
                 formRegistroRecaudos.getPathISLR(), 
                 formRegistroRecaudos.getPathCurriculum(),
@@ -32,6 +34,7 @@ public class GestorRecaudos extends GestorBase {
             };
             guardarUploads(uploads);
 
+            // setear y actualizar en txt los datos de usuario
             this.usuario.setDatos(
                 formRegistroRecaudos.getPersona(), formRegistroRecaudos.getRIF(), 
                 formRegistroRecaudos.getCI(), formRegistroRecaudos.getEsComunidad(),
@@ -44,10 +47,10 @@ public class GestorRecaudos extends GestorBase {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // Retorna los datos que se ingresaron en la interfaz
             if(!formRegistroRecaudos.esDatosRecaudosCompletos()){
                 this.error = new VistaError("Debe completar");
             }else{
+                // si todo esta correcto guardar e ir a carga de formulacion
                 guardarDatosRecaudos();
                 formRegistroRecaudos.setVisible(false);
                 new GestorFormulacion(usuario);

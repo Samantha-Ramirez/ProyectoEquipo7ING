@@ -1,5 +1,6 @@
 package main.View.gestionPropuesta;
 
+// importar base
 import main.View.gestionBases.*;
 
 import java.awt.*;
@@ -90,10 +91,12 @@ public class FormularioRegistroRecaudos extends VistaBase {
         return pathRegistroMercantil.getText();
     }
 
+    // setear controlador
     public void setControlador(ActionListener controlador) {
         botonContinuar.addActionListener(controlador);
     }
 
+    // verificar completitud
     public Boolean esDatosRecaudosCompletos(){
         JText[] recuadrosTexto = {this.nombre, this.persona, this.RIF, this.CI};
         if(esDatosCompletos(recuadrosTexto))

@@ -1,5 +1,6 @@
 package main.View.gestionPropuesta;
 
+// importar base
 import main.View.gestionBases.*;
 
 import java.awt.*;
@@ -85,10 +86,12 @@ public class FormularioCargaCurso extends VistaBase {
         return fundamentacion.getText();
     }
 
+    // setear controlador
     public void setControlador(ActionListener controlador) {
         botonEnviar.addActionListener(controlador);
     }
 
+    // verificar completitud
     public Boolean esDatosRecaudosCompletos(){
         JText[] recuadrosTexto = {this.nombre, this.denominacion, this.duracion, this.fundamentacion};
         if(esDatosCompletos(recuadrosTexto))

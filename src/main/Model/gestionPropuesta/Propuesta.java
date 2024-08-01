@@ -1,10 +1,16 @@
 package main.Model.gestionPropuesta;
 
 import main.Model.gestionSesionUsuario.*;
-import main.Model.gestionBases.Base;
+import main.Model.gestionCursosPropuestos.CursoExtension;
 import main.Model.gestionEvaluacionAval.AvalTecnico;
+// importar base
+import main.Model.gestionBases.Base;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
+import java.util.Vector;
 
 public class Propuesta extends Base {
     private Usuario usuario; //proponente
@@ -21,6 +27,8 @@ public class Propuesta extends Base {
     private String pathExigenciasMaterialesYServicios;
     private AvalTecnico aval;
     
+    public Propuesta (){}
+
     public Propuesta (
         Usuario usuario, String nombre, String unidadResponsableDeTramite, 
         String denominacion, String duracion, String fundamentacion,
@@ -41,11 +49,9 @@ public class Propuesta extends Base {
         this.pathCurriculoCompetencias = pathCurriculoCompetencias;
         this.pathEstrategiasEvaluacion = pathEstrategiasEvaluacion;
         this.pathExigenciasMaterialesYServicios = pathExigenciasMaterialesYServicios;
-        
-        if (esCreacionValida())
-            guardarPropuesta();
     }
     
+    // obtener array con todos los datos que se deben actualizar en el txt
     public String[] getDatos (){
         String[] datos = {this.usuario.getNombreUsuario(), this.estado, this.nombre, this.unidadResponsableDeTramite, this.denominacion, this.duracion, this.fundamentacion, 
             this.pathPerfilParticipantes, this.pathPerfilDocente, 
@@ -62,6 +68,7 @@ public class Propuesta extends Base {
         return usuario;
     }
 
+    // verificar si la propuesta ya ha sido hecha +3 veces
     public Boolean esCreacionValida(){
         List<String> datos = leerDatos("Propuesta.txt");
         int creaciones = 0;
@@ -75,10 +82,13 @@ public class Propuesta extends Base {
         return true;
     }
     
+    // guardar propuesta en txt
     public void guardarPropuesta(){
-        guardarDatos("Propuesta.txt", getDatos(), ",", true);
+        if (esCreacionValida())
+            guardarDatos("Propuesta.txt", getDatos(), ",", true);
     }
 
+    // actualizar datos en txt
     public void actualizarDatos(){
         actualizarDatos("Propuesta.txt", getDatos(), ",", this.nombre);
     }
@@ -94,8 +104,33 @@ public class Propuesta extends Base {
         setEstado(estado);
     }
 
+    // cambiar estado a aprobado y cambiar de proponente a aliado
     public void aprobarAvalPropuesta(){
         this.setEstado("aprobado");
         this.usuario.setTipoUsuario("Aliado");
+        //FIX:crear curso al aprobar
+        //new CursoExtension(this);
+    }
+    public void rechazarAvalPropuesta(String observaciones){
+        this.setEstado("rechazado", observaciones);
+    }
+
+    // obtener propuestas correspondientes a un usuario
+    public Vector<String> getPropuestas(){
+        List<String> datos = leerDatos("Propuesta.txt");
+        Vector<String> propuestas = new Vector<>();
+        if(datos.size() != 0){
+            for(int i = 0; i<datos.size(); i++){
+                String[] dato = datos.get(i).split("[,]", 0);
+                // Propuesta propuesta = new Propuesta(dato[0], dato[1], 
+                // dato[2], dato[3], dato[4], dato[5], dato[6], dato[7],
+                // dato[8], dato[9], dato[10])
+                // getPropuesta(Nombre);
+                if (dato[0].equals(this.usuario.getNombreUsuario())) {
+                    propuestas.add(datos.get(i));
+                }
+            }
+        }
+        return propuestas;
     }
 }

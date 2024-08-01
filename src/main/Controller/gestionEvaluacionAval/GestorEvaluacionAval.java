@@ -1,9 +1,11 @@
 package main.Controller.gestionEvaluacionAval;
 
 import main.View.gestionEvaluacionAval.VistaEvaluacionAval;
-import main.Controller.gestionBases.*;
 
 import main.Model.gestionPropuesta.*;
+
+//importar base
+import main.Controller.gestionBases.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +15,9 @@ public class GestorEvaluacionAval extends GestorBase {
     private VistaError error;
     private Propuesta propuesta;
 
-    public GestorEvaluacionAval(){
+    public GestorEvaluacionAval(Propuesta propuesta){
+        // setear propuesta a evaluar
+        this.propuesta = propuesta;
         this.vistaEvaluacionAval = new VistaEvaluacionAval();
         this.vistaEvaluacionAval.setVisible(true);
         
@@ -26,9 +30,8 @@ public class GestorEvaluacionAval extends GestorBase {
 
         switch (comando) {
             case "APROBAR":
+                // setear estado a aprobado y cambiar proponente a aliado 
                 propuesta.aprobarAvalPropuesta();
-                //crear curso al aprobar
-                new CursoExtension(propuesta);
                 // String informacion = ;
                 // actualizarArchivo(numeroPropuesta, "true", informacion);
                 // String numeroPropuestaText = numeroPropuestaField.getText();
@@ -44,7 +47,8 @@ public class GestorEvaluacionAval extends GestorBase {
                 // }
                 break;
             case "RECHAZAR":
-                propuesta.setEstado("rechazado", vistaEvaluacionAval.getObservaciones());
+                // setear estado a aprobado y guardar observaciones
+                propuesta.rechazarAvalPropuesta(vistaEvaluacionAval.getObservaciones());
                 break;
             case "ENVIAR":
                 propuesta.actualizarDatos();

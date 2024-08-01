@@ -2,7 +2,7 @@ package main.Model.gestionSesionUsuario;
 
 public class Proponente extends Usuario {
     protected String esAliado;
-    protected String persona; //normal, juridica
+    protected String persona; //Normal, Juridica
     protected String RIF;
     protected String CI;
     protected String esComunidad;

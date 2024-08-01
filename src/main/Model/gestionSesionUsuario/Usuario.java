@@ -13,7 +13,7 @@ public class Usuario extends Base {
     protected String clave;
     protected String tipoUsuario; //Aliado, Proponente, Administrador//DEU, CEF --comision, consejo--
     protected String archivoRegistroDeHora;
-    protected String persona; //normal, juridica
+    protected String persona; //Normal, Juridica
     protected String RIF;
     protected String CI;
     protected String esComunidad;
@@ -26,6 +26,10 @@ public class Usuario extends Base {
     public Usuario (String nombreUsuario, String clave){
         this.nombreUsuario = nombreUsuario;
         this.clave = clave;
+        //this.tipoUsuario = tipoUsuario;
+    }
+    public Usuario (String nombreUsuario){
+        this.nombreUsuario = nombreUsuario;
         //this.tipoUsuario = tipoUsuario;
     }
     // Setter para el tipo de usuario
@@ -125,37 +129,5 @@ public class Usuario extends Base {
         String nombreArch = this.getNombreUsuario() + ".txt";
         actualizarDatos(nombreArch, getDatos(), "\n");
     }
-
-    // private void actualizararchivoUsuario() {
-    //     String archivoUsuario = "usuario.txt";
-    //     if (Files.exists(Paths.get(archivoUsuario))) {
-    //         try {
-    //             // Leer el contenido del archivo
-    //             BufferedReader reader = new BufferedReader(new FileReader(archivoUsuario));
-    //             StringBuilder contenido = new StringBuilder();
-    //             String linea = reader.readLine();
-
-    //             // Verificar y modificar la primera línea si es necesario
-    //             if (linea != null && linea.startsWith("Proponente")) {
-    //                 contenido.append("Aliado").append(System.lineSeparator());
-    //             } else if (linea != null) {
-    //                 contenido.append(linea).append(System.lineSeparator());
-    //             }
-
-    //             // Leer el resto del archivo
-    //             while ((linea = reader.readLine()) != null) {
-    //                 contenido.append(linea).append(System.lineSeparator());
-    //             }
-    //             reader.close();
-
-    //             // Escribir el contenido modificado de nuevo al archivo
-    //             FileWriter writer = new FileWriter(archivoUsuario);
-    //             writer.write(contenido.toString());
-    //             writer.close();
-    //         } catch (IOException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-    // }
 
 }
