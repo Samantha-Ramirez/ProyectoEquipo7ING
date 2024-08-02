@@ -12,9 +12,9 @@ public class VistaGenerarCartaCompromiso extends JFrame {
 
     public VistaGenerarCartaCompromiso() {
         gestor = new GestorCartaCompromiso();
-        setTitle("Generar Carta de Compromiso");
+        setTitle("Administrador | Generar Carta de Compromiso");
         setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
@@ -55,6 +55,7 @@ public class VistaGenerarCartaCompromiso extends JFrame {
                         formularioText.getText()
                 );
                 JOptionPane.showMessageDialog(null, "Carta generada con éxito!");
+                
             }
         });
     }

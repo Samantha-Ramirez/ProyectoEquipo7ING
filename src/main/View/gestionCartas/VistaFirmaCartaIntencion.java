@@ -12,9 +12,9 @@ public class VistaFirmaCartaIntencion extends JFrame {
 
     public VistaFirmaCartaIntencion() {
         gestor = new GestorCartaIntencion();
-        setTitle("Firmar Carta de Intención");
+        setTitle("Administrador | Firmar Carta de Intención");
         setSize(400, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();

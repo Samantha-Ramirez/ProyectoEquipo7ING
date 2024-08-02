@@ -53,11 +53,11 @@ public class GestorPropuestasEvaluar extends GestorBase {
                 new GestorEvaluacionAval(propuesta);
                 break;
             case "CARTACOMPROMISO":
-                vistaPropuestasEvaluar.mostrarMensaje("Carta compromiso");
+                // vistaPropuestasEvaluar.mostrarMensaje("Carta compromiso");
                 new VistaGenerarCartaCompromiso();
             break;
             case "CARTAINTENCION":
-                vistaPropuestasEvaluar.mostrarMensaje("Carta intencion");
+                // vistaPropuestasEvaluar.mostrarMensaje("Carta intencion");
                 new VistaFirmaCartaIntencion();
             break;
         }
