@@ -4,6 +4,7 @@ Curso2,rechazado por mala redaccion,mala redaccion
 Curso3,aprobado,
 Curso4,en evaluacion,
 Curso5,enEvaluacion,,
-Curso6,en evaluacion,,
+Curso6,rechazado por mala formulacion,mala formulacion
 Curso7,rechazado por mala fundamentacion,mala fundamentacion
 Curso8,aprobado,
+CursoPrueba,aprobado,

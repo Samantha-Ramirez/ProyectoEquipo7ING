@@ -1,0 +1,12 @@
+Aliado
+123
+Pedro1_registroHora.txt
+Natural
+31307714
+31307714
+Sí
+Archivo1.pdf
+Archivo3.pdf
+Archivo2.pdf
+Archivo4.pdf
+Pedro1_expediente.txt
