@@ -33,7 +33,7 @@ public class VistaPropuestasEvaluar extends VistaBase {
             JLabel cursoLabel = new JLabel(partes[2] + " - "); // Reemplazar "Curso #1" con la propuesta del archivo
 
             JButton btnResponderEvaluacion = new JButton("Responder evaluación de aval");
-            btnResponderEvaluacion.setActionCommand("EVALUACION,"+propuesta); // Establece un comando de acción con la propuesta
+            btnResponderEvaluacion.setActionCommand("EVALUACION:"+propuesta); // Establece un comando de acción con la propuesta
 
             JButton btnGenerarCarta = new JButton("Generar carta de compromiso");
             btnGenerarCarta.setActionCommand("CARTACOMPROMISO"); // Establece un comando de acción con la propuesta

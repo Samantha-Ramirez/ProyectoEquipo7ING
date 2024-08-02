@@ -40,7 +40,7 @@ public class GestorPropuestasEvaluar extends GestorBase {
         String comando = e.getActionCommand();
         String propuestaString = "";
         if(comando.contains("EVALUACION")){
-            String[] partes = comando.split(",");
+            String[] partes = comando.split(":");
             comando = partes[0];
             propuestaString = partes[1];
         }
