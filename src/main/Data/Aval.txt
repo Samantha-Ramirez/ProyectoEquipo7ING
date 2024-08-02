@@ -5,3 +5,4 @@ Curso3,aprobado,
 Curso4,enEvaluacion,,
 Curso5,enEvaluacion,,
 Curso6,en evaluacion,,
+Curso7,rechazado por mala fundamentacion,mala fundamentacion

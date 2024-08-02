@@ -50,6 +50,7 @@ public class GestorPropuestasEvaluar extends GestorBase {
         switch (comando) {
             case "EVALUACION":
                 Propuesta propuesta = transformarAPropuesta(propuestaString);
+                vistaPropuestasEvaluar.setVisible(false);
                 new GestorEvaluacionAval(propuesta);
                 break;
             case "CARTACOMPROMISO":
