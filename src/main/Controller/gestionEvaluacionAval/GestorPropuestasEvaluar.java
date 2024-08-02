@@ -37,9 +37,26 @@ public class GestorPropuestasEvaluar extends GestorBase {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String propuestaString = e.getActionCommand();
-        Propuesta propuesta = transformarAPropuesta(propuestaString);
-        new GestorEvaluacionAval(propuesta);
+        String comando = e.getActionCommand();
+        String propuestaString = "";
+        if(comando.contains("EVALUACION")){
+            String[] partes = comando.split(",");
+            comando = partes[0];
+            propuestaString = partes[1];
+        }
+        switch (comando) {
+            case "EVALUACION":
+                Propuesta propuesta = transformarAPropuesta(propuestaString);
+                new GestorEvaluacionAval(propuesta);
+            break;
+            case "CARTACOMPROMISO":
+                vistaPropuestasEvaluar.mostrarMensaje("Carta compromiso");
+            break;
+            case "CARTAINTENCION":
+            vistaPropuestasEvaluar.mostrarMensaje("Carta intencion");
+            break;
+        }
+        
     }
 
     public Propuesta transformarAPropuesta(String propuestaString){

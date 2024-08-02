@@ -33,21 +33,39 @@ public class VistaPropuestasEvaluar extends VistaBase {
             JLabel cursoLabel = new JLabel(partes[2] + " - "); // Reemplazar "Curso #1" con la propuesta del archivo
 
             JButton btnResponderEvaluacion = new JButton("Responder evaluación de aval");
-            btnResponderEvaluacion.setActionCommand(propuesta); // Establece un comando de acción con la propuesta
+            btnResponderEvaluacion.setActionCommand("EVALUACION,"+propuesta); // Establece un comando de acción con la propuesta
 
             JButton btnGenerarCarta = new JButton("Generar carta de compromiso");
-            btnGenerarCarta.setActionCommand(propuesta); // Establece un comando de acción con la propuesta
+            btnGenerarCarta.setActionCommand("CARTACOMPROMISO"); // Establece un comando de acción con la propuesta
 
             JButton btnFirmaCarta = new JButton("Firma carta de intencion");
-            btnFirmaCarta.setActionCommand(propuesta); // Establece un comando de acción con la propuesta
+            btnFirmaCarta.setActionCommand("CARTAINTENCION"); // Establece un comando de acción con la propuesta
             
             // Acción para el botón "Responder evaluación de aval"
             btnResponderEvaluacion.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String propuestaString = e.getActionCommand();
-                    botonResponderEvaluacion.setActionCommand(propuestaString);
+                    String command = e.getActionCommand();
+                    botonResponderEvaluacion.setActionCommand(command);
                     botonResponderEvaluacion.doClick();
+                }
+            });
+
+            btnGenerarCarta.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String command = e.getActionCommand();
+                    botonGenerarCarta.setActionCommand(command);
+                    botonGenerarCarta.doClick();
+                }
+            });
+
+            btnFirmaCarta.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String command = e.getActionCommand();
+                    botonFirmaCarta.setActionCommand(command);
+                    botonFirmaCarta.doClick();
                 }
             });
             
