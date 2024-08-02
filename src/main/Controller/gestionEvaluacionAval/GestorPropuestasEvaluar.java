@@ -51,6 +51,7 @@ public class GestorPropuestasEvaluar extends GestorBase {
             case "EVALUACION":
                 Propuesta propuesta = transformarAPropuesta(propuestaString);
                 new GestorEvaluacionAval(propuesta);
+                break;
             case "CARTACOMPROMISO":
                 vistaPropuestasEvaluar.mostrarMensaje("Carta compromiso");
                 new VistaGenerarCartaCompromiso();
