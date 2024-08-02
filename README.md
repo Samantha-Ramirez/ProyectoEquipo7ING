@@ -24,9 +24,9 @@
 ![DisciplinaDeRequisitosEntrega2](docs/scenariosView/DisciplinaDeRequisitos/Entrega2.pdf)
 
 ## Disciplina de análisis
-![DiagramaDePaquetes](docs/scenariosView/DisciplinaDeAnalisis/DiagramaDePaquetes.png) #modificación para bajar acoplamiento 2707 
-![DisciplinaDeAnalisisEntrega3](docs/scenariosView/DisciplinaDeAnalisis/Entrega3.pdf)
+![DiagramaDePaquetes](docs/logicalView/DisciplinaDeAnalisis/DiagramaDePaquetes.png) #modificación para bajar acoplamiento 2707 
+![DisciplinaDeAnalisisEntrega3](docs/logicalView/DisciplinaDeAnalisis/Entrega3.pdf)
 
 ## Disciplina de diseño
-![DiagramaDeDespliegue](docs/scenariosView/DisciplinaDeDisenio/DiagramaDeDespliegue.png) #modificación debido a nombre Servidor web 2707 
-![DisciplinaDeDiseñoEntrega4](docs/scenariosView/DisciplinaDeDisenio/Entrega4.pdf)
+![DiagramaDeDespliegue](docs/designView/DisciplinaDeDisenio/DiagramaDeDespliegue.png) #modificación debido a nombre Servidor web 2707 
+![DisciplinaDeDiseñoEntrega4](docs/designView/DisciplinaDeDisenio/Entrega4.pdf)

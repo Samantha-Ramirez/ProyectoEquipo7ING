@@ -1,0 +1,12 @@
+Aliado
+123
+sam_registroHora.txt
+Natural
+31307714
+31307714
+Sí
+
+
+
+
+sam_expediente.txt

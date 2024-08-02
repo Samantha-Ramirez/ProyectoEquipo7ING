@@ -1,0 +1,3 @@
+usuario,propuesta,areaConocimiento,modalidad,tipoCurso,ingresosNetos
+ivanys,Curso1,Ciencias,online,curso,0.0,
+sam,Curso2,Ciencias,online,curso,0.0,

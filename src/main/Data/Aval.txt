@@ -1,0 +1,7 @@
+propuesta,estado,observaciones
+Curso1,aprobado,
+Curso2,rechazado por mala redaccion,mala redaccion
+Curso3,aprobado,
+Curso4,enEvaluacion,,
+Curso5,enEvaluacion,,
+Curso6,en evaluacion,,
