@@ -9,7 +9,7 @@ public class AvalTecnico extends Base {
     private String observaciones;
 
     public AvalTecnico(Propuesta propuesta){
-        this.estado = "enEvaluacion";
+        this.estado = "en evaluacion";
         this.propuesta = propuesta;
         this.observaciones = "";
     }

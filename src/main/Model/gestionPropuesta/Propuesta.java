@@ -111,13 +111,13 @@ public class Propuesta extends Base {
         actualizarDatos("Propuesta.txt", getDatos(), ",", this.nombre);
     }
 
-    public void setEstado(String estado){//aprobado, rechazado, enEvaluacion
+    public void setEstado(String estado){//aprobado, rechazado, en evaluacion
         this.estado = estado;
         this.aval.setEstado(estado);
         this.aval.actualizarDatos();
     }
     
-    public void setEstado(String estado, String observaciones){//aprobado, rechazado, enEvaluacion
+    public void setEstado(String estado, String observaciones){//aprobado, rechazado, en evaluacion
         this.aval.setObservaciones(observaciones);
         setEstado(estado);
     }
@@ -147,7 +147,7 @@ public class Propuesta extends Base {
                 // dato[2], dato[3], dato[4], dato[5], dato[6], dato[7],
                 // dato[8], dato[9], dato[10])
                 // getPropuesta(Nombre);
-                if ((!filtroUsuario || dato[0].equals(this.usuario.getNombreUsuario())) && (!filtroEstado || dato[1].equals("enEvaluacion"))) {
+                if ((!filtroUsuario || dato[0].equals(this.usuario.getNombreUsuario())) && (!filtroEstado || dato[1].equals("en evaluacion"))) {
                     propuestas.add(datos.get(i));
                 }
             }
