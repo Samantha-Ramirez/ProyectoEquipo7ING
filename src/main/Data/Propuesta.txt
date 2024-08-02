@@ -4,3 +4,4 @@ ivanys,rechazado por mala redaccion,Curso2,DEU,denominacion,duracion,fundamentac
 sam,aprobado,Curso3,DEU,denominacion,duracion,fundamentacion,,,,,
 sam,en evaluacion,Curso4,DEU,denominacion,duracion,fundamentacion,Guia de Estructuras algebraicas.pdf,,,,,
 marcel,en evaluacion,Curso5,DEU,denominacion,duracion,fundamentacion,,,,,,
+sam,en evaluacion,Curso6,CEF,denominacion,duracion,fundamentacion,,,,,,

@@ -1,8 +1,8 @@
 package main.Controller.gestionCursosPropuestos;
 
 import main.Model.gestionCursosPropuestos.Expediente;
-import main.Model.gestionSesionUsuario.Usuario;
 import main.View.gestionCursosPropuestos.VistaExpediente;
+import main.Model.gestionSesionUsuario.Usuario;
 // importar base
 import main.Controller.gestionBases.*;
 
@@ -36,7 +36,23 @@ public class GestorExpediente extends GestorBase {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            String path = e.getActionCommand();
-            openPDF(path);
+            String comando = e.getActionCommand();
+            String path = "";
+            if(comando.contains("ABRIR")){
+                String[] partes = comando.split(":");
+                comando = partes[0];
+                path = partes[1];
+            }
+            switch (comando) {
+                case "ABRIR":
+                    openPDF(path);
+                break;
+                case "FIRMAR":
+                    vistaExpediente.mostrarMensaje("Firmada");
+                break;
+                case "RECHAZAR":
+                    vistaExpediente.mostrarMensaje("Rechazada");
+                break;
+            }                
         }
 }

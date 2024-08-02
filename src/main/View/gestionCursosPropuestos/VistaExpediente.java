@@ -38,21 +38,37 @@ public class VistaExpediente extends VistaBase {
             JLabel cursoLabel = new JLabel(carta + " - "); // Reemplazar "Curso #1" con la carta del archivo
 
             JButton btnFirmar = new JButton("Firmar");
-            btnFirmar.setActionCommand(carta); // Establece un comando de acción con la carta
+            btnFirmar.setActionCommand("FIRMAR"); // Establece un comando de acción con la carta
 
             JButton btnRechazar = new JButton("Rechazar");
-            btnRechazar.setActionCommand(carta); // Establece un comando de acción con la carta
+            btnRechazar.setActionCommand("RECHAZAR"); // Establece un comando de acción con la carta
 
             JButton btnAbrir = new JButton("Abrir");
-            btnAbrir.setActionCommand(carta); // Establece un comando de acción con la carta
+            btnAbrir.setActionCommand("ABRIR:"+carta); // Establece un comando de acción con la carta
             
             // Acción para el botón "Responder evaluación de aval"
             btnAbrir.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    String path = e.getActionCommand();
-                    botonAbrir.setActionCommand(path);
+                    String command = e.getActionCommand();
+                    botonAbrir.setActionCommand(command);
                     botonAbrir.doClick();
+                }
+            });
+            btnFirmar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String command = e.getActionCommand();
+                    botonFirmar.setActionCommand(command);
+                    botonFirmar.doClick();
+                }
+            });
+            btnRechazar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String command = e.getActionCommand();
+                    botonRechazar.setActionCommand(command);
+                    botonRechazar.doClick();
                 }
             });
             
